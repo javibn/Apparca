@@ -1,0 +1,765 @@
+﻿@using System.Web;
+@model IEnumerable<APPARCA.Models.Plaza>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<!--MI ESTILO-->
+<link rel="stylesheet" href="/css/estilos.css">
+
+
+
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.1.0/dist/leaflet.markercluster.js"></script>
+
+<!--HEADER-->
+<body style="overflow:hidden;">
+<div class="row" id="aplicados" onclick="MostrarFiltros('todosFiltros')">
+    <p class="mas">FILTROS (<o id="contadorFiltros">0</o>): </p>
+</div>
+
+<input type="search" id="places" placeholder=' Encuentra tu ubicacion' />
+
+    <a asp-action="Create" id="linkCreate">PUBLICAR MI PLAZA</a>
+
+<iframe name="votar" style="display:none;"></iframe>
+<form class="desaparecer" id="todosFiltros" onsubmit="Filtrar()" target="votar">
+    <div class="row" onclick="MostrarFiltros('relojInicio')">
+        <img class="col-3" src="/img/reloj.png">
+        <div class="col-7">
+            <p>HORA ENTRADA</p>
+        </div>
+        <img class="col-2" src="/img/desplegable.png">
+    </div>
+    <div class="desaparecer" id="relojInicio">
+        <div class="row">
+            <input type="time" id="horaInicio" step="900" min="00:00" class="col-5 mx-auto">
+        </div>
+
+    </div>
+
+
+    <div class="row" onclick="MostrarFiltros('relojFinal')">
+        <img class="col-3" src="/img/reloj.png" style="rotate: 235deg;">
+        <div class="col-7">
+            <p>HORA SALIDA</p>
+
+        </div>
+        <img class="col-2" src="/img/desplegable.png">
+
+    </div>
+    <div id="relojFinal" class="desaparecer">
+        <div class="row">
+            <input type="time" id="horaFin" step="900" min="00:00" class="col-5 mx-auto">
+
+        </div>
+    </div>
+
+
+    <div class="row" onclick="MostrarFiltros('ancho')">
+        <img class="col-3" src="/img/ancho.png">
+        <div class="col-7">
+            <p>ANCHO MINIMO (cm)</p>
+        </div>
+        <img class="col-2" src="/img/desplegable.png">
+    </div>
+    <div id="ancho" class="desaparecer">
+            <div class="row">
+                <label id="ancho-min" class="col-2" align="center">0</label>
+                <input type="range" id="anchoInput" oninput="updateRangeValueAncho()" value="1000000" style="padding: 0px;margin:0px;" class="col-8 mx-auto">
+                <label id="ancho-max" class="col-2" align="center">100</label>
+
+                <output class="col-12" align="center" id="anchoLabel">0</output>
+            </div>
+    </div>
+
+        <script>
+            const updateRangeValueAncho = () => {
+                const input = document.getElementById('anchoInput');
+                document.getElementById('anchoLabel').textContent = input.value;
+            };
+        </script>
+
+    <div class="row" onclick="MostrarFiltros('largo')">
+        <img class="col-3" src="/img/largo.png">
+        <div class="col-7">
+                <p>LARGO MINIMO (cm)</p>
+        </div>
+        <img class="col-2" src="/img/desplegable.png">
+    </div>
+    <div id="largo" class="desaparecer">
+        <div class="row">
+            <label id="largo-min" class="col-2" align="center">0</label>
+            <input type="range" id="largoInput" oninput="updateRangeValueLargo('largo')" value="1000000" style="padding: 0px;margin:0px;" class="col-8 mx-auto">
+            <label id="largo-max" class="col-2" align="center">100</label>
+
+            <output class="col-12" align="center" id="largoLabel">0</output>
+        </div>
+    </div>
+
+    <script>
+        const updateRangeValueLargo = () => {
+            const input = document.getElementById('largoInput');
+            document.getElementById('largoLabel').textContent = input.value;
+        };
+        </script>
+
+    <div class="row" onclick="MostrarFiltros('precio')">
+        <img class="col-3" src="/img/mensualidad.png">
+        <div class="col-7">
+            <p>PRECIO/MES MAXIMO</p>
+        </div>
+        <img class="col-2" src="/img/desplegable.png">
+    </div>
+    <div id="precio" class="desaparecer">
+        <div class="row">
+                <label id="range-min" class="col-2" align="center">0</label>
+                <input type="range" id="precioInput" oninput="updateRangeValue()" value="1000000" style="padding: 0px;margin:0px;" class="col-8 mx-auto">
+                <label id="range-max" class="col-2" align="center">100</label>
+            
+            <output class="col-12" align="center" id="precioLabel">0</output>
+        </div>
+    </div>
+    <script>
+        const updateRangeValue = () => {
+        const input = document.getElementById('precioInput');
+        document.getElementById('precioLabel').textContent = input.value;
+        };
+    </script>
+
+    <div style="display: flex; padding: 10px;">
+        <p style="margin:0 auto" id="ResultadoObtenidos"></p>
+    </div>
+
+</form>
+<div id="map">
+</div>
+
+<button onclick="MostrarLista('Hola')" id="mostrarLista">MOSTRAR LISTA</button>
+
+<div id="listaPlazas">
+</div>
+
+</body>
+
+<script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWgqvVI8iS9zR_Xvqm3q6UqzP7ThMUQTE&libraries=places&callback=initMap">
+</script>
+
+
+<script>
+    function initMap() {
+        let input = document.getElementById("places");
+
+        let autocomplete = new google.maps.places.Autocomplete(input);
+
+        autocomplete.addListener('place_changed', function () {
+            console.log(autocomplete.getPlace());
+            var centroWa = (autocomplete.getPlace().geometry.viewport.Wa.lo + autocomplete.getPlace().geometry.viewport.Wa.hi) / 2;
+            var centroIa = (autocomplete.getPlace().geometry.viewport.Ja.lo + autocomplete.getPlace().geometry.viewport.Ja.hi) / 2;
+            map.setView([centroWa, centroIa], 17);
+            console.log(autocomplete.getPlace());
+            //L.marker([centroWa, centroIa]).addTo(map)
+
+        });
+    }
+    if (document.referrer === "https://localhost:44397/Plazas/Create") {
+        console.log("reload");
+        window.location.reload();
+    }
+    var inputhoraInicio = document.getElementById('horaInicio');
+    inputhoraInicio.addEventListener('propertychange', CambioInputs);
+    inputhoraInicio.addEventListener('input', CambioInputs);
+
+    var inputhoraFin = document.getElementById('horaFin');
+    inputhoraFin.addEventListener('propertychange', CambioInputs);
+    inputhoraFin.addEventListener('input', CambioInputs);
+
+
+    var inputprecio = document.getElementById('precioInput');
+    inputprecio.addEventListener('propertychange', CambioInputs);
+    inputprecio.addEventListener('input', CambioInputs);
+    inputprecio.addEventListener('propertychange', CambioInputPrecio);
+    inputprecio.addEventListener('input', CambioInputPrecio);
+
+    var inputancho = document.getElementById('anchoInput');
+    inputancho.addEventListener('propertychange', CambioInputs);
+    inputancho.addEventListener('input', CambioInputs);
+    inputancho.addEventListener('propertychange', CambioInputAncho);
+    inputancho.addEventListener('input', CambioInputAncho);
+
+    var inputlargo = document.getElementById('largoInput');
+    inputlargo.addEventListener('propertychange', CambioInputs);
+    inputlargo.addEventListener('input', CambioInputs);
+    inputlargo.addEventListener('propertychange', CambioInputLargo);
+    inputlargo.addEventListener('input', CambioInputLargo);
+
+    var bufferPrecioMaximo = null;
+    var bufferAnchoMinimo = null;
+    var bufferLargoMinimo = null;
+
+    var horaInicio = inputhoraInicio.value;
+    var horaFinal = inputhoraFin.value;
+
+    var horaInicialAplicado=false;
+    var horaFinalAplicado=false;
+    var precioAplicado = false;
+    var anchoAplicado = false;
+    var largoAplicado = false;
+
+    function CambioInputs(){
+        CorregirHoras(inputhoraInicio);
+        CorregirHoras(inputhoraFin);
+
+        //console.log("hora Incio: " + inputhoraInicio.value + "---"+typeof inputhoraInicio.value);
+
+        mostrarMarcadores(plazas);
+
+        if(horaInicio!=inputhoraInicio.value){
+            
+            if(inputhoraInicio.value!==""){
+                horaInicialAplicado=true;
+            }else{
+                horaInicialAplicado = false;
+            }
+
+            horaInicio = inputhoraInicio.value
+        }
+
+        if (horaFinal != inputhoraFin.value) {
+
+            if (inputhoraFin.value != "") {
+                horaFinalAplicado = true;
+            }else{
+                horaFinalAplicado = false;
+            }
+
+            horaFinal = inputhoraFin.value
+        }
+
+
+        var contadorFiltros=0;
+        if(precioAplicado){
+            contadorFiltros++;
+        }
+        if(horaInicialAplicado){
+            contadorFiltros++;
+        }
+        if(horaFinalAplicado){
+            contadorFiltros++;
+        }
+        if(anchoAplicado){
+            contadorFiltros++;
+        }
+        if(largoAplicado){
+            contadorFiltros++;
+        }
+
+        document.getElementById("contadorFiltros").innerHTML=contadorFiltros;
+    }
+
+    function CambioInputPrecio() {
+        bufferPrecioMaximo=inputprecio.value;
+        precioAplicado=true;
+    }
+
+    function CambioInputAncho() {
+        bufferAnchoMinimo=inputancho.value;
+        anchoAplicado=true;
+    }
+
+    function CambioInputLargo() {
+        bufferLargoMinimo=inputlargo.value;
+        largoAplicado=true;
+    }
+    
+
+    let map = L.map('map').setView([38.345169, -0.491991], 13);
+
+    map.on("moveend", function () {
+        var localizacionMapa = map.getBounds();
+
+
+    });
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        maxZoom: 20,
+        minZoom: 6
+    }).addTo(map);
+
+    var icono = L.icon({
+        iconUrl: '/img/icono.png',
+
+        iconSize: [38, 40], // size of the icon
+        shadowSize: [50, 64], // size of the shadow
+        iconAnchor: [22, 40], // point of the icon which will correspond to marker's location
+        popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
+    // Crea un nuevo icono de div
+    
+
+    // Crea un marcador con el icono de div
+    
+
+
+    var marcadores = L.markerClusterGroup({
+        iconCreateFunction: function (cluster) {
+            var markers = cluster.getAllChildMarkers();
+            return L.divIcon({ html: markers.length, className: 'mycluster', iconSize: L.point(40, 40) });
+        }
+    });
+
+
+    var plazasActivas = [];
+
+
+
+    
+
+    var precioMaximo = 0;
+    var precioMinimo;
+
+    var anchoMinimo=0;
+    var anchoMaximo=0;
+
+    var largoMinimo = 0;
+    var largoMaximo = 0;
+
+    function mostrarMarcadores(marcadoresArray) {
+
+        //console.clear();
+        var localizacionMapa = map.getBounds();
+
+        //console.log(localizacionMapa);
+        //console.log(marcadoresArray[0])
+        plazasActivas = [];
+        marcadores.clearLayers();
+        
+        var precioMaximoActivo=0;
+        precioMaximo=0;
+        precioMinimo=0;
+
+        anchoMinimo=0;
+        anchoMaximo=0;
+        var primeraVez=true;
+        var primeraVezAncho = true;
+        var primeraVezLargo= true;
+        anchoMinimo = 0;
+        anchoMaximo = 0;
+        marcadoresArray.forEach(marcador => {
+
+            if (marcador.latitud < localizacionMapa._northEast.lat && marcador.latitud > localizacionMapa._southWest.lat) {
+                if (marcador.longitud < localizacionMapa._northEast.lng && marcador.longitud > localizacionMapa._southWest.lng) {
+                    
+                    if (HorasCorrectas(marcador.horaInicio, marcador.horaFinal)) {
+                        
+                        if (marcador.largo > largoMaximo) {
+                                largoMaximo = marcador.largo;
+                        }
+                        if(primeraVezLargo){
+                            largoMinimo = marcador.largo;
+                            primeraVezLargo=false;
+                        }else if (marcador.largo < largoMinimo) {
+                            largoMinimo = marcador.largo;
+                        }
+                        if(inputlargo.value<=marcador.largo){
+
+                            if (marcador.ancho > anchoMaximo) {
+                                    anchoMaximo = marcador.ancho;
+                            }
+                            if(primeraVezAncho){
+                                anchoMinimo = marcador.ancho;
+                                primeraVezAncho=false;
+                            }else if (marcador.ancho < anchoMinimo) {
+                                anchoMinimo = marcador.ancho;
+                            }
+                            if(inputancho.value<=marcador.ancho){
+                                var precioPopUp;
+                                if (inputhoraFin.value === "" || inputhoraInicio.value === "") {
+                                    precioPopUp = marcador.precioMes;
+                                    marcador.precioMostrar= marcador.precioMes;
+
+                                } else {
+                                    var horas = CalcularHorasInputs();
+                            
+                                    let resultadoPrecio = (marcador.precioHora * horas * 20);
+                            
+                                    let posicionComa = resultadoPrecio.toString().indexOf(".");
+
+                                    if (posicionComa != -1) {
+                                        console.log("con Coma");
+                                        precioPopUp=  resultadoPrecio.toString().substr(0, posicionComa);
+                                        marcador.precioMostrar = resultadoPrecio.toString().substr(0, posicionComa);
+
+                                    } else {
+                                        console.log("sin Coma");
+                                        precioPopUp = resultadoPrecio;
+                                        marcador.precioMostrar = resultadoPrecio;
+                                    }
+                            
+
+                                }
+                                if(primeraVez){
+                                    precioMinimo = precioPopUp;
+                                    primeraVez=false;
+                                }else if (precioPopUp < precioMinimo) {
+                                    precioMinimo = precioPopUp;
+                                }
+
+                                if (precioPopUp > precioMaximo) {
+                                    precioMaximo = precioPopUp;
+                                }
+                                if(inputprecio.value>=precioPopUp){
+                            
+
+                                    var divIcon = L.divIcon({
+                                        // Establece el contenido HTML del icono
+                                        html: '<div class="marcador"><p>' + precioPopUp + '€</p></div><div class="flecha-down mx-auto"></div>',
+                                        iconSize: [38, 40], // size of the icon
+                                        shadowSize: [50, 64], // size of the shadow
+                                        iconAnchor: [22, 40], // point of the icon which will correspond to marker's location
+                                        popupAnchor: [-3, -76]
+                                    });
+
+                                    if (map.getZoom() > 12) {
+                                        var marcadorAñadir = L.marker([marcador.latitud, marcador.longitud], { icon: divIcon })
+                                    } else {
+                                        var marcadorAñadir = L.marker([marcador.latitud, marcador.longitud], { icon: icono })
+                                    }
+                                    marcadores.addLayer(marcadorAñadir);
+
+                                    plazasActivas.push(marcador);
+
+
+                                    console.log(marcador);
+                                    var url = '@Url.Action("getImage", "Plazas")?idPlaza=' + encodeURIComponent(marcador.id);
+
+                                    var stringPopup = '\
+                                            <h1>' + marcador.direccion + '</h1>\
+                                            <div id="horario">\
+                                                <div style="margin:0 auto">\
+                                                    <img src="/img/reloj.png">&nbsp;&nbsp;'
+                                        + marcador.horaInicio + ' - ' + marcador.horaFinal +
+                                        '</div>\
+                                            </div>\
+                                            <img src="' + url + '"/>\
+                                            <p>'+ precioPopUp + ' €/mes</p>\
+                                            <div class="row" style="width:100%;">\
+                                                        <a class="btn mx-auto" target="_blank" href="/Plazas/Details/'+ marcador.id + '">VER PLAZA</a>\
+                                            </div>';
+
+                                    var popup = L.popup({ className: 'popup' })
+                                        .setContent(stringPopup);
+
+                                    //.setContent('<div class="popup" style="background-image: url(' + url + '); "><h1>PLAZA</h1><p style="font - size: 1rem">' + marcador.direccion + '</p>' +/*<img src="' + url + '"/>*/'</div>');
+
+                                    marcadorAñadir.bindPopup(popup);
+
+                                    if (precioPopUp > precioMaximoActivo) {
+                                        precioMaximoActivo = precioPopUp;
+                                    }
+                                }
+                            }
+
+                            
+                        }
+
+                    }
+
+                }
+            }
+        });
+        document.getElementById("ResultadoObtenidos").innerHTML = plazasActivas.length + " Resultados";
+        
+
+        console.log(anchoMaximo);
+        console.log(anchoMinimo);
+
+        document.getElementById("largoInput").max = largoMaximo;
+        document.getElementById("largo-max").textContent = largoMaximo;
+
+        document.getElementById("largoInput").min = largoMinimo;
+        document.getElementById("largo-min").textContent = largoMinimo;
+
+        document.getElementById("anchoInput").max = anchoMaximo;
+        document.getElementById("ancho-max").textContent = anchoMaximo;
+
+        document.getElementById("anchoInput").min = anchoMinimo;
+        document.getElementById("ancho-min").textContent = anchoMinimo;
+
+        document.getElementById("precioInput").max = precioMaximo;
+        document.getElementById("range-max").textContent = precioMaximo;
+
+        document.getElementById("precioInput").min = precioMinimo;
+        document.getElementById("range-min").textContent = precioMinimo;
+        
+        
+        
+
+        
+
+        map.addLayer(marcadores);
+
+        MontarLista();
+    }
+
+    function CorregirHoras(inputhoraInicio) {
+        if (inputhoraInicio.value.substr(-2) <= 8) {
+            inputhoraInicio.value = inputhoraInicio.value.substr(0, 2) + ":00";
+        } else if (inputhoraInicio.value.substr(-2) <= 22) {
+            inputhoraInicio.value = inputhoraInicio.value.substr(0, 2) + ":15";
+        } else if (inputhoraInicio.value.substr(-2) <= 37) {
+            inputhoraInicio.value = inputhoraInicio.value.substr(0, 2) + ":30";
+        } else if (inputhoraInicio.value.substr(-2) <= 52) {
+            inputhoraInicio.value = inputhoraInicio.value.substr(0, 2) + ":45";
+        } else {
+            if (inputhoraInicio.value.substr(0, 2) != 23) {
+                let horas = (Number(inputhoraInicio.value.substr(0, 2)) + 1);
+                if (horas.toString().length == 1) {
+                    horas = "0" + horas;
+                }
+                inputhoraInicio.value = horas + ":00";
+            } else {
+                inputhoraInicio.value = "00:00";
+            }
+        }
+    }
+
+    function HorasCorrectas(horaInicioMarcador, horaFinalMarcador){
+        if(inputhoraInicio.value!=""){
+            //console.log(inputhoraInicio.value.substr(0, 2));
+            //console.log(horaInicioMarcador.substr(0, 2));
+
+            //console.log(inputhoraInicio.value.substr(-2));
+            //console.log(horaInicioMarcador.substr(-2));
+            if ((inputhoraInicio.value.substr(0, 2) < horaInicioMarcador.substr(0, 2))){
+                //console.log("error1");
+                return false;
+            }
+
+            if ((inputhoraInicio.value.substr(0, 2) === horaInicioMarcador.substr(0, 2)) && (inputhoraInicio.value.substr(-2) < horaInicioMarcador.substr(-2))){
+                //console.log("error2");
+                return false;
+            }
+
+            if (inputhoraInicio.value.substr(0, 2) > horaFinalMarcador.substr(0, 2)){
+                //console.log("error3");
+
+                return false;
+            }
+
+            if ((inputhoraInicio.value.substr(0, 2) === horaFinalMarcador.substr(0, 2)) && (inputhoraInicio.value.substr(-2) >= horaFinalMarcador.substr(-2))) {
+                //console.log("error4");
+                return false;
+            }
+        }
+
+        if(inputhoraFin.value!=""){
+            if ((inputhoraFin.value.substr(0, 2) > horaFinalMarcador.substr(0, 2))){
+               // console.log("error5");
+                return false;
+            }
+
+            if ((inputhoraFin.value.substr(0, 2) === horaFinalMarcador.substr(0, 2)) && (inputhoraFin.value.substr(-2) > horaFinalMarcador.substr(-2))){
+                //console.log("error6");
+                return false;
+            }
+
+            if (inputhoraFin.value.substr(0, 2) < horaInicioMarcador.substr(0, 2)){
+                //console.log("error7");
+
+                return false;
+            }
+
+            if ((inputhoraFin.value.substr(0, 2) === horaInicioMarcador.substr(0, 2)) && (inputhoraFin.value.substr(-2) <= horaInicioMarcador.substr(-2))) {
+                //console.log("error8");
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    function CalcularHorasInputs(){
+        let calculoHoras = (inputhoraFin.value.substr(0, 2) - inputhoraInicio.value.substr(0, 2));
+        let calculoMinutos = ((inputhoraFin.value.substr(-2) / 60) - (inputhoraInicio.value.substr(-2) / 60));
+        
+        return (calculoHoras + calculoMinutos);
+    }
+
+    function MostrarFiltros(idElemento) {
+        
+        $('#' + idElemento).fadeToggle(100);
+
+    }
+
+
+    function MontarLista() {
+        var element = document.getElementById("listaPlazas");
+        element.innerHTML = "";
+
+
+        var cerrar = document.createElement("div");
+        cerrar.id = "cerrar";
+        var X = document.createElement("img");
+        X.src = "/img/cerrar.png";
+        X.addEventListener("click", function () { CerrarLista() });
+        cerrar.appendChild(X);
+        element.appendChild(cerrar);
+
+
+        var titulo = document.createElement("h1");
+        titulo.innerHTML = "MOSTRANDO " + plazasActivas.length + " PLAZAS";
+        titulo.style = "text-align:center;"
+        element.appendChild(titulo);
+
+        plazasActivas.forEach(marcador => {
+            var divMarcador = document.createElement("div");
+            divMarcador.classList += "row marcadorLista align-items-center";
+
+            var foto = document.createElement('img');
+            foto.classList = "col-xl-3 col-lg-4 col-md-6 col-sm-8 col-10 order-2 order-md-1 fotoLista mx-auto";
+            foto.src = '@Url.Action("getImage", "Plazas")?idPlaza=' + encodeURIComponent(marcador.id);
+            //foto.src = "/img/plaza.jpg"
+            divMarcador.appendChild(foto);
+
+            var info = document.createElement("div");
+            info.classList = "offset-1 col-12 col-md mx-auto order-1 order-md-2 row";
+            divMarcador.appendChild(info);
+
+            var calle = document.createElement("p");
+            calle.innerHTML = marcador.direccion.toUpperCase();
+            info.appendChild(calle);
+
+            var horas = document.createElement("p");
+            info.appendChild(horas);
+
+            if (inputhoraFin.value === "" || inputhoraInicio.value === "") {
+
+                horas.innerHTML = marcador.horaInicio + " - " + marcador.horaFinal;
+
+            } else {
+                horas.innerHTML = inputhoraInicio.value + " - " + inputhoraFin.value;
+            }
+
+            var precio = document.createElement("p");
+            precio.innerHTML = marcador.precioMostrar + "€/mes";
+            info.appendChild(precio);
+
+            /*var sizes = document.createElement("div");
+            ancho.innerHTML = "Ancho: " + marcador.ancho+"cm";
+            info.appendChild(ancho);*/
+
+            var ancho = document.createElement("p");
+            ancho.innerHTML = "Ancho: " + marcador.ancho + "cm&nbsp;&nbsp;&nbsp;Largo: " + marcador.largo + "cm";
+            info.appendChild(ancho);
+
+            var fianza = document.createElement("p");
+            fianza.innerHTML = "Fianza: " + marcador.precioMando + "€";
+            info.appendChild(fianza);
+
+            var botonResevar = document.createElement('a');
+            botonResevar.href="/Plazas/Details/"+marcador.id;
+            botonResevar.target="_blank";
+            botonResevar.innerHTML = "VER PLAZA";
+            botonResevar.classList = "btn btn-primary mx-auto";
+            info.appendChild(botonResevar);
+
+            element.appendChild(divMarcador);
+        });
+
+
+
+    }
+    
+
+    function MostrarLista(elemento) {
+        console.log(elemento);
+        MontarLista();
+        var element = document.getElementById("listaPlazas");
+        element.style = "display: block;";
+        element.scroll(0, 0);
+
+
+        setTimeout(function () {
+            element.classList = "deslizarse";
+        }, 1);
+
+    }
+
+    function CerrarLista() {
+        var element = document.getElementById("listaPlazas");
+        element.classList -= "deslizarse";
+
+
+        setTimeout(function () {
+            element.style = "display: none;";
+        }, 1000);
+
+
+    }
+
+
+
+    var plazas = [];
+    @foreach (var plaza in Model)
+    {
+        @:var idV = @plaza.Id;
+        @:var latitudV = "@Html.Raw(HttpUtility.JavaScriptStringEncode(@plaza.Latitud))";
+        @:var longitudV = "@Html.Raw(HttpUtility.JavaScriptStringEncode(@plaza.Longitud))";
+        @:var direccionV = "@Html.Raw(HttpUtility.JavaScriptStringEncode(@plaza.Direccion))";
+        @:var horaInicioV = "@Html.Raw(HttpUtility.JavaScriptStringEncode(@plaza.HoraInicio))";
+        @:var horaFinalV = "@Html.Raw(HttpUtility.JavaScriptStringEncode(@plaza.HoraFinal))";
+        @:var precioHoraV = @plaza.PrecioHora;
+        @:var precioMesV = @plaza.PrecioMes;
+        @:var anchoV = @plaza.Ancho;
+        @:var largoV = @plaza.Largo;
+        @:var precioMandoV = @plaza.PrecioMando;
+
+
+        @:plazas.push({ id: idV, latitud: latitudV, longitud: longitudV, direccion: direccionV, horaInicio: horaInicioV, horaFinal: horaFinalV, precioHora: precioHoraV, precioMes: precioMesV, ancho:anchoV, largo:largoV, precioMando: precioMandoV });
+    }
+
+        mostrarMarcadores(plazas);
+
+    document.getElementById('precioLabel').textContent = precioMaximo;
+
+    map.on("moveend", function () {
+        mostrarMarcadores(plazas);
+
+        if (bufferLargoMinimo != null && bufferLargoMinimo > document.getElementById("largoInput").min) {
+            document.getElementById("largoInput").value = bufferLargoMinimo;
+            console.log("entro buffer");
+        }else{
+            console.log("no entro buffer");
+            document.getElementById("largoInput").value = anchoMinimo;
+            document.getElementById('largoLabel').textContent = anchoMinimo;
+        }
+        document.getElementById("largoLabel").innerHTML = document.getElementById("largoInput").value;
+
+        if (bufferAnchoMinimo != null && bufferAnchoMinimo > document.getElementById("anchoInput").min) {
+            document.getElementById("anchoInput").value = bufferAnchoMinimo;
+            console.log("entro buffer");
+        } else {
+            console.log("no entro buffer");
+            document.getElementById("anchoInput").value = anchoMinimo;
+            document.getElementById('anchoLabel').textContent = anchoMinimo;
+        }
+        document.getElementById("anchoLabel").innerHTML = document.getElementById("anchoInput").value;
+
+        if(bufferPrecioMaximo!=null &&  bufferPrecioMaximo<document.getElementById("precioInput").max){
+            document.getElementById("precioInput").value = bufferPrecioMaximo;
+            console.log("entro buffer");
+        }else{
+            console.log("no entro buffer");
+            document.getElementById("precioInput").value = precioMaximo;
+            document.getElementById('precioLabel').textContent = precioMaximo;
+        }
+        document.getElementById("precioLabel").innerHTML = inputprecio.value;
+        
+        mostrarMarcadores(plazas);
+    });
+
+</script>

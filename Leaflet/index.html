@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+
+    <!--Marker Cluster-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.1.0/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.1.0/dist/MarkerCluster.Default.css" />
+
+    
+
+    <title>APPARCA</title>
+    <link rel="shortcut icon"
+            href="img/APPARCAFavicon.png">
+
+    <!--LEAFLET-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+
+    <!--MI ESTILO-->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+        <script src="https://unpkg.com/leaflet.markercluster@1.1.0/dist/leaflet.markercluster.js"></script>
+
+    <header>
+        <div id="logo">
+            <img src="img/APPARCA.png" >
+        </div>
+        <div id="perfil">
+            <div id="fotoPerfil">
+                <img src="img/perfil.png">
+            </div>
+            <div class="row" id="InicioRegistro">
+                <a style="height: 100%; width:auto; padding: 0px;" href="">Log In /&nbsp;</a>
+                <a style="height: 100%; width:auto; padding: 0px;" href="">Sing Up</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="row" id="aplicados">
+        <p >FILTROS (<o id="contadorFiltros">0</o>): <p onclick="MostrarFiltros('todosFiltros')" class="mas"><u>MAS...</u></p> </p>
+    </div>
+
+    <iframe name="votar" style="display:none;"></iframe>
+    <form class="desaparecer" id="todosFiltros" onsubmit="Filtrar()" target="votar">
+        <div class="row" onclick="MostrarFiltros('relojInicio')">
+            <img class="col-3" src="img/reloj.png">
+            <div class="col-7">
+                <p>HORA ENTRADA</p>
+            </div>
+            <img class="col-2" src="img/desplegable.png">
+        </div>
+        <div class="desaparecer"  id="relojInicio">
+            <div class="row">
+                <input type="time" id="horaInicio" step="900" min="00:00" class="col-5 mx-auto">
+            </div>
+            
+        </div>
+
+
+        <div class="row" onclick="MostrarFiltros('relojFinal')">
+            <img class="col-3" src="img/reloj.png" style="rotate: 235deg;">
+            <div class="col-7">
+                <p>HORA SALIDA</p>
+                
+            </div>
+            <img class="col-2" src="img/desplegable.png">
+            
+        </div>
+        <div id="relojFinal" class="desaparecer">
+            <div class="row">
+                <input type="time" id="horaFin" step="900" min="00:00" class="col-5 mx-auto">
+
+            </div>
+        </div>
+
+
+        <div class="row" onclick="MostrarFiltros('precio')">
+            <img class="col-3" src="img/mensualidad.png">
+            <div class="col-7">
+                <p>PRECIO/MES MAXIMO</p>
+            </div>
+            <img class="col-2" src="img/desplegable.png">
+        </div>
+        <div id="precio" class="desaparecer">
+            <div class="row">
+                <input type="range" id="precioInput" oninput="this.nextElementSibling.value = this.value" class="col-8 mx-auto">
+                <output class="col-12" align="center">50</output>
+            </div>
+        </div>
+
+
+
+        <div class="row" onclick="MostrarFiltros('findes')">
+            <img class="col-3" src="img/finde.png">
+            <div class="col-7">
+                <p>FIN DE SEMANA</p>
+            </div>
+            <img class="col-2" src="img/desplegable.png">
+        </div>
+        <div id="findes" class="desaparecer">
+            <div class="row">
+                <div class="col-6" style="display:flex; align-items:center">
+                    <input type="radio" style="margin:0 auto" name="findes" value="true">
+                    <p style="margin:0 auto">INCLUIDO</p>
+                </div>
+                <div class="col-6" style="display:flex; align-items:center">
+                    <input type="radio" style="margin:0 auto" name="findes" value="false" checked>
+                    <p style="margin:0 auto">NO INCLUIDO</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; padding: 10px;">
+            <button class="btn btn-primary" style="margin:0 auto">FILTRAR</button>
+        </div>
+
+    </form>
+
+
+    <div id="map">
+
+    </div>
+
+    <div id="mostrarLista">
+        <button onclick="MostrarLista()">MOSTRAR LISTA</button>
+    </div>
+
+    <div id="listaPlazas">
+        
+    </div>
+
+</body>
+<script src="mapa.js"></script>
+
+</html>

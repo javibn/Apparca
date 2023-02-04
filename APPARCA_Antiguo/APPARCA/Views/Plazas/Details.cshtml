@@ -1,0 +1,121 @@
+﻿@model APPARCA.Models.Plaza
+
+@{
+    ViewData["Title"] = "Details";
+}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+<link rel="stylesheet" href="/css/estilosDetails.css">
+
+
+<div id="map"></div>
+
+
+
+<div> 
+    <h1>Details</h1>
+
+    <h4>Plaza @Html.DisplayFor(model => model.Id)</h4>
+    
+    <hr />
+    <dl class="row" id="infoPlaza">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Arrendador)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Arrendador.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ancho)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ancho)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Largo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Largo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PrecioHora)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PrecioHora)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imagen)
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="@Url.Action("getImage", "Plazas")?idPlaza= @Html.DisplayFor(model => model.Id)" />
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HoraInicio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HoraInicio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HoraFinal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HoraFinal)
+        </dd>
+        
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.formatoImagen)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.formatoImagen)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PrecioMando)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PrecioMando)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EsVerificada)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EsVerificada)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+<script>
+    let latitud = @Html.DisplayFor(model => model.Latitud);
+    let longitud = @Html.DisplayFor(model => model.Longitud);
+
+    let map = L.map('map').setView([latitud, longitud], 13);
+    map.dragging.disable();
+
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        maxZoom: 13,
+        minZoom: 13
+    }).addTo(map);
+
+    var icono = L.icon({
+        iconUrl: '/img/icono.png',
+
+        iconSize: [38, 40], // size of the icon
+        shadowSize: [50, 64], // size of the shadow
+        iconAnchor: [22, 40], // point of the icon which will correspond to marker's location
+        popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
+    var marker = L.marker([latitud, longitud], { icon: icono }).addTo(map);
+</script>

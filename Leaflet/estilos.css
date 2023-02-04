@@ -1,0 +1,355 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+header{
+    width: 100%;
+    height: 13vh;
+    background: linear-gradient(to right, black , #3146c2, black);
+    align-items: center;
+}
+
+
+#logo{
+    height: 100%;
+    float: left;
+    width: 40%;
+    margin-left: 30%;
+    display: flex;
+    align-items: center;
+}
+
+#logo img{
+    height: 80%;
+    width: auto;
+    margin: 0 auto;
+}
+
+#perfil{
+    float: right;
+    min-width: 30%;
+    width: auto;
+    height: 100%;
+    font-size: 1.1rem;
+}
+
+#perfil img{
+    margin-right: 20%;
+}
+
+#perfil a{
+    color: white;
+    font-weight: bold;
+}
+
+#InicioRegistro{
+    height: 30%;
+    width: auto;
+    float: right;
+    margin-right: 15%;
+}
+
+#fotoPerfil{
+    height: 70%;
+    width: auto
+}
+#fotoPerfil img{
+    height: 100%;
+    width:auto;
+    float: right;
+}
+
+
+
+#aplicados{
+    position: absolute;
+
+    left: 4vw;
+    top: 15vh;
+
+    height: auto;
+    min-width: 15vw;
+    z-index: 2;
+
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid #3146c2;
+    font-size: 1.3rem;
+}
+
+#aplicados p{
+    margin: 0px;
+    width: auto;
+    color: #3146c2;
+    cursor: default;
+}
+
+#todosFiltros{
+    position: absolute;
+
+    left: 4vw;
+    top: 20vh;
+
+    z-index: 3;
+    height: auto;
+    width: 15vw;
+    background-color: white;
+    border: 2px solid #3146c2;
+    border-radius: 10px;
+
+}
+
+#todosFiltros .row{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 0.5px solid rgb(170, 170, 170);
+    cursor: default;
+}
+
+#todosFiltros p{
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+}
+
+#todosFiltros input{
+    font-size: 1rem;
+    border-radius: 5px;
+    height: auto;
+}
+
+.desaparecer{
+    display: none;
+}
+
+
+#map{
+    height: 87vh;
+    width: 100%;
+    z-index: 1;
+}
+
+
+.mycluster { 
+    background: #3146c2; 
+    border-radius: 50%; 
+    color: white; 
+    font-weight: bold; 
+    font-size: 2em; 
+    text-align: center; 
+    padding-top: 5px; 
+    border: 5px solid #607cf8;
+    box-sizing: content-box;
+}
+
+.row{
+    margin: 0;
+}
+
+
+
+#mostrarLista{
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    font-size: 1.6rem;
+    bottom: 20px;
+    display: flex;
+}
+
+#mostrarLista button{
+    background-color: #3146c2;
+    font-weight: bold;
+    color: white;
+    margin: 0 auto;
+    padding: 8px;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+#mostrarLista button:hover{
+    background-color: white;
+    color: #3146c2;
+    transition: .5s;
+}
+
+.mas:hover{
+    letter-spacing: 2px;
+    transition: .5s;
+}
+
+#listaPlazas{
+    position: absolute;
+    height: 86vh;
+    width: 70vw;
+    margin-left: 15vw;
+    background-color: white;
+    bottom: -86vh;
+    z-index: 3;
+    transition: 1s linear;
+    border: 1px solid #3146c2;
+    border-bottom: 0px;
+    display: none;
+    border-radius: 5px 5px 0px 0px;
+    overflow:auto;
+}
+
+#listaPlazas::-webkit-scrollbar{
+    -webkit-appearance: none;
+}
+
+#listaPlazas::-webkit-scrollbar:vertical {
+    width: 10px;
+}
+
+#listaPlazas::-webkit-scrollbar-button:increment,#listaPlazas::-webkit-scrollbar-button {
+    display: none;
+}
+
+#listaPlazas::-webkit-scrollbar-thumb {
+    background-color: #3146c2;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+#listaPlazas::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+
+
+
+
+#listaPlazas #cerrar{
+    height: 5vh;
+    width: 97%;
+    margin-top: 1vh;
+    position: sticky;
+    top:1vh;
+}
+
+#listaPlazas #cerrar img{
+    height: 100%;
+    float: right;
+    margin-right: 0%;
+    border-radius: 100px;
+    padding: 8px;
+    border: 1px solid black;
+}
+
+.fotoLista{
+    height: auto;
+    border-radius: 10px;
+    padding: 0%;
+}
+
+.marcadorLista{
+    margin-top:1rem;
+    margin-bottom:1rem;
+    width:90%;
+    margin-left:5%;
+    border:1px solid #3146c2;
+    border-radius:10px;
+    color: #000003;
+    align-items: center;
+}
+
+.marcadorLista p{
+    margin: 0px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.marcadorLista button{
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 2rem;
+}
+
+.deslizarse{
+    
+    -webkit-transform: translateY(-86vh);
+}
+
+.popup{
+    font-size: 4rem;
+    width: auto;
+    height: auto;
+}
+.popup img{
+    width: 100%;
+    height: auto;
+}
+
+@media  screen and (max-width: 1600px) {
+    
+    #todosFiltros{
+        width: 20%;
+    }
+}
+
+@media  screen and (max-width: 1100px) {
+    
+    #todosFiltros{
+        width: 30%;
+    }
+}
+
+
+@media  screen and (max-width: 768px) {
+    #logo{
+        margin-left: 3%;
+    }
+    #perfil{
+        min-width: 50%;
+    }
+    #listaPlazas{
+        width: 90vw;
+        margin-left: 5vw;
+    }
+    #todosFiltros{
+        width: 40%;
+    }
+    #aplicados{
+        left: 8vw;
+    }
+}
+
+
+@media  screen and (max-width: 576px) {
+    #logo{
+        margin-left: 5%;
+    }
+    #InicioRegistro{
+        display: none;
+    }
+    #fotoPerfil{
+        height: 100%;
+        align-items: center;
+    }
+    #fotoPerfil img{
+        height: 75%;
+        margin-top: .7rem;
+    }
+    #todosFiltros{
+        width: 60%;
+    }
+    #aplicados{
+        left: 12vw;
+    }
+}

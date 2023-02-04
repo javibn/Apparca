@@ -1,0 +1,17 @@
+﻿
+
+#map {
+    height: 50vh;
+    width: 100%;
+    opacity:0.7;
+}
+
+img{
+    max-width:300px;
+}
+
+#infoPlaza{
+    position:absolute;
+    top:16vh;
+    z-index:2;
+}

@@ -1,0 +1,405 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\APPARCA.bundle.scp.css",
+      "PackagePath": "staticwebassets\\APPARCA.bundle.scp.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\fonts\\Roboto\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Black.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto\\Roboto-Black.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-BlackItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto\\Roboto-BlackItalic.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Bold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto\\Roboto-Bold.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-BoldItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto\\Roboto-BoldItalic.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Italic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto\\Roboto-Italic.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Light.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto\\Roboto-Light.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-LightItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto\\Roboto-LightItalic.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Medium.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto\\Roboto-Medium.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-MediumItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto\\Roboto-MediumItalic.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Regular.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto\\Roboto-Regular.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Thin.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto\\Roboto-Thin.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-ThinItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto\\Roboto-ThinItalic.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\fonts\\Roboto_Condensed\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-Bold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto_Condensed\\RobotoCondensed-Bold.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-BoldItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto_Condensed\\RobotoCondensed-BoldItalic.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-Italic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto_Condensed\\RobotoCondensed-Italic.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-Light.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto_Condensed\\RobotoCondensed-Light.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-LightItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto_Condensed\\RobotoCondensed-LightItalic.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-Regular.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto_Condensed\\RobotoCondensed-Regular.ttf"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\APPARCA.png",
+      "PackagePath": "staticwebassets\\img\\APPARCA.png"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\APPARCA1.png",
+      "PackagePath": "staticwebassets\\img\\APPARCA1.png"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\APPARCAFavicon.png",
+      "PackagePath": "staticwebassets\\img\\APPARCAFavicon.png"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\ancho.png",
+      "PackagePath": "staticwebassets\\img\\ancho.png"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\cerrar.png",
+      "PackagePath": "staticwebassets\\img\\cerrar.png"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\desplegable.png",
+      "PackagePath": "staticwebassets\\img\\desplegable.png"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\filtros.png",
+      "PackagePath": "staticwebassets\\img\\filtros.png"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\finde.png",
+      "PackagePath": "staticwebassets\\img\\finde.png"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\icono.png",
+      "PackagePath": "staticwebassets\\img\\icono.png"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\largo.png",
+      "PackagePath": "staticwebassets\\img\\largo.png"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\largo1.png",
+      "PackagePath": "staticwebassets\\img\\largo1.png"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\mensualidad.png",
+      "PackagePath": "staticwebassets\\img\\mensualidad.png"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\perfil.png",
+      "PackagePath": "staticwebassets\\img\\perfil.png"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\plaza.jpg",
+      "PackagePath": "staticwebassets\\img\\plaza.jpg"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\reloj.png",
+      "PackagePath": "staticwebassets\\img\\reloj.png"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.APPARCA.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.APPARCA.props",
+      "PackagePath": "build\\APPARCA.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.APPARCA.props",
+      "PackagePath": "buildMultiTargeting\\APPARCA.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.APPARCA.props",
+      "PackagePath": "buildTransitive\\APPARCA.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

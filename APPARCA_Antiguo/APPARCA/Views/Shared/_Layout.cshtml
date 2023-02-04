@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - APPARCA</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/APPARCA.styles.css" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!--Marker Cluster-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.1.0/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.1.0/dist/MarkerCluster.Default.css" />
+
+    <!--ICONO CDN-->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    -->
+
+
+    <link rel="shortcut icon"
+          href="/img/APPARCAFavicon.png">
+
+    <!--LEAFLET-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+          integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light align-items-center p-0 container-xl" style="height: 9vh; z-index:2;">
+            <a class="navbar-brand ms-4 h-100" asp-area="" asp-action="Index" asp-controller="Escaparate">
+                <img src="/img/APPARCA.png" class="h-100" alt="Logo">
+            </a>
+            <button class="navbar-toggler h-100 m" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon h-100"></span>
+            </button>
+            <div class="collapse navbar-collapse fs-5 text-center" id="navbarNav">
+                <ul class="navbar-nav mr-auto me-auto">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-decoration-none text-black" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-decoration-none text-black" href="#">Lista de Plazas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-decoration-none text-black" href="#">Mis Plazas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-decoration-none text-black" href="#">Mis Reservas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-decoration-none text-black" href="#">Mis Ofertas</a>
+                    </li>
+                    
+                </ul>
+                <ul class="navbar-nav ml-auto align-items-center login me-5 ">
+                    <li class="nav-item ">
+                        <partial name="_LoginPartial" />
+                    </li>
+
+                </ul>
+                <ul class="navbar-nav ml-auto  login me-5 ">
+                    <li>
+                        <button class="btn text-primary border border-primary">+ Subir mi plaza</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+    <div>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    @await RenderSectionAsync("Scripts", required: false)
+
+    
+</body>
+</html>

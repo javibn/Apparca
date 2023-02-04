@@ -1,0 +1,137 @@
+﻿@model APPARCA.Models.Plaza
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWgqvVI8iS9zR_Xvqm3q6UqzP7ThMUQTE&libraries=places&callback=initMap">
+</script>
+
+<script src="~/js/createPlaza.js"></script>
+
+<h1>Create</h1>
+
+<h4>Plaza</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <iframe name="votar" style="display:none;"></iframe>
+        <form asp-action="Create" method="post" enctype="multipart/form-data" onsubmit="CrearPlaza()" target="votar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ArrendadorId" class="control-label"></label>
+                <select asp-for="ArrendadorId" class ="form-control" asp-items="ViewBag.ArrendadorId"></select>
+            </div>
+            
+            <div class="form-group" style="display:none;">
+                <label asp-for="Latitud" class="control-label"></label>
+                <input asp-for="Latitud" class="form-control" />
+                <span asp-validation-for="Latitud" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:none;">
+                <label asp-for="Longitud" class="control-label"></label>
+                <input asp-for="Longitud" class="form-control" />
+                <span asp-validation-for="Longitud" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Direccion" class="control-label"></label>
+                <input asp-for="Direccion" class="form-control" required placeholder="Ej: Avenida Maisonnave, 3, Alicante"/>
+                <label class="desaparecer" id="labelDireccion" style="color:red;">Completa el numero de la direccion<br /></label>
+                <label class="desaparecer" id="labelDireccion2" style="color:red;">Selecciona una direccion</label>
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ancho" class="control-label"></label>
+                <input asp-for="Ancho" class="form-control" min="100" max="1000" placeholder="Ancho de la plaza en cm" step="10" />
+                <span asp-validation-for="Ancho" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Largo" class="control-label"></label>
+                <input asp-for="Largo" class="form-control" min="100" max="1000" placeholder="Largo de la plaza en cm" step="10" />
+                <span asp-validation-for="Largo" class="text-danger" ></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="HoraInicio" class="control-label"></label>
+                <input asp-for="HoraInicio" class="form-control" type="time" step="900" required />
+                <span asp-validation-for="HoraInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HoraFinal" class="control-label"></label>
+                <input asp-for="HoraFinal" class="form-control" type="time" step="900" required />
+                <label class="desaparecer" id="labelHorasIncorrectas" style="color:red;">La hora final no puede ser menor que la inicial<br /></label>
+                <span asp-validation-for="HoraFinal" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="PrecioHora" class="control-label">Precio/Hora</label>
+                <input asp-for="PrecioHora" class="form-control" placeholder="Precio de la plaza a la hora" value="0" step="0.01" type="number" />
+                <!--<label>Calculadora Mensual<br/></label>
+                <p id="calculadora" style="color:red;">Rellene los campos de las horas para calcular la mensualidad</p>-->
+                <label>€/hora (puede variar segun dias laborables)</label>
+                <span asp-validation-for="PrecioHora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrecioMes" class="control-label">Precio/Mes</label>
+                <input asp-for="PrecioMes" class="form-control" placeholder="Precio de la plaza al mes" value="0" step="0.01" type="number" />
+                <label>€/mes (puede variar segun dias laborables)</label>
+                <span asp-validation-for="PrecioMes" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="PrecioMando" class="control-label">Precio Fianza</label>
+                <input asp-for="PrecioMando" class="form-control" placeholder="Debe ser el precio del valor del mando" min="0" type="number" />
+                <span asp-validation-for="PrecioMando" class="text-danger"></span>
+            </div>
+
+            <div id="selectedBanner"></div>
+            <div class="form-group">
+                <label asp-for="Imagen" class="control-label"></label>
+                <input asp-for="Imagen" type="file" class="form-control" accept="image/png, image/webp, image/jpeg" required />
+                <span asp-validation-for="Imagen" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script>
+    // CARGAR IMAGEN SUBIDA
+    var selDiv = "";
+    var storedFiles = [];
+    $(document).ready(function () {
+        $("#Imagen").on("change", handleFileSelect);
+        selDiv = $("#selectedBanner");
+    });
+
+    function handleFileSelect(e) {
+        var files = e.target.files;
+        var filesArr = Array.prototype.slice.call(files);
+        filesArr.forEach(function (f) {
+            if (!f.type.match("image.*")) {
+                return;
+            }
+            storedFiles.push(f);
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var html =
+                    '<img src="' +
+                    e.target.result +
+                    "\" data-file='" +
+                    f.name +
+                    "alt='Category Image' height='200px' width='200px'>";
+                selDiv.html(html);
+            };
+            reader.readAsDataURL(f);
+        });
+    }
+</script>

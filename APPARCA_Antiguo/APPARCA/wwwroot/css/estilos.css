@@ -1,0 +1,505 @@
+
+
+#places {
+    max-height: 5vh;
+    position: absolute;
+    z-index: 2;
+    top: 15vh;
+    margin: auto;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
+    padding: 5px;
+    border: 2px solid #607cf8;
+    width: 35%;
+    font-size: 1.2rem;
+    text-align: center;
+    
+    
+}
+
+#places::placeholder {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    letter-spacing:2px;
+    font-size:1.1rem;
+}
+
+#linkCreate {
+    position: absolute;
+    z-index: 2;
+    top: 15vh;
+    
+    right: 4vw;
+    border-radius: 5px;
+    padding: 5px;
+    border: 2px solid black;
+    background-color:#3146c2;
+    font-weight:bold;
+    padding:0px 20px 0px 20px;
+    width: auto;
+    text-decoration:none;
+    color:white;
+    font-size: 2.8vh;
+    text-align: center;
+}
+
+#aplicados {
+    position: absolute;
+    left: 4vw;
+    top: 15vh;
+    height: auto;
+    min-height: 5vh;
+    z-index: 2;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid #3146c2;
+    font-size: 2.8vh;
+}
+
+#aplicados p{
+    margin: 0px;
+    width: auto;
+    color: #3146c2;
+    cursor: default;
+}
+
+#todosFiltros{
+    position: absolute;
+
+    left: 4vw;
+    top: 22vh;
+
+    z-index: 3;
+    height: auto;
+    width: 15vw;
+    background-color: white;
+    border: 2px solid #3146c2;
+    border-radius: 10px;
+
+}
+
+#todosFiltros .row{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 0.5px solid rgb(170, 170, 170);
+    cursor: default;
+}
+
+#todosFiltros p{
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+}
+
+#todosFiltros input{
+    font-size: 1rem;
+    border-radius: 5px;
+    height: auto;
+}
+
+
+
+.desaparecer{
+    display: none;
+}
+
+
+#map{
+    height: 87vh;
+    width: 100%;
+    z-index: 1;
+}
+
+
+.mycluster { 
+    background: #3146c2; 
+    border-radius: 50%; 
+    color: white; 
+    font-weight: bold; 
+    font-size: 2em; 
+    text-align: center; 
+    padding-top: 5px; 
+    border: 5px solid #607cf8;
+    box-sizing: content-box;
+}
+
+.row{
+    margin: 0;
+}
+
+
+
+#mostrarLista {
+    z-index: 2;
+    position: absolute;
+    bottom: 3vh;
+    font-size: 2.8vh;
+    margin: auto;
+    left: 0;
+    right: 0;
+
+    background-color: #3146c2;
+    font-weight: bold;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 30%;
+
+    border:2px solid black;
+}
+
+
+
+#mostrarLista button:hover{
+    background-color: white;
+    color: #3146c2;
+    transition: .5s;
+}
+
+.mas:hover{
+    letter-spacing: 1px;
+    transition: .5s;
+}
+
+#listaPlazas{
+    position: absolute;
+    height: 86vh;
+    width: 70vw;
+    margin-left: 15vw;
+    background-color: white;
+    bottom: -86vh;
+    z-index: 3;
+    transition: 1s linear;
+    border: 1px solid #3146c2;
+    border-bottom: 0px;
+    display: none;
+    border-radius: 5px 5px 0px 0px;
+    overflow:auto;
+}
+
+#listaPlazas::-webkit-scrollbar{
+    -webkit-appearance: none;
+}
+
+#listaPlazas::-webkit-scrollbar:vertical {
+    width: 10px;
+}
+
+#listaPlazas::-webkit-scrollbar-button:increment,#listaPlazas::-webkit-scrollbar-button {
+    display: none;
+}
+
+#listaPlazas::-webkit-scrollbar-thumb {
+    background-color: #3146c2;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+#listaPlazas::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+
+
+
+
+#listaPlazas #cerrar{
+    height: 5vh;
+    width: 97%;
+    margin-top: 1vh;
+    position: sticky;
+    top:1vh;
+}
+
+#listaPlazas #cerrar img{
+    height: 100%;
+    float: right;
+    margin-right: 0%;
+    border-radius: 100px;
+    padding: 8px;
+    border: 1px solid black;
+}
+
+.fotoLista{
+    height: auto;
+    border-radius: 10px;
+    padding: 0%;
+}
+
+.marcadorLista{
+    margin-top:1rem;
+    margin-bottom:1rem;
+    width:90%;
+    margin-left:5%;
+    border:1px solid #3146c2;
+    border-radius:10px;
+    color: #000003;
+    align-items: center;
+}
+
+.marcadorLista div{
+    margin-bottom:1rem;
+    margin-top:1rem;
+}
+
+.marcadorLista p{
+    margin: 0px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight:bold;
+}
+
+.marcadorLista a{
+    width: 30%;
+    text-decoration:none;
+    background-color:#3146c2;
+    border:0px;
+}
+
+.deslizarse{
+    
+    -webkit-transform: translateY(-86vh);
+}
+
+
+.popup {
+    background-color: transparent;
+    border-radius: 15px;
+    border: 2px solid #3146c2;
+    width: 200px;
+    backdrop-filter: blur(2px);
+}
+
+.popup h1 {
+    color: #3146c2;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.popup p{
+    font-size:1.2rem;
+    margin:0px;
+    margin-top:0.5rem;
+    text-align:center;
+    font-weight:bold;
+    color:#3146c2;
+}
+
+.popup div {
+    background-color: transparent;
+}
+
+.popup img{
+    width:100%;
+    height:auto;
+    border-radius:10px;
+}
+
+.popup a{
+    background-color: #3146c2;
+    margin-top: 0.5rem;
+    color:white;
+}
+
+.popup #horario {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.popup #horario img{
+    height: 1rem;
+    width:1rem;
+
+}
+
+.marcador {
+    background-color: #3146c2;
+    color:white;
+    font-size:1rem;
+    border:0px solid black;
+    border-radius:10px;
+    overflow:visible;
+
+}
+.marcador p{
+    border:0px;
+    margin:0px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.flecha-down {
+    width: 0px;
+    height: 0px;
+    border-left: 10px solid transparent; /* izquierda flecha */
+    border-right: 10px solid transparent; /* derecha flecha */
+    border-top: 11px solid #3146c2; /* base flecha y color*/
+    font-size: 0px;
+    line-height: 0px;
+}
+
+.leaflet-div-icon{
+    border:0px;
+    background-color: transparent;
+}
+
+
+
+@media screen and (max-width: 1600px) {
+    #todosFiltros{
+        width: 20%;
+    }
+}
+
+@media  screen and (max-width: 1100px) {
+    #todosFiltros{
+        width: 30%;
+    }
+    #places{
+        width:45%;
+    }
+
+    #aplicados ,#linkCreate{
+        top: 22vh;
+    }
+
+    #todosFiltros{
+        top: 29vh;
+    }
+    #places::placeholder{
+        font-size: 1.2rem;
+    }
+    .marcadorLista a {
+        width: 40%;
+    }
+    
+}
+@media screen and (max-width: 992px) {
+    .marcadorLista p {
+        font-size: 1rem;
+    }
+    .marcadorLista a {
+        width: 50%;
+        margin-left: 25%;
+    }
+
+    #mostrarLista{
+        width:35%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #logo {
+        margin-left: 3%;
+    }
+
+    #listaPlazas {
+        width: 90vw;
+        margin-left: 5vw;
+    }
+
+    #todosFiltros {
+        width: 40%;
+    }
+
+    #aplicados {
+        left: 8vw;
+    }
+
+    #places {
+        width: 70%;
+    }
+
+
+    .marcadorLista p {
+        font-size: 1.3rem;
+    }
+
+    #mostrarLista {
+        width: 40%;
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+    #logo {
+        margin-left: 5%;
+    }
+
+    #InicioRegistro {
+        display: none;
+    }
+
+    #fotoPerfil {
+        height: 100%;
+        align-items: center;
+    }
+
+    #fotoPerfil img {
+        height: 75%;
+        margin-top: .7rem;
+    }
+
+    #todosFiltros {
+        width: 60%;
+    }
+
+    #aplicados {
+        left: 12vw;
+        font-size: 2.5vh;
+    }
+
+    #mostrarLista{
+        width:45%;
+    }
+
+    #places {
+        width: 75%;
+    }
+    #linkCreate {
+        top: auto;
+        bottom: 3vh;
+        margin: auto;
+        left: 0px;
+        right: 0px;
+        width: 70%
+    }
+
+    #mostrarLista {
+        width: 60%;
+        bottom: 9vh;
+        padding: 0px 20px 0px 20px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    #places::placeholder {
+        font-size: .9rem;
+    }
+
+
+    #linkCreate {
+        font-size:2.5vh;
+    }
+
+    #mostrarLista {
+        font-size: 2.8vh;
+    }
+}

@@ -1,0 +1,30 @@
+<!--<div id="logo">
+            <a asp-action="Index" asp-controller="Plazas"><img src="/img/APPARCA.png"></a>
+        </div>
+        <div id="perfil">
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div id="fotoPerfil" class="row justify-content-center">
+                    <img src="/img/perfil.png">
+                </div>
+                <div class="row justify-content-center" id="InicioRegistro">
+                    <a style="height: 100%; width:auto; padding: 0px;" href="/Identity/Account/Login">Log In </a>
+                    <p>&nbsp;/&nbsp;</p>
+                    <a style="height: 100%; width:auto; padding: 0px;" href="/Identity/Account/Register">Sing Up</a>
+                </div>
+                <partial name="_LoginPartial" />
+            }
+            else
+            {
+                <div id="fotoPerfil" class="row justify-content-center">
+                    <img src="/img/perfil.png">
+                </div>
+                <div class="row justify-content-center" id="InicioRegistro">
+                    <form style="height: 100%; width:auto; padding: 0px;" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Plazas", new { area = "" })" method="post">
+                        <button type="submit">Cerrar sesión</button>
+                    </form>
+                </div>
+                
+
+            }
+        </div>-->

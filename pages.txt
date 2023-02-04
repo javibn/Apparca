@@ -1,0 +1,20 @@
+Plazas
+- Index/Home (mapa plazas)
+- Crear una plaza
+- Lista de plazas
+- Detalles de la plaza (previo a la reserva)
+
+
+Usuarios
+- Inicio de sesion
+- Registrarse
+- Mis plazas (siendo arrendador)
+- Editar mi plaza
+- Mis reservas (siendo arrendatario)
+- Mis datos
+- Consultar Ofertas (Aceptar o rechazar ofertas por mis plazas)
+
+Legal
+- Politica de privacidad
+- Terminos y condiciones
+- Sobre nosotros
