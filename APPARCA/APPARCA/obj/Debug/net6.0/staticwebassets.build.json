@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jOFqi0wI7raV8SURkpRIc2Ly9D3jLAfQVkWAnxVJO4Q=",
+  "Hash": "du68oQ9cxYYdBRJZ9hwESh9yzQK9XMj01GnmE2tqx5A=",
   "Source": "APPARCA",
   "BasePath": "_content/APPARCA",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "APPARCA\\wwwroot",
       "Source": "APPARCA",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "Pattern": "**"
     }
@@ -1037,10 +1037,10 @@
       "OriginalItemSpec": "C:\\Users\\javie\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\6.0.10\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\obj\\Debug\\net6.0\\scopedcss\\bundle\\APPARCA.styles.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\obj\\Debug\\net6.0\\scopedcss\\bundle\\APPARCA.styles.css",
       "SourceId": "APPARCA",
       "SourceType": "Computed",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "APPARCA.styles.css",
       "AssetKind": "All",
@@ -1051,13 +1051,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "E:\\APPARCA\\APPARCA\\APPARCA\\obj\\Debug\\net6.0\\scopedcss\\bundle\\APPARCA.styles.css"
+      "OriginalItemSpec": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\obj\\Debug\\net6.0\\scopedcss\\bundle\\APPARCA.styles.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\APPARCA.bundle.scp.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\APPARCA.bundle.scp.css",
       "SourceId": "APPARCA",
       "SourceType": "Computed",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "APPARCA.bundle.scp.css",
       "AssetKind": "All",
@@ -1068,13 +1068,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "E:\\APPARCA\\APPARCA\\APPARCA\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\APPARCA.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\APPARCA.bundle.scp.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\css\\site.css",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -1088,10 +1088,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\favicon.ico",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -1105,10 +1105,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\LICENSE.txt",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\LICENSE.txt",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto/LICENSE.txt",
       "AssetKind": "All",
@@ -1122,10 +1122,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto\\LICENSE.txt"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Black.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Black.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto/Roboto-Black.ttf",
       "AssetKind": "All",
@@ -1139,10 +1139,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto\\Roboto-Black.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-BlackItalic.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-BlackItalic.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto/Roboto-BlackItalic.ttf",
       "AssetKind": "All",
@@ -1156,10 +1156,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto\\Roboto-BlackItalic.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Bold.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Bold.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto/Roboto-Bold.ttf",
       "AssetKind": "All",
@@ -1173,10 +1173,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto\\Roboto-Bold.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-BoldItalic.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-BoldItalic.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto/Roboto-BoldItalic.ttf",
       "AssetKind": "All",
@@ -1190,10 +1190,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto\\Roboto-BoldItalic.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Italic.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Italic.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto/Roboto-Italic.ttf",
       "AssetKind": "All",
@@ -1207,10 +1207,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto\\Roboto-Italic.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Light.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Light.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto/Roboto-Light.ttf",
       "AssetKind": "All",
@@ -1224,10 +1224,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto\\Roboto-Light.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-LightItalic.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-LightItalic.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto/Roboto-LightItalic.ttf",
       "AssetKind": "All",
@@ -1241,10 +1241,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto\\Roboto-LightItalic.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Medium.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Medium.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto/Roboto-Medium.ttf",
       "AssetKind": "All",
@@ -1258,10 +1258,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto\\Roboto-Medium.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-MediumItalic.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-MediumItalic.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto/Roboto-MediumItalic.ttf",
       "AssetKind": "All",
@@ -1275,10 +1275,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto\\Roboto-MediumItalic.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Regular.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Regular.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto/Roboto-Regular.ttf",
       "AssetKind": "All",
@@ -1292,10 +1292,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto\\Roboto-Regular.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Thin.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-Thin.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto/Roboto-Thin.ttf",
       "AssetKind": "All",
@@ -1309,10 +1309,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto\\Roboto-Thin.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-ThinItalic.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto\\Roboto-ThinItalic.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto/Roboto-ThinItalic.ttf",
       "AssetKind": "All",
@@ -1326,10 +1326,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto\\Roboto-ThinItalic.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\LICENSE.txt",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\LICENSE.txt",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto_Condensed/LICENSE.txt",
       "AssetKind": "All",
@@ -1343,10 +1343,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto_Condensed\\LICENSE.txt"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-Bold.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-Bold.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto_Condensed/RobotoCondensed-Bold.ttf",
       "AssetKind": "All",
@@ -1360,10 +1360,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-Bold.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-BoldItalic.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-BoldItalic.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto_Condensed/RobotoCondensed-BoldItalic.ttf",
       "AssetKind": "All",
@@ -1377,10 +1377,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-BoldItalic.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-Italic.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-Italic.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto_Condensed/RobotoCondensed-Italic.ttf",
       "AssetKind": "All",
@@ -1394,10 +1394,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-Italic.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-Light.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-Light.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto_Condensed/RobotoCondensed-Light.ttf",
       "AssetKind": "All",
@@ -1411,10 +1411,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-Light.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-LightItalic.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-LightItalic.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto_Condensed/RobotoCondensed-LightItalic.ttf",
       "AssetKind": "All",
@@ -1428,10 +1428,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-LightItalic.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-Regular.ttf",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-Regular.ttf",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf",
       "AssetKind": "All",
@@ -1445,10 +1445,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Roboto_Condensed\\RobotoCondensed-Regular.ttf"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\ancho.png",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\ancho.png",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "img/ancho.png",
       "AssetKind": "All",
@@ -1462,10 +1462,10 @@
       "OriginalItemSpec": "wwwroot\\img\\ancho.png"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\APPARCA.png",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\APPARCA.png",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "img/APPARCA.png",
       "AssetKind": "All",
@@ -1479,10 +1479,10 @@
       "OriginalItemSpec": "wwwroot\\img\\APPARCA.png"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\APPARCA1.png",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\APPARCA1.png",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "img/APPARCA1.png",
       "AssetKind": "All",
@@ -1496,10 +1496,10 @@
       "OriginalItemSpec": "wwwroot\\img\\APPARCA1.png"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\APPARCAFavicon.png",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\APPARCAFavicon.png",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "img/APPARCAFavicon.png",
       "AssetKind": "All",
@@ -1513,10 +1513,10 @@
       "OriginalItemSpec": "wwwroot\\img\\APPARCAFavicon.png"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\cerrar.png",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\cerrar.png",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "img/cerrar.png",
       "AssetKind": "All",
@@ -1530,10 +1530,10 @@
       "OriginalItemSpec": "wwwroot\\img\\cerrar.png"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\desplegable.png",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\desplegable.png",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "img/desplegable.png",
       "AssetKind": "All",
@@ -1547,10 +1547,10 @@
       "OriginalItemSpec": "wwwroot\\img\\desplegable.png"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\filtros.png",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\filtros.png",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "img/filtros.png",
       "AssetKind": "All",
@@ -1564,10 +1564,10 @@
       "OriginalItemSpec": "wwwroot\\img\\filtros.png"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\finde.png",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\finde.png",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "img/finde.png",
       "AssetKind": "All",
@@ -1581,10 +1581,10 @@
       "OriginalItemSpec": "wwwroot\\img\\finde.png"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\icono.png",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\icono.png",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "img/icono.png",
       "AssetKind": "All",
@@ -1598,10 +1598,129 @@
       "OriginalItemSpec": "wwwroot\\img\\icono.png"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\largo.png",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\icons8-facebook-50.png",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
+      "BasePath": "_content/APPARCA",
+      "RelativePath": "img/icons8-facebook-50.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\icons8-facebook-50.png"
+    },
+    {
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\icons8-instagram-50.png",
+      "SourceId": "APPARCA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
+      "BasePath": "_content/APPARCA",
+      "RelativePath": "img/icons8-instagram-50.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\icons8-instagram-50.png"
+    },
+    {
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\icons8-tik-tok-50.png",
+      "SourceId": "APPARCA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
+      "BasePath": "_content/APPARCA",
+      "RelativePath": "img/icons8-tik-tok-50.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\icons8-tik-tok-50.png"
+    },
+    {
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\icons8-twitter-50.png",
+      "SourceId": "APPARCA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
+      "BasePath": "_content/APPARCA",
+      "RelativePath": "img/icons8-twitter-50.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\icons8-twitter-50.png"
+    },
+    {
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\icons8-whatsapp-48.png",
+      "SourceId": "APPARCA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
+      "BasePath": "_content/APPARCA",
+      "RelativePath": "img/icons8-whatsapp-48.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\icons8-whatsapp-48.png"
+    },
+    {
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\icons8-whatsapp-50 (1).png",
+      "SourceId": "APPARCA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
+      "BasePath": "_content/APPARCA",
+      "RelativePath": "img/icons8-whatsapp-50 (1).png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\icons8-whatsapp-50 (1).png"
+    },
+    {
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\icons8-whatsapp-50.png",
+      "SourceId": "APPARCA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
+      "BasePath": "_content/APPARCA",
+      "RelativePath": "img/icons8-whatsapp-50.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\icons8-whatsapp-50.png"
+    },
+    {
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\largo.png",
+      "SourceId": "APPARCA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "img/largo.png",
       "AssetKind": "All",
@@ -1615,10 +1734,10 @@
       "OriginalItemSpec": "wwwroot\\img\\largo.png"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\largo1.png",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\largo1.png",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "img/largo1.png",
       "AssetKind": "All",
@@ -1632,10 +1751,10 @@
       "OriginalItemSpec": "wwwroot\\img\\largo1.png"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\mensualidad.png",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\mensualidad.png",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "img/mensualidad.png",
       "AssetKind": "All",
@@ -1649,10 +1768,10 @@
       "OriginalItemSpec": "wwwroot\\img\\mensualidad.png"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\perfil.png",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\perfil.png",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "img/perfil.png",
       "AssetKind": "All",
@@ -1666,10 +1785,10 @@
       "OriginalItemSpec": "wwwroot\\img\\perfil.png"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\plaza.jpg",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\plaza.jpg",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "img/plaza.jpg",
       "AssetKind": "All",
@@ -1683,10 +1802,10 @@
       "OriginalItemSpec": "wwwroot\\img\\plaza.jpg"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\img\\reloj.png",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\img\\reloj.png",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "img/reloj.png",
       "AssetKind": "All",
@@ -1700,10 +1819,10 @@
       "OriginalItemSpec": "wwwroot\\img\\reloj.png"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\js\\site.js",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -1717,10 +1836,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -1734,10 +1853,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -1751,10 +1870,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -1768,10 +1887,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -1785,10 +1904,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -1802,10 +1921,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -1819,10 +1938,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -1836,10 +1955,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -1853,10 +1972,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -1870,10 +1989,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -1887,10 +2006,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -1904,10 +2023,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -1921,10 +2040,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -1938,10 +2057,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -1955,10 +2074,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -1972,10 +2091,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -1989,10 +2108,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -2006,10 +2125,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -2023,10 +2142,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -2040,10 +2159,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -2057,10 +2176,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -2074,10 +2193,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -2091,10 +2210,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -2108,10 +2227,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -2125,10 +2244,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -2142,10 +2261,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -2159,10 +2278,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -2176,10 +2295,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -2193,10 +2312,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -2210,10 +2329,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -2227,10 +2346,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -2244,10 +2363,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -2261,10 +2380,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -2278,10 +2397,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -2295,10 +2414,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -2312,10 +2431,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -2329,10 +2448,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -2346,10 +2465,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -2363,10 +2482,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -2380,10 +2499,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -2397,10 +2516,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -2414,10 +2533,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -2431,10 +2550,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -2448,10 +2567,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -2465,10 +2584,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -2482,10 +2601,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -2499,10 +2618,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -2516,10 +2635,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -2533,10 +2652,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -2550,10 +2669,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -2567,10 +2686,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -2584,10 +2703,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -2601,10 +2720,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -2618,10 +2737,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -2635,10 +2754,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -2652,10 +2771,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -2669,10 +2788,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "APPARCA",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\APPARCA\\APPARCA\\APPARCA\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\wwwroot\\",
       "BasePath": "_content/APPARCA",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",

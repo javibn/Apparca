@@ -2459,11 +2459,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\APPARCA\\APPARCA\\APPARCA\\APPARCA.csproj",
+      "projectUniqueName": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\APPARCA.csproj",
       "projectName": "APPARCA",
-      "projectPath": "E:\\APPARCA\\APPARCA\\APPARCA\\APPARCA.csproj",
+      "projectPath": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\APPARCA.csproj",
       "packagesPath": "C:\\Users\\javie\\.nuget\\packages\\",
-      "outputPath": "E:\\APPARCA\\APPARCA\\APPARCA\\obj\\",
+      "outputPath": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\javie\\AppData\\Roaming\\NuGet\\NuGet.Config",

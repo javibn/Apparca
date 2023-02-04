@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jlyMknCxznjNIb/9HGWQFmKMlY4POmX0DGN+SBXPt1x2ZdrrWSTl1V6mZn65O0QKBN2GNkJmV3dP/Dm+7Wg+cA==",
+  "dgSpecHash": "YWjRek88OWQK+zlWFR5FEui0w/w9wRw7viyYGv0NoHfHWM9bbyLenoSxDWr2LGjDlCuNLvToZZFKwfdsRYRhxA==",
   "success": true,
-  "projectFilePath": "E:\\APPARCA\\APPARCA_Antiguo\\APPARCA\\APPARCA.csproj",
+  "projectFilePath": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA_Antiguo\\APPARCA\\APPARCA.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\javie\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\javie\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

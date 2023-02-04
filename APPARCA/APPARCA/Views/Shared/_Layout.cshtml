@@ -28,11 +28,14 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
           integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
 
+    
+
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <script src="https://kit.fontawesome.com/7541d1b2cb.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white align-items-center p-0 container-xl" style="height: 10vh; z-index:2;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white align-items-center p-0 container-xl" style="height: 8vh; z-index:2;">
             <a class="navbar-brand ms-4 h-100" asp-area="" asp-action="Index" asp-controller="Escaparate">
                 <img src="/img/APPARCA.png" class="h-100" alt="Logo">
             </a>
@@ -64,13 +67,13 @@
                     </li>
                     <li><hr class="dropdown-divider mx-auto" size="5"></li>
                 </ul>
-                <ul class="navbar-nav ml-auto align-items-center login me-3 ">
+                <ul class="navbar-nav ml-auto align-items-center login ">
                     <li class="nav-item ">
                         <partial name="_LoginPartial" />
                     </li>
 
                 </ul>
-                <ul class="navbar-nav ml-auto  login me-3 ">
+                <ul class="navbar-nav ml-auto  login">
                     <li>
                         <button class="btn text-primary border border-primary">+ Subir mi plaza</button>
                     </li>
@@ -84,10 +87,53 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - APPARCA - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+    <footer class="border-top text-muted container-xl align-items-center">
+        <nav class="navbar navbar-expand container-fluid p-0" style="height: 4vh; z-index:2;">
+            <div class="collapse navbar-collapse text-center h-100" id="navbarNav">
+                <ul class="navbar-nav mr-auto me-auto h-100 align-items-center">
+
+                    <li class="nav-item">
+                        &copy; 2023 • APPARCA
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-decoration-none text-black ms-1" asp-area="" asp-controller="Home" asp-action="Privacy">• Privacidad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-decoration-none text-black ms-1" asp-area="" asp-controller="">• Condiciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-decoration-none text-black ms-1" asp-area="" asp-controller="">• Sobre Apparca</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto align-items-center h-100">
+                    <li class="nav-item me-2">
+                        <a href="https://twitter.com/miperfil">
+                            <img src="~/img/icons8-instagram-50.png"/>
+                        </a>
+                    </li>
+                    <li class="nav-item me-2">
+                        <a href="https://twitter.com/miperfil">
+                            <img src="~/img/icons8-tik-tok-50.png" />
+                        </a>
+                    </li>
+                    <li class="nav-item me-2">
+                        <a href="https://twitter.com/miperfil">
+                            <img src="~/img/icons8-twitter-50.png" />
+                        </a>
+                    </li>
+                    <li class="nav-item me-2">
+                        <a href="https://twitter.com/miperfil">
+                            <img src="~/img/icons8-facebook-50.png" />
+                        </a>
+                    </li>
+                    <li class="nav-item me-2">
+                        <a href="https://twitter.com/miperfil" >
+                            <img src="~/img/icons8-whatsapp-50.png"  />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </footer>
     
     @await RenderSectionAsync("Scripts", required: false)

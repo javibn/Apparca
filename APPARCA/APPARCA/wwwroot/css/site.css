@@ -31,6 +31,22 @@ header nav{
 
 }
 
+.login {
+    margin-right: 1rem;
+}
+
+footer li{
+    height: 75%;
+}
+
+footer li a{
+    height: 100%;
+}
+
+footer img{
+    height: 95%;
+}
+
 
 
 @media screen and (max-width: 992px) {
@@ -46,8 +62,12 @@ header nav{
     }
 
     .dropdown-divider{
-        color:#3164c2;
+        background-color: #3164c2 !important;
         height: 3px;
         width: 25%;
+    }
+
+    .login{
+        margin-right:0px;
     }
 }
