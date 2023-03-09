@@ -10660,11 +10660,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA_Antiguo\\APPARCA\\APPARCA.csproj",
+      "projectUniqueName": "D:\\EscritorioAntiguo\\git\\Apparca\\APPARCA_Antiguo\\APPARCA\\APPARCA.csproj",
       "projectName": "APPARCA",
-      "projectPath": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA_Antiguo\\APPARCA\\APPARCA.csproj",
+      "projectPath": "D:\\EscritorioAntiguo\\git\\Apparca\\APPARCA_Antiguo\\APPARCA\\APPARCA.csproj",
       "packagesPath": "C:\\Users\\javie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA_Antiguo\\APPARCA\\obj\\",
+      "outputPath": "D:\\EscritorioAntiguo\\git\\Apparca\\APPARCA_Antiguo\\APPARCA\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\javie\\AppData\\Roaming\\NuGet\\NuGet.Config",
