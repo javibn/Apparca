@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\APPARCA.csproj": {}
+    "D:\\EscritorioAntiguo\\git\\Apparca\\APPARCA\\APPARCA\\APPARCA.csproj": {}
   },
   "projects": {
-    "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\APPARCA.csproj": {
+    "D:\\EscritorioAntiguo\\git\\Apparca\\APPARCA\\APPARCA\\APPARCA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\APPARCA.csproj",
+        "projectUniqueName": "D:\\EscritorioAntiguo\\git\\Apparca\\APPARCA\\APPARCA\\APPARCA.csproj",
         "projectName": "APPARCA",
-        "projectPath": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\APPARCA.csproj",
+        "projectPath": "D:\\EscritorioAntiguo\\git\\Apparca\\APPARCA\\APPARCA\\APPARCA.csproj",
         "packagesPath": "C:\\Users\\javie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\javie\\Desktop\\git\\Apparca\\APPARCA\\APPARCA\\obj\\",
+        "outputPath": "D:\\EscritorioAntiguo\\git\\Apparca\\APPARCA\\APPARCA\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\javie\\AppData\\Roaming\\NuGet\\NuGet.Config",
