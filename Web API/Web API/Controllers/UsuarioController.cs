@@ -28,9 +28,31 @@ namespace Web_API.Controllers
         [Route("plazas")]
         public ActionResult ObtenerPlazas()
         {
-            var plazas = _context.Plazas.ToList();
+            
+            List<Plaza> plazas = new List<Plaza>();
 
-            return Ok(plazas);
+            Random rnd = new Random();
+
+            double minLat = 36.00000; // Límite inferior de la latitud de España
+            double maxLat = 43.79182; // Límite superior de la latitud de España
+            double minLon = -9.30178; // Límite inferior de la longitud de España
+            double maxLon = 3.03981; // Límite superior de la longitud de España
+
+            for (int i=0; i<1000; i++)
+            {
+                double lat = rnd.NextDouble() * (maxLat - minLat) + minLat;
+                double lon = rnd.NextDouble() * (maxLon - minLon) + minLon;
+
+
+                plazas.Add(new Plaza
+                {
+                    Id = i,
+                    Latitud = lat.ToString().Replace(",", "."),
+                    Longitud = lon.ToString().Replace(",", "."),
+                });
+            }
+            var plazasN = plazas.OrderBy(r => Guid.NewGuid()).Take(100);
+            return Ok(plazasN);
         }
 
 

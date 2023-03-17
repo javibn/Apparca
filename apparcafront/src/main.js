@@ -1,14 +1,21 @@
 import { createApp } from 'vue'
-
+import { ElDatePicker } from 'element-plus'
 import App from './App.vue'
 import router from './router'
 
-
-
-import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/css/bootstrap.css"
+import "bootstrap/dist/js/bootstrap.min.js"
 import "bootstrap"
 import "jquery"
 
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+
 createApp(App)
-    .use(router)
-    .mount('#app')
+  .use(router)
+  .use(ElementPlus, { 
+    // Establecer isCustomElement en true
+    compilerOptions: { isCustomElement: tag => tag.startsWith('el-') } 
+  })
+  .component('el-date-picker', ElDatePicker)
+  .mount('#app')

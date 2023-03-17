@@ -1,0 +1,95 @@
+<template>
+  <div class="date-range-picker-demo ">
+    <el-date-picker class="h-75"
+      v-model="dateRange"
+      type="daterange"
+      unlink-panels
+      range-separator="/"
+      format="DD-MM-YYYY"
+      start-placeholder="Inicio"
+      end-placeholder="Final"
+      :editable="false"
+      :clearable="false"
+      :picker-options="{ i18n: { firstDayOfWeek: 1 }, disabledDate: disabledDate }"
+      :disabled-date="disabledDate"
+      @change="handleChange"
+      @focus="handleFocus"
+      @blur="handleBlur"
+      @open-change="handleOpenChange"
+    >
+    </el-date-picker>
+  </div>
+</template>
+
+
+
+<script>
+//import { ref } from 'vue';
+export default {
+  name: 'DateComponent',
+  props: {
+    value: {
+      type: String,
+      required: true
+    }
+  },
+  data: function(){
+    return{
+      dateRange:"dawd"
+    }
+  },
+  setup() {
+    const handleChange = (value) => {
+      this.$emit('input', value); // Emitir evento cuando se selecciona una fecha
+    };
+
+    const handleFocus = () => {
+      console.log('Input field focused:', this.dateRange);
+    };
+
+    const handleBlur = (event) => {
+      console.log('Input field blurred:', event);
+    };
+
+    const handleOpenChange = (status) => {
+      console.log('Dropdown opened or closed:', status);
+    };
+
+    function disabledDate(date) {
+      return date < new Date(new Date().toDateString()) 
+    }
+
+    return {
+      
+      handleChange,
+      handleFocus,
+      handleBlur,
+      handleOpenChange,
+      disabledDate
+    };
+  },
+  mounted() {
+    this.dateRange = this.value; // Asignar valor inicial
+  }
+};
+</script>
+
+<style scoped>
+.date-range-picker-demo {
+  display: flex;
+  align-items: center;
+}
+.single-date-picker-popper .el-date-picker__header + .el-date-picker__content {
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.single-date-picker-popper .el-date-picker__header .el-date-picker__header-label {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+.single-date-picker-popper .el-date-picker__header .el-date-picker__header-label:after {
+  display: none !important;
+}
+</style>
+``
