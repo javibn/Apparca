@@ -3,7 +3,7 @@
       <div id="map" class="z-4 position-absolute w-100" style="margin-top:6vh;"></div>
       <div class="z-2 w-100   position-absolute">
         <div class="row bg-white m-0 ps-5 pe-5 w-100 filtros" style="height:6vh;display: flex;  align-items: center;">
-          <input type="text" class="col-2 h-75 rounded btn border text-start me-3" v-model="direccion"  placeholder="Direccion, Ciudad..." >
+          <input type="text" class="col-2 h-75 rounded btn border text-start me-3" v-model="filtroPlazas.direccion"  placeholder="Direccion, Ciudad..." >
           <div class="col-xl-2 col-3 h-100 p-0 me-3">
             <time-component class="h-100 p-0 m-0" @getDataHoras="getDataHoras"></time-component>
           </div>
@@ -57,14 +57,19 @@ export default {
             // TODO: crear variables de datos para el funcionamiento del componente
             plazasApi: [],
             map : {},
-            direccion: '',
-            horas: {
-              startTime:"",
-              endTime:""
+            filtroPlazas: {
+              /*direccion: '',
+              horas: {
+              },
+              fecha: '',
+              precio: '',
+              ancho: '',*/
+              latitudMaxima: "38,79182",
+              latitudMinima: "36,00000",
+              longitudMaxima: "3,03981",
+              longitudMinima: "-9,30178"
             },
-            fecha: '',
-            precio: '',
-            ancho: ''
+            
         }
     },
   components: {
@@ -82,35 +87,56 @@ export default {
       maxZoom: 20,
       minZoom: 6
     }).addTo(this.map);
+
+    await this.GetPlazasFiltradas();
+    console.log("hola")
     this.initMap();
-    await this.getPlazas();
+
   },
   methods: {
     getDataFecha(data) {
-      this.fecha = data
+      this.filtroPlazas.fecha = data
     },
     getDataHoras(data) {
-      this.horas = JSON.parse(data)
+      this.filtroPlazas.horas = JSON.parse(data)
     },
     getDataPrecio(data) {
-      this.precio = data
+      this.filtroPlazas.precio = data
     },
     getDataAncho(data) {
-      this.ancho = data
+      this.filtroPlazas.ancho = data
     },
     filtrar(){
-      console.log("Direccion: " + this.direccion);
-      console.log("Horas: " + this.horas.startTime);
-      console.log("Rango de fechas: " + this.fecha);
-      console.log("Precio: " + this.precio);
-      console.log("Ancho: " + this.ancho);
+      console.log("Direccion: " + this.filtroPlazas.direccion);
+      console.log("Horas: " + this.filtroPlazas.horas);
+      console.log("Rango de fechas: " + this.filtroPlazas.fecha);
+      console.log("Precio: " + this.filtroPlazas.precio);
+      console.log("Ancho: " + this.filtroPlazas.ancho);
     },
-    async getPlazas(){
-      try {
-        const response = await fetch("https://localhost:7207/usuario/plazas");
-        const data = await response.json();
+    async GetPlazasFiltradas(){
+      console.log(this.filtroPlazas)
+
+      const formData = new FormData();
+
+      for (const key in this.filtroPlazas) {
+        formData.append(key, this.filtroPlazas[key]);
+      }
+
+      fetch('https://localhost:7207/Plazas/Filtrado', {
+      method: 'POST',
+      body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data, "hola 1")
         this.plazasApi = data
-        var markers = L.markerClusterGroup();
+        })
+      .catch(error => console.error(error))
+
+    },
+    initMap() {
+      console.log("boroooooooooooooo"+this.plazasApi)
+      var markers = L.markerClusterGroup();
 
         this.plazasApi.forEach(plaza => {
           var marker = L.marker([plaza.latitud, plaza.longitud]);
@@ -118,12 +144,6 @@ export default {
         });
 
         this.map.addLayer(markers);
-      } catch (error) {
-        console.error(error);
-      }
-    },
-    initMap() {
-      
     }
   }
 }
