@@ -73,6 +73,10 @@ namespace Web_API.Controllers
                     Id = i,
                     Latitud = lat,
                     Longitud = lon,
+                    Direccion = "Calle clara campoamor, 5",
+                    HoraInicio = "09:00",
+                    HoraFinal = "17:00",
+                    PrecioMes = 25
                 });
             }
 
@@ -82,7 +86,18 @@ namespace Web_API.Controllers
             plazas = plazas.Where(plaza => (plaza.Longitud<= filtros.LongitudMaxima) && (plaza.Longitud >= filtros.LongitudMinima)).ToList();
 
 
-            var plazasN = plazas.OrderBy(r => Guid.NewGuid()).Take(100);
+            var plazasN = plazas.OrderBy(r => Guid.NewGuid()).Take(25).ToList();
+            plazasN.Add(new Plaza
+            {
+                Id = 10000,
+                Latitud = 38.379955,
+                Longitud = -0.429092,
+                Direccion = "Calle clara campoamor, 7",
+                HoraInicio = "08:00",
+                HoraFinal = "12:00",
+                PrecioMes = 50
+            });
+
             return Ok(plazasN);
         }
     }

@@ -19,7 +19,7 @@ namespace Web_API.Models
         public string FechaInicio { get; set; }
         public string FechaFinal { get; set; }
 
-        public string PrecioMes { get; set; }
+        public float PrecioMes { get; set; }
 
         public ICollection<ImagenesPlaza> Imagenes { get; set; }
 
