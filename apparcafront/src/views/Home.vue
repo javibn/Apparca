@@ -62,6 +62,7 @@ export default {
         return {
             // TODO: crear variables de datos para el funcionamiento del componente
             plazasApi: [],
+            plazasNuevas: [],
             map : {},
             filtroPlazas: {
               /*direccion: '',
@@ -75,7 +76,7 @@ export default {
               longitudMaxima: "",
               longitudMinima: ""
             },
-            
+            plazaId: ''
         }
     },
   components: {
@@ -96,15 +97,18 @@ export default {
       minZoom: 6
     }).addTo(mapa);
 
-    console.log("hola"+mapa.getCenter());
+    //console.log("hola"+mapa.getCenter());
 
     mapa.on("moveend", () => {
       this.MovimientoMapa(mapa);
     });
+    
+    /*mapa.on("popupopen", () => {
+      this.PopUpAbierto(mapa);
+    });*/
 
     this.MovimientoMapa(mapa);
-    //await this.GetPlazasFiltradas();
-    //this.initMap();
+
   },
   methods: {
     getDataFecha(data) {
@@ -127,28 +131,38 @@ export default {
       console.log("Ancho: " + this.filtroPlazas.ancho);
     },
     MovimientoMapa(map){
-      
+      console.log(this.plazaAbierta)
       var bounds = map.getBounds()
-      console.log(bounds)
-      console.log(this.filtroPlazas)
+      //console.log(bounds)
+      //console.log(this.filtroPlazas)
       this.filtroPlazas.latitudMaxima = bounds._northEast.lat.toString().replace(".", ",");
       this.filtroPlazas.longitudMaxima = bounds._northEast.lng.toString().replace(".", ",");
       this.filtroPlazas.latitudMinima = bounds._southWest.lat.toString().replace(".", ",");
       this.filtroPlazas.longitudMinima = bounds._southWest.lng.toString().replace(".", ",");
 
-      console.log(this.filtroPlazas)
-      console.log(map)
 
-      map.eachLayer(function (capa) {
-        if (capa instanceof L.Marker) {
-          map.removeLayer(capa);
+      map.eachLayer(function(layer) {
+        
+        if (layer instanceof L.Marker) {
+          setTimeout(function() {
+            console.log(this.plazaId)
+            /*
+            // Si el marcador tiene una relación con el objeto
+            if (layer.options.myCustomObject.id === this.plazaAbierta.id) {
+                // No hacer nada, conservar el marcador en el mapa
+            } else {
+                // Si el marcador no tiene relación con el objeto, eliminarlo del mapa
+                
+            }*/
+          }, 1000);
+          map.removeLayer(layer);
         }
-      });
+    });
 
       this.GetPlazasFiltradas();
     },
     async GetPlazasFiltradas(){
-      this.plazasApi = [];
+      this.plazasNuevas = [];
       const formData = new FormData();
 
       for (const key in this.filtroPlazas) {
@@ -165,53 +179,79 @@ export default {
         })
       .catch(error => console.error(error))
 
-      console.log("Get Plazas")
-
+      /*this.plazasApi.forEach(function(plazaVieja, indexViejo){
+        var encontrado = false
+        this.plazasNuevas.forEach(function(plazaNueva, indexNuevo) {
+          if(plazaNueva.id == plazaVieja.id){
+            encontrado = true
+          }
+        })
+        if(encontrado){
+          console.log()
+        }else{
+          console.log()
+        }
+      })*/
       var markers = L.markerClusterGroup();
 
-        this.plazasApi.forEach(plaza => {
+      this.plazasApi.forEach(plaza => {
 
-          var divIcon = L.divIcon({
-              // Establece el contenido HTML del icono
-              html: '<div class="marcador"><p>' + plaza.precioMes + '€</p></div><div class="flecha-down mx-auto"></div>',
-              iconSize: [38, 40], // size of the icon
-              shadowSize: [50, 64], // size of the shadow
-              iconAnchor: [22, 40], // point of the icon which will correspond to marker's location
-              popupAnchor: [-3, -76]
-          });
-
-          var marker = L.marker([plaza.latitud, plaza.longitud], {icon : divIcon});
-          markers.addLayer(marker);
-
-          var stringPopup = '\
-          <div class="row p-0" style="width:300px">\
-            <img class="col-12" src="https://noticias.coches.com/wp-content/uploads/2016/01/20130810_120454-e1674826167481.jpg"/>\
-            <div class="col-12 mx-auto ms-3 row mt-3 p-0">\
-            <h6 class="mx-auto">\
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">\
-                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>\
-                </svg>\
-                '+plaza.direccion+'\
-            </h6>\
-            <hr class="border border-black border-1 opacity-100 w-75 mx-auto">\
-            <div class="row p-0 m-0">\
-                <h7 class="col-6 btn" style="font-size:1rem;">'+plaza.horaInicio+' - '+plaza.horaFinal+'</h7>\
-                <h7 class="col-4 btn bg-primary  text-white rounded" style="font-size:1rem;">'+ plaza.precioMes+'€/mes</h7>\
-            </div>\
-            <a class="col-8 mx-auto p-0 btn btn-light text-dark fw-bold mt-3">VISITAR PLAZA</a>\
-        </div>\
-          </div>';
-
-          var popup = L.popup({ className: 'popup' })
-              .setContent(stringPopup);
-
-          //.setContent('<div class="popup" style="background-image: url(' + url + '); "><h1>PLAZA</h1><p style="font - size: 1rem">' + marcador.direccion + '</p>' +/*<img src="' + url + '"/>*/'</div>');
-
-          marker.bindPopup(popup);
-       
+        var divIcon = L.divIcon({
+            // Establece el contenido HTML del icono
+            html: '<div class="marcador"><p>' + plaza.precioMes + '€</p></div><div class="flecha-down mx-auto"></div>',
+            iconSize: [38, 40], // size of the icon
+            shadowSize: [50, 64], // size of the shadow
+            iconAnchor: [22, 40], // point of the icon which will correspond to marker's location
+            popupAnchor: [-3, -76]
         });
-        
-        this.map.addLayer(markers);
+
+        var marker = L.marker([plaza.latitud, plaza.longitud], {myCustomObject: plaza,icon : divIcon});
+        markers.addLayer(marker);
+
+        marker.on('popupopen', function() {
+            // Accede al objeto personalizado en el marcador
+            //this.plazaAbierta = plaza
+            //this.plazaAbierta.id = plaza.id;
+            console.log(this.plazaId)
+            console.log(plaza)
+            this.plazaId = plaza.id
+            console.log(this.plazaId)
+        });
+
+        var stringPopup = '\
+        <div class="row p-0" style="width:300px">\
+          <img class="col-12" src="https://noticias.coches.com/wp-content/uploads/2016/01/20130810_120454-e1674826167481.jpg"/>\
+          <div class="col-12 mx-auto ms-3 row mt-3 p-0">\
+          <h6 class="mx-auto">\
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">\
+                  <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>\
+              </svg>\
+              '+plaza.direccion+'\
+          </h6>\
+          <hr class="border border-black border-1 opacity-100 w-75 mx-auto">\
+          <div class="row p-0 m-0">\
+              <h7 class="col-6 btn" style="font-size:1rem;">'+plaza.horaInicio+' - '+plaza.horaFinal+'</h7>\
+              <h7 class="col-4 btn bg-primary  text-white rounded" style="font-size:1rem;">'+ plaza.precioMes+'€/mes</h7>\
+          </div>\
+          <a class="col-8 mx-auto p-0 btn btn-light text-dark fw-bold mt-3">VISITAR PLAZA</a>\
+      </div>\
+        </div>';
+
+        var popup = L.popup({ className: 'popup' })
+            .setContent(stringPopup);
+
+        //.setContent('<div class="popup" style="background-image: url(' + url + '); "><h1>PLAZA</h1><p style="font - size: 1rem">' + marcador.direccion + '</p>' +/*<img src="' + url + '"/>'</div>');
+
+        marker.bindPopup(popup);
+      });
+      
+      this.map.addLayer(markers);
+      console.log(this.markers)
+
+      console.log(this.markers instanceof L.MarkerClusterGroup);
+      console.log(L.MarkerClusterGroup);
+
+      
     }
   }
 }
