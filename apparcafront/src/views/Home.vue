@@ -35,7 +35,7 @@
 
       <div class="z-1 w-100 position-absolute " style="height:20vh; bottom: 3vh;">
         <p class="text-center fw-bold m-0" style="height:3vh;">{{this.plazasApi.length}} Resultados</p>
-        <scrollbar-component :numberOfItems="plazasApi" />
+        <scrollbar-component :numberOfItems="plazasApi" :abierto="plazaId" />
       </div>
       
         <!--<router-link to="/About">About</router-link>-->
@@ -47,6 +47,8 @@
 //import inicioPlazas from './components/Plazas.vue'
 import L from 'leaflet';
 import 'leaflet.markercluster';
+//import {toRaw} from 'vue';
+//import { stringify } from 'flatted';
 
 import DateComponent from '../components/DateComponent.vue'
 import TimeComponent from '../components/TimeComponent.vue'
@@ -62,7 +64,6 @@ export default {
         return {
             // TODO: crear variables de datos para el funcionamiento del componente
             plazasApi: [],
-            plazasNuevas: [],
             map : {},
             filtroPlazas: {
               /*direccion: '',
@@ -76,7 +77,7 @@ export default {
               longitudMaxima: "",
               longitudMinima: ""
             },
-            plazaId: ''
+            plazaId: 0
         }
     },
   components: {
@@ -102,10 +103,15 @@ export default {
     mapa.on("moveend", () => {
       this.MovimientoMapa(mapa);
     });
-    
-    /*mapa.on("popupopen", () => {
-      this.PopUpAbierto(mapa);
-    });*/
+
+    mapa.on('popupopen', (event) => {
+      this.AbrirPopUp(event)
+    });
+
+    mapa.on('popupclose', () => {
+      this.plazaId = 0
+      console.log("id: " + this.plazaId)
+    });
 
     this.MovimientoMapa(mapa);
 
@@ -130,8 +136,29 @@ export default {
       console.log("Precio: " + this.filtroPlazas.precio);
       console.log("Ancho: " + this.filtroPlazas.ancho);
     },
+    AbrirPopUp(event){
+      var marker = event.popup._source;
+      //console.log(marker.options.id)
+      this.plazaId = marker.options.id
+
+      var posicion = -1
+      var plaza = {}
+      for(var i=0; i< this.plazasApi.length;i++){
+        if(this.plazaId === this.plazasApi[i].id){
+          posicion = i;
+          plaza = this.plazasApi[i]
+        }
+      }
+
+      if(posicion!=0){
+        this.plazasApi.splice(posicion, 1);
+        this.plazasApi.unshift(plaza)
+      }
+      console.log("id: " + this.plazaId)
+    },
     MovimientoMapa(map){
-      console.log(this.plazaAbierta)
+      console.log(this.plazaId)
+
       var bounds = map.getBounds()
       //console.log(bounds)
       //console.log(this.filtroPlazas)
@@ -140,30 +167,47 @@ export default {
       this.filtroPlazas.latitudMinima = bounds._southWest.lat.toString().replace(".", ",");
       this.filtroPlazas.longitudMinima = bounds._southWest.lng.toString().replace(".", ",");
 
-
-      map.eachLayer(function(layer) {
-        
-        if (layer instanceof L.Marker) {
-          setTimeout(function() {
-            console.log(this.plazaId)
-            /*
-            // Si el marcador tiene una relación con el objeto
-            if (layer.options.myCustomObject.id === this.plazaAbierta.id) {
-                // No hacer nada, conservar el marcador en el mapa
-            } else {
-                // Si el marcador no tiene relación con el objeto, eliminarlo del mapa
-                
-            }*/
-          }, 1000);
-          map.removeLayer(layer);
+      for(var i=0; i< this.plazasApi.length; i++){
+        if(this.plazaId !== this.plazasApi[i].id){
+          this.plazasApi.splice(i, 1)
+          i--
         }
-    });
+      }
+
+      console.log("estadoooooooooooo")
+      console.log(this.plazasApi)
+      
+
+      // Crea un nuevo MarkerClusterGroup vacío y asigna al mapa
+      
+      const self = this;
+      // Itera sobre todas las capas del mapa y elimina cada capa que sea un marcador o un grupo de marcadores
+      map.eachLayer(function(layer) {
+        console.log(self.plazaId)
+        console.log("1"+ layer)
+          if (layer instanceof L.Marker) {
+            console.log("2M")
+            console.log(layer)
+            console.log(self.plazaId)
+            //layer.clearLayers();
+            if(layer.options.id){
+              if(layer.options.id !== self.plazaId){
+                map.removeLayer(layer)
+              }else{
+                console.log("no lo quito")
+              }
+              
+            }else{
+              map.removeLayer(layer)
+            }
+          }
+      });
 
       this.GetPlazasFiltradas();
+      
     },
     async GetPlazasFiltradas(){
-      this.plazasNuevas = [];
-      const formData = new FormData();
+      /*const formData = new FormData();
 
       for (const key in this.filtroPlazas) {
         formData.append(key, this.filtroPlazas[key]);
@@ -175,81 +219,78 @@ export default {
       })
       .then(response => response.json())
       .then(data => {
-        this.plazasApi = data
+        //this.plazasApi = this.plazasApi.concat(data)
+        data.forEach(plazaNueva => {
+          if(plazaNueva.id != this.plazaId){
+            this.plazasApi.push(plazaNueva)
+          }
+        })
+        })
+      .catch(error => console.error(error))*/
+      console.log(this.filtroPlazas)
+      await fetch('https://localhost:7207/Plazas/Filtrado?latitudMaxima=' + this.filtroPlazas.latitudMaxima + '&latitudMinima=' + this.filtroPlazas.latitudMinima + '&longitudMaxima=' + this.filtroPlazas.longitudMaxima + '&longitudMinima=' + this.filtroPlazas.longitudMinima)
+      .then(response => response.json())
+      .then(data => {
+        //this.plazasApi = this.plazasApi.concat(data)
+        data.forEach(plazaNueva => {
+          if(plazaNueva.id != this.plazaId){
+            this.plazasApi.push(plazaNueva)
+          }
+        })
         })
       .catch(error => console.error(error))
 
-      /*this.plazasApi.forEach(function(plazaVieja, indexViejo){
-        var encontrado = false
-        this.plazasNuevas.forEach(function(plazaNueva, indexNuevo) {
-          if(plazaNueva.id == plazaVieja.id){
-            encontrado = true
-          }
-        })
-        if(encontrado){
-          console.log()
-        }else{
-          console.log()
-        }
-      })*/
+
       var markers = L.markerClusterGroup();
 
       this.plazasApi.forEach(plaza => {
 
-        var divIcon = L.divIcon({
+        if(plaza.id !== this.plazaId){
+          var divIcon = L.divIcon({
             // Establece el contenido HTML del icono
             html: '<div class="marcador"><p>' + plaza.precioMes + '€</p></div><div class="flecha-down mx-auto"></div>',
             iconSize: [38, 40], // size of the icon
             shadowSize: [50, 64], // size of the shadow
             iconAnchor: [22, 40], // point of the icon which will correspond to marker's location
             popupAnchor: [-3, -76]
-        });
+          });
 
-        var marker = L.marker([plaza.latitud, plaza.longitud], {myCustomObject: plaza,icon : divIcon});
-        markers.addLayer(marker);
+          var marker = L.marker([plaza.latitud, plaza.longitud], {id: plaza.id,icon : divIcon});
+          markers.addLayer(marker);
 
-        marker.on('popupopen', function() {
-            // Accede al objeto personalizado en el marcador
-            //this.plazaAbierta = plaza
-            //this.plazaAbierta.id = plaza.id;
-            console.log(this.plazaId)
-            console.log(plaza)
-            this.plazaId = plaza.id
-            console.log(this.plazaId)
-        });
+          console.log(marker.options.id)
 
-        var stringPopup = '\
-        <div class="row p-0" style="width:300px">\
-          <img class="col-12" src="https://noticias.coches.com/wp-content/uploads/2016/01/20130810_120454-e1674826167481.jpg"/>\
-          <div class="col-12 mx-auto ms-3 row mt-3 p-0">\
-          <h6 class="mx-auto">\
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">\
-                  <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>\
-              </svg>\
-              '+plaza.direccion+'\
-          </h6>\
-          <hr class="border border-black border-1 opacity-100 w-75 mx-auto">\
-          <div class="row p-0 m-0">\
-              <h7 class="col-6 btn" style="font-size:1rem;">'+plaza.horaInicio+' - '+plaza.horaFinal+'</h7>\
-              <h7 class="col-4 btn bg-primary  text-white rounded" style="font-size:1rem;">'+ plaza.precioMes+'€/mes</h7>\
-          </div>\
-          <a class="col-8 mx-auto p-0 btn btn-light text-dark fw-bold mt-3">VISITAR PLAZA</a>\
-      </div>\
-        </div>';
+          var stringPopup = '\
+          <div class="row p-0" style="width:300px">\
+            <img class="col-12" src="https://noticias.coches.com/wp-content/uploads/2016/01/20130810_120454-e1674826167481.jpg"/>\
+            <div class="col-12 mx-auto ms-3 row mt-3 p-0">\
+            <h6 class="mx-auto">\
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">\
+                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>\
+                </svg>\
+                '+plaza.direccion+'\
+            </h6>\
+            <hr class="border border-black border-1 opacity-100 w-75 mx-auto">\
+            <div class="row p-0 m-0">\
+                <h7 class="col-6 btn" style="font-size:1rem;">'+plaza.horaInicio+' - '+plaza.horaFinal+'</h7>\
+                <h7 class="col-4 btn bg-primary  text-white rounded" style="font-size:1rem;">'+ plaza.precioMes+'€/mes</h7>\
+            </div>\
+            <a class="col-8 mx-auto p-0 btn btn-light text-dark fw-bold mt-3">VISITAR PLAZA</a>\
+        </div>\
+          </div>';
 
-        var popup = L.popup({ className: 'popup' })
-            .setContent(stringPopup);
+          var popup = L.popup({ className: 'popup' })
+              .setContent(stringPopup);
 
-        //.setContent('<div class="popup" style="background-image: url(' + url + '); "><h1>PLAZA</h1><p style="font - size: 1rem">' + marcador.direccion + '</p>' +/*<img src="' + url + '"/>'</div>');
+          //.setContent('<div class="popup" style="background-image: url(' + url + '); "><h1>PLAZA</h1><p style="font - size: 1rem">' + marcador.direccion + '</p>' +/*<img src="' + url + '"/>'</div>');
 
-        marker.bindPopup(popup);
+          marker.bindPopup(popup);
+        }
+
+        
       });
       
       this.map.addLayer(markers);
-      console.log(this.markers)
-
-      console.log(this.markers instanceof L.MarkerClusterGroup);
-      console.log(L.MarkerClusterGroup);
 
       
     }

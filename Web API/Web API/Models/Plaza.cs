@@ -6,12 +6,12 @@ namespace Web_API.Models
     {
         public int Id { get; set; }
         
-        public Usuario? Arrendador { get; set; }
+        public Usuario Arrendador { get; set; }
         public int ArrendadorId { get; set; }
         
-        public double? Latitud { get; set; }
-        public double? Longitud { get; set; }
-        public string? Direccion { get; set; }
+        public double Latitud { get; set; }
+        public double Longitud { get; set; }
+        public string Direccion { get; set; }
 
         public int Ancho { get; set; }
         public int Largo { get; set; }
@@ -29,7 +29,7 @@ namespace Web_API.Models
 
         public ICollection<Reserva>? Reservas { get; set; }
 
-        public float? PrecioMando { get; set; }
+        public float PrecioMando { get; set; }
         public bool? EsVerificada { get; set; }
     }
 }

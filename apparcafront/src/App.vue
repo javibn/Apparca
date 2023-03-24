@@ -2,7 +2,7 @@
   <div>
     <header class="position-absolute w-100 z-2 pe-3 ps-lg-5 ps-3" style="height: 8vh;">
         <nav class="navbar navbar-expand-lg navbar-light bg-white align-items-center p-0 container-fluid h-100" >
-            <a class="navbar-brand h-100">
+            <a class="navbar-brand h-100" href="/">
                 <img src="../src/assets/APPARCA.png" class="h-100" alt="Logo">
             </a>
             <button class="navbar-toggler h-100 m" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
@@ -62,8 +62,11 @@
                         </li>
                     </div>
                     <li><hr class="border border-primary border-1 col-2 mx-auto opacity-100 m-0 linea"></li>
-                    <li class="d-none d-md-block botonPlaza">
-                        <button class="btn text-primary border border-primary">+ Subir mi plaza</button>
+                    <li class="d-none d-md-block botonPlaza" v-if="this.log">
+                        <a href="/SubirPlaza" class="btn text-primary border border-primary">+ Subir mi plaza</a>
+                    </li>
+                    <li class="d-none d-md-block botonPlaza" v-else>
+                        <a href="/login" class="btn text-primary border border-primary">+ Subir mi plaza</a>
                     </li>
                     <li><hr class="border border-primary border-1 col-2 mx-auto opacity-100 m-0  d-none d-md-block d-lg-none linea"></li>
                 </ul>

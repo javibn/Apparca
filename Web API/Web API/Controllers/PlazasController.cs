@@ -47,10 +47,11 @@ namespace Web_API.Controllers
             return Ok(plazasN);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("Filtrado")]
-        public ActionResult FiltrarPlazas([FromForm] FiltroPlaza filtros)
+        public ActionResult FiltrarPlazas(string latitudMaxima, string latitudMinima, string longitudMaxima, string longitudMinima)
         {
+            FiltroPlaza filtros = new FiltroPlaza(latitudMaxima, latitudMinima, longitudMaxima, longitudMinima);
 
             List<Plaza> plazas = new List<Plaza>();
             //List<Plaza> plazas = _context.Plazas.ToList();
