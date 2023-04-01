@@ -51,7 +51,7 @@ export default {
 }
 
 .el-input{
-    height: 75%;
+    height: 100%;
 }
 
 </style>

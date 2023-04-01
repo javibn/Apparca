@@ -4,8 +4,8 @@
       <div class="z-2 w-100   position-absolute">
         <div class="row bg-white m-0 ps-5 pe-5 w-100 filtros" style="height:6vh;display: flex;  align-items: center;">
           <input type="text" class="col-2 h-75 rounded btn border text-start me-3" v-model="filtroPlazas.direccion"  placeholder="Direccion, Ciudad..." >
-          <div class="col-xl-2 col-3 h-100 p-0 me-3">
-            <time-component class="h-100 p-0 m-0" @getDataHoras="getDataHoras"></time-component>
+          <div class="col-xl-2 col-3 h-100 p-0 me-3" style="display: flex;  align-items: center;">
+            <time-component class="h-75 p-0 m-0" @getDataHoras="getDataHoras"></time-component>
           </div>
           <div class="col-2 me-3 h-75 p-0">
             <date-component class="h-100 p-0 m-0 w-100" @getDataFecha="getDataFecha"></date-component>
@@ -302,7 +302,6 @@ export default {
 <style>
 #map {
   height: 80vh !important;
-  z-index: 1!important;
 }
 
 
@@ -342,4 +341,6 @@ export default {
     border:0px;
     background-color: transparent;
 }
+
+
 </style>

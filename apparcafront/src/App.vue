@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="position-absolute w-100 z-2 pe-3 ps-lg-5 ps-3" style="height: 8vh;">
+    <header class="w-100 z-2 pe-3 ps-lg-5 ps-3" style="height: 8vh;">
         <nav class="navbar navbar-expand-lg navbar-light bg-white align-items-center p-0 container-fluid h-100" >
             <a class="navbar-brand h-100" href="/">
                 <img src="../src/assets/APPARCA.png" class="h-100" alt="Logo">
@@ -53,7 +53,7 @@
                     <li><hr class="border border-primary border-1 col-2 mx-auto opacity-100 m-0 linea"></li>
                     <div v-if="this.log">
                         <li class="nav-item">
-                            <a class="nav-link text-decoration-none text-black" href="#">Logout</a>
+                            <a class="nav-link text-decoration-none text-black" @click="logout">Logout</a>
                         </li>
                     </div>
                     <div v-else>
@@ -73,10 +73,10 @@
             </div>
         </nav>
     </header>
-    <router-view style="height: 86vh;width:100%; margin-top:8vh" class="position-absolute z-1"/>
+    <router-view style="min-height: 86vh;width:100%;" />
 
-    <footer class="text-muted container-fluid px-md-5 align-items-center position-absolute z-1" style="height: 6vh;width:100%; margin-top:94vh" >
-        <nav class="navbar navbar-expand container-fluid p-0 d-none d-md-block" style="height: 6vh">
+    <footer class="text-muted container-fluid border-top px-md-5 align-items-center " style="height: auto;width:100%;" >
+        <nav class="navbar navbar-expand container-fluid p-0 d-none d-md-block" style="height: 5vh">
             <div class="collapse navbar-collapse text-center h-100 " id="navbarNav">
                 <ul class="navbar-nav mr-auto me-auto h-100 align-items-center">
 
@@ -142,32 +142,46 @@
 </template>
 
 <script>
+    import { mapActions } from 'vuex';
     export default {
         data: function() {
             return {
                 // TODO: crear variables de datos para el funcionamiento del componente
                 log:true
             }
-        }
+        },
+        methods: {
+            ...mapActions(['logout']),
+            handleLogout() {
+                // Llamamos a la acción logout de Vuex
+                this.logout().then(() => {
+                    //this.$router.push('/');
+                });
+            }
+        },
     }
 </script>
 
 <style>
-  footer{
-    box-sizing: border-box;
-  }
+    *{
+        box-sizing: border-box;
+    }
 
-  header .nav-item{
+    footer{
+        box-sizing: border-box;
+    }
+
+    header .nav-item{
     transition: .7s;
-  }
+    }
 
-  header .nav-item:hover{
+    header .nav-item:hover{
     letter-spacing: 1px;
-  }
+    }
 
-  .linea{
+    .linea{
     display: none;
-  }
+    }
 
     .login{
         margin-right: 1rem;
