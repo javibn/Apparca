@@ -1,6 +1,6 @@
 <template>
     <div >
-      <div id="map" class="z-4 position-absolute w-100" style="margin-top:6vh;"></div>
+      <div id="map" class="z-2 position-absolute w-100" style="margin-top:6vh;"></div>
       <div class="z-2 w-100   position-absolute">
         <div class="row bg-white m-0 ps-5 pe-5 w-100 filtros" style="height:6vh;display: flex;  align-items: center;">
           <input type="text" class="col-2 h-75 rounded btn border text-start me-3" v-model="filtroPlazas.direccion"  placeholder="Direccion, Ciudad..." >
@@ -33,7 +33,7 @@
         
       </div>
 
-      <div class="z-1 w-100 position-absolute " style="height:20vh; bottom: 3vh;">
+      <div class="z-3 w-100 position-absolute " style="height:20vh; bottom: 6vh;">
         <p class="text-center fw-bold m-0" style="height:3vh;">{{this.plazasApi.length}} Resultados</p>
         <scrollbar-component :numberOfItems="plazasApi" :abierto="plazaId" />
       </div>

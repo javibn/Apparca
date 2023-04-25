@@ -68,7 +68,6 @@ namespace Web_API.Controllers
                 double lat = rnd.NextDouble() * (maxLat - minLat) + minLat;
                 double lon = rnd.NextDouble() * (maxLon - minLon) + minLon;
 
-
                 plazas.Add(new Plaza
                 {
                     Id = i,

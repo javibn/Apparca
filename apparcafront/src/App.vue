@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="w-100 z-2 pe-3 ps-lg-5 ps-3" style="height: 8vh;">
+    <header class="w-100 z-2 pe-3 ps-lg-5 ps-3 border-bottom" style="height: 8vh;">
         <nav class="navbar navbar-expand-lg navbar-light bg-white align-items-center p-0 container-fluid h-100" >
             <a class="navbar-brand h-100" href="/">
                 <img src="../src/assets/APPARCA.png" class="h-100" alt="Logo">
@@ -14,19 +14,19 @@
                         <a class="nav-link text-decoration-none text-black" href="#">Listado</a>
                     </li>
                     <li><hr class="border border-primary border-1 col-2 mx-auto opacity-100 m-0 linea"></li>
-                    <div v-if="this.log">
+                    <div v-if="isLoggedIn">
                         <li class="nav-item" >
                             <a class="nav-link text-decoration-none text-black" href="#">Mis Plazas</a>
                         </li>
                         <li><hr class="border border-primary border-1 col-2 mx-auto opacity-100 m-0 linea"></li>
                     </div>
-                    <div v-if="this.log">
+                    <div v-if="isLoggedIn">
                         <li class="nav-item">
                             <a class="nav-link text-decoration-none text-black" href="#">Mis Reservas</a>
                         </li>
                         <li><hr class="border border-primary border-1 col-2 mx-auto opacity-100 m-0 linea"></li>
                     </div>
-                    <div v-if="this.log">
+                    <div v-if="isLoggedIn">
                         <li class="nav-item">
                             <a class="nav-link text-decoration-none text-black" href="#">Mis Ofertas</a>
                         </li>
@@ -40,18 +40,18 @@
                     </div>
                 </ul>
                 <ul class="navbar-nav ml-auto login">
-                    <div v-if="this.log">
+                    <div v-if="isLoggedIn">
                         <li class="nav-item">
                             <a class="nav-link text-decoration-none text-black" href="#">Editar perfil</a>
                         </li>
                     </div>
                     <div v-else>
                         <li class="nav-item">
-                            <a class="nav-link text-decoration-none text-black" href="#">Log In</a>
+                            <a class="nav-link text-decoration-none text-black" @click="login">Log In</a>
                         </li>
                     </div>
                     <li><hr class="border border-primary border-1 col-2 mx-auto opacity-100 m-0 linea"></li>
-                    <div v-if="this.log">
+                    <div v-if="isLoggedIn">
                         <li class="nav-item">
                             <a class="nav-link text-decoration-none text-black" @click="logout">Logout</a>
                         </li>
@@ -62,11 +62,8 @@
                         </li>
                     </div>
                     <li><hr class="border border-primary border-1 col-2 mx-auto opacity-100 m-0 linea"></li>
-                    <li class="d-none d-md-block botonPlaza" v-if="this.log">
+                    <li class="d-none d-md-block botonPlaza">
                         <a href="/SubirPlaza" class="btn text-primary border border-primary">+ Subir mi plaza</a>
-                    </li>
-                    <li class="d-none d-md-block botonPlaza" v-else>
-                        <a href="/login" class="btn text-primary border border-primary">+ Subir mi plaza</a>
                     </li>
                     <li><hr class="border border-primary border-1 col-2 mx-auto opacity-100 m-0  d-none d-md-block d-lg-none linea"></li>
                 </ul>
@@ -142,23 +139,25 @@
 </template>
 
 <script>
-    import { mapActions } from 'vuex';
+    import { mapState } from 'vuex';
+
     export default {
         data: function() {
             return {
-                // TODO: crear variables de datos para el funcionamiento del componente
-                log:true
             }
+        },
+        computed:{
+            ...mapState(['isLoggedIn']),
+            ...mapState(['name'])
         },
         methods: {
-            ...mapActions(['logout']),
-            handleLogout() {
-                // Llamamos a la acción logout de Vuex
-                this.logout().then(() => {
-                    //this.$router.push('/');
-                });
-            }
-        },
+            login() {
+            this.$store.commit('login');
+            },
+            logout() {
+            this.$store.commit('logout');
+            },
+        }
     }
 </script>
 
@@ -186,6 +185,11 @@
     .login{
         margin-right: 1rem;
     }
+
+    .navbar-collapse {
+        z-index: 5;
+    }
+
 
    
 

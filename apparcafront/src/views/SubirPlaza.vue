@@ -27,6 +27,14 @@ export default {
   },
   computed:{
     ...mapState(['isLoggedIn']),
+  },
+  methods: {
+    login() {
+      this.$store.commit('login');
+    },
+    logout() {
+      this.$store.commit('logout');
+    },
   }
 }
 </script>

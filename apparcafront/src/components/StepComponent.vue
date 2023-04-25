@@ -1,6 +1,7 @@
 <template >
   <div class="h-100" style="display: flex; flex-direction: column;">
-    <div id="contenido " class="mt-3" style="flex-grow: 1;">
+    <div id="contenido" class="mt-3 pb-3" style="flex-grow: 1; min-height: 60vh;">
+      
       <div v-if="this.active==0">
         <div class="row mb-3">
           <div class="col-12  ">
@@ -143,7 +144,7 @@ import VueGoogleAutocomplete from "vue-google-autocomplete";
 import InputNumberComponent from '../components/InputNumberComponent.vue'
 import DateComponent from '../components/DateComponent.vue'
 import TimeComponent from '../components/TimeComponent.vue'
-import ImageComponent from '../components/ImageComponent.vue'
+import ImageComponent from './ImageComponent.vue'
 
 export default {
   name: 'StepComponent',
@@ -167,7 +168,7 @@ export default {
           },
           imagenes:[]
         },
-        active:0,
+        active:2,
         mapa: "",
         markers : ""
       }
@@ -220,7 +221,7 @@ export default {
         }
       }else if(this.active==1){
         
-        if (this.plaza.horario.startTime && this.plaza.horario.endTime && this.plaza.calendario.fechaInicio && this.plaza.precioMando>=0 && this.plaza.precioMes>0) {
+        if (this.plaza.horario.startTime && this.plaza.horario.endTime && this.plaza.calendario.fechaInicio && document.getElementById("fianzaControl").value>=0 && document.getElementById("priceControl").value>0) {
           botonSiguiente.disabled = false;
         } else {
           botonSiguiente.disabled = true;

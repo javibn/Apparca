@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import SubirPlaza from "../views/SubirPlaza.vue";
+import Login from "../views/Login.vue";
 
 
 
@@ -23,6 +24,11 @@ const routes = [
     path: "/SubirPlaza",
     name: "SubirPlaza",
     component: SubirPlaza,
+  },
+  {
+    path: "/Login",
+    name: "Login",
+    component: Login,
   },
 ];
 
