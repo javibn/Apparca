@@ -9,7 +9,7 @@
             <h5>Inicia sesion para poder acceder a esta página</h5>
             <div class="mt-5">
                 <a href="/Login" class="btn btn-outline-primary col-md-2 col-4">Log In</a>
-                <a class="btn btn-outline-primary col-md-2 col-4 offset-1">Registrarse</a>
+                <a href="/Register" class="btn btn-outline-primary col-md-2 col-4 offset-1">Registrarse</a>
             </div>
         </div>
     </div>

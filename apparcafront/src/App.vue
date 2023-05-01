@@ -2,9 +2,9 @@
   <div>
     <header class="w-100 z-2 pe-3 ps-lg-5 ps-3 border-bottom" style="height: 8vh;">
         <nav class="navbar navbar-expand-lg navbar-light bg-white align-items-center p-0 container-fluid h-100" >
-            <a class="navbar-brand h-100" href="/">
+            <router-link class="navbar-brand h-100" to="/Home">
                 <img src="../src/assets/APPARCA.png" class="h-100" alt="Logo">
-            </a>
+            </router-link>
             <button class="navbar-toggler h-100 m" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon h-100"></span>
             </button>
@@ -42,28 +42,38 @@
                 <ul class="navbar-nav ml-auto login">
                     <div v-if="isLoggedIn">
                         <li class="nav-item">
-                            <a class="nav-link text-decoration-none text-black" href="#">Editar perfil</a>
+                            <router-link class="nav-link btn btn-light text-decoration-none text-black" to="#">
+                                {{this.name}}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                                </svg>
+                            </router-link>
                         </li>
                     </div>
                     <div v-else>
                         <li class="nav-item">
-                            <a class="nav-link text-decoration-none text-black" @click="login">Log In</a>
+                            <a class="nav-link text-decoration-none text-black " href="/Login">Log In</a>
                         </li>
                     </div>
                     <li><hr class="border border-primary border-1 col-2 mx-auto opacity-100 m-0 linea"></li>
+                    <div class="d-lg-block d-none">
+                        <li class="nav-item">
+                            <a class="nav-link text-decoration-none text-black">|</a>
+                        </li>
+                    </div>
                     <div v-if="isLoggedIn">
                         <li class="nav-item">
-                            <a class="nav-link text-decoration-none text-black" @click="logout">Logout</a>
+                            <a class="nav-link btn btn-light me-3 text-black" @click="logout">Logout</a>
                         </li>
                     </div>
                     <div v-else>
                         <li class="nav-item">
-                            <a class="nav-link text-decoration-none text-black" href="#">Register</a>
+                            <a class="nav-link text-decoration-none text-black me-3" href="/Register">Register</a>
                         </li>
                     </div>
                     <li><hr class="border border-primary border-1 col-2 mx-auto opacity-100 m-0 linea"></li>
                     <li class="d-none d-md-block botonPlaza">
-                        <a href="/SubirPlaza" class="btn text-primary border border-primary">+ Subir mi plaza</a>
+                        <router-link class="btn text-primary border border-primary" to="/SubirPlaza" style="color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important">+ Subir mi plaza</router-link>
                     </li>
                     <li><hr class="border border-primary border-1 col-2 mx-auto opacity-100 m-0  d-none d-md-block d-lg-none linea"></li>
                 </ul>
@@ -151,9 +161,6 @@
             ...mapState(['name'])
         },
         methods: {
-            login() {
-            this.$store.commit('login');
-            },
             logout() {
             this.$store.commit('logout');
             },
@@ -175,7 +182,7 @@
     }
 
     header .nav-item:hover{
-    letter-spacing: 1px;
+    letter-spacing: 0px;
     }
 
     .linea{
@@ -190,7 +197,7 @@
         z-index: 5;
     }
 
-
+    
    
 
   @media screen and (max-width: 991px) {

@@ -48,6 +48,20 @@ namespace Web_API.Controllers
         }
 
         [HttpGet]
+        [Route("Details")]
+        public ActionResult ObtenerPlaza(int id)
+        {
+            Plaza plaza = _context.Plazas.Find(id);
+
+            if(plaza == null)
+            {
+                return BadRequest();
+            }
+            
+            return Ok(plaza);
+        }
+
+        [HttpGet]
         [Route("Filtrado")]
         public ActionResult FiltrarPlazas(string latitudMaxima, string latitudMinima, string longitudMaxima, string longitudMinima)
         {

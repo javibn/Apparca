@@ -5,7 +5,7 @@
           <hr class="border border-primary border-1 col-12 mx-auto opacity-50 m-0"> 
         </div>  
         <div class="container" style="min-height:80%;">
-          <step-component />
+          <prueba></prueba>
         </div>
     </div>
     <div v-else>
@@ -15,18 +15,22 @@
 
 <script>
 import { mapState } from 'vuex';
-import StepComponent from '../components/StepComponent.vue'
+import Prueba from '../components/PruebaComponent.vue'
 
 import DenegateComponent from '../components/DenegateComponent.vue'
 
 export default {
   name: 'SubirPlaza',
   components: {
-    StepComponent,
+    Prueba,
     DenegateComponent
   },
   computed:{
     ...mapState(['isLoggedIn']),
+    ...mapState(['name']),
+  },
+  mounted(){
+    console.log(this.isLoggedIn);
   },
   methods: {
     login() {

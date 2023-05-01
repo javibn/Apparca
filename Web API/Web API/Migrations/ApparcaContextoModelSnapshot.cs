@@ -22,31 +22,6 @@ namespace Web_API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Web_API.Models.ImagenesPlaza", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<byte[]>("Imagen")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<int>("PlazaId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("formatoImagen")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PlazaId");
-
-                    b.ToTable("ImagenesPlaza");
-                });
-
             modelBuilder.Entity("Web_API.Models.Plaza", b =>
                 {
                     b.Property<int>("Id")
@@ -60,6 +35,10 @@ namespace Web_API.Migrations
 
                     b.Property<int>("ArrendadorId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Direccion")
                         .IsRequired()
@@ -84,6 +63,10 @@ namespace Web_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("Imagen")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<int>("Largo")
                         .HasColumnType("int");
 
@@ -98,6 +81,9 @@ namespace Web_API.Migrations
 
                     b.Property<float>("PrecioMes")
                         .HasColumnType("real");
+
+                    b.Property<string>("formatoImagen")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -181,17 +167,6 @@ namespace Web_API.Migrations
                     b.ToTable("Usuarios", (string)null);
                 });
 
-            modelBuilder.Entity("Web_API.Models.ImagenesPlaza", b =>
-                {
-                    b.HasOne("Web_API.Models.Plaza", "Plaza")
-                        .WithMany("Imagenes")
-                        .HasForeignKey("PlazaId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Plaza");
-                });
-
             modelBuilder.Entity("Web_API.Models.Plaza", b =>
                 {
                     b.HasOne("Web_API.Models.Usuario", "Arrendador")
@@ -222,8 +197,6 @@ namespace Web_API.Migrations
 
             modelBuilder.Entity("Web_API.Models.Plaza", b =>
                 {
-                    b.Navigation("Imagenes");
-
                     b.Navigation("Reservas");
                 });
 

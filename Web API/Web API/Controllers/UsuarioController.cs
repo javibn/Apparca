@@ -94,11 +94,12 @@ namespace Web_API.Controllers
 
         [HttpPost]
         [Route("registro")]
-        public dynamic Registrarse(string email, string password)
+        public dynamic Registrarse(string email, string password, string nombre)
         {
             Usuario user = new Usuario();
             user.Correo= email;
             user.password= password;
+            user.Nombre= nombre;
 
             _context.Add(user);
             _context.SaveChanges();

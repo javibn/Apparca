@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 //import inicioPlazas from './components/Plazas.vue'
 import L from 'leaflet';
 import 'leaflet.markercluster';
@@ -88,8 +89,11 @@ export default {
     InputNumberComponent,
     ScrollbarComponent
   },
+  computed:{
+            ...mapState(['isLoggedIn']),
+            ...mapState(['token'])
+        },
   async mounted() {
-
     const mapa = L.map('map').setView([39.850931195377946, -3.1256103515625004], 7)
     this.map = mapa
     // Agregar una capa de mapa base
@@ -173,13 +177,8 @@ export default {
           i--
         }
       }
-
-      console.log("estadoooooooooooo")
       console.log(this.plazasApi)
-      
-
       // Crea un nuevo MarkerClusterGroup vacío y asigna al mapa
-      
       const self = this;
       // Itera sobre todas las capas del mapa y elimina cada capa que sea un marcador o un grupo de marcadores
       map.eachLayer(function(layer) {

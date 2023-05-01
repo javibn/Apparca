@@ -12,6 +12,7 @@ namespace Web_API.Models
         public double Latitud { get; set; }
         public double Longitud { get; set; }
         public string Direccion { get; set; }
+        public string Descripcion { get; set; }
 
         public int Ancho { get; set; }
         public int Largo { get; set; }
@@ -21,7 +22,8 @@ namespace Web_API.Models
 
         public float PrecioMes { get; set; }
 
-        public ICollection<ImagenesPlaza> Imagenes { get; set; }
+        public string? formatoImagen { get; set; }
+        public byte[] Imagen { get; set; }
 
 
         public string HoraInicio { get; set; }

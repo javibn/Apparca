@@ -5,7 +5,7 @@
       <div v-if="this.active==0">
         <div class="row mb-3">
           <div class="col-12  ">
-            <vue-google-autocomplete  id ="mapControl" class ="form-control " placeholder ="Direccion" v-on:placechanged ="getAddressData"> 
+            <vue-google-autocomplete  id="mapControl" class="form-control" placeholder="Direccion" v-on:placechanged="getAddressData"> 
             </vue-google-autocomplete >
             <div class="valid-feedback">
               Direccion correcta
@@ -118,17 +118,18 @@
             
         </div>
       </div>
-      <div v-if="active==2">
-        <image-component/>
+      <div v-if="active==2" >
+        
       </div>
     </div>
     <div class="container" style="height:130px">
       <el-steps :active="active" class="container" style="height:70px" finish-status="success" >
         <el-step title="Datos Básicos" />
         <el-step title="Personalización" />
-        <el-step title="Imágenes" />
+        <el-step title="Descripción e Imagenes" />
       </el-steps>
       
+      <button style="margin-top: 12px" v-if="active>0" class="btn btn-dark me-4" id="botonAnterior" @click="last">Anterior</button>
       <button style="margin-top: 12px" v-if="active<2" class="btn btn-dark" id="botonSiguiente" @click="next">Siguiente</button>
       <button style="margin-top: 12px" v-if="active==2" class="btn btn-dark" id="botonEnviar" @click="enviar">Publicar</button>
       <!--<el-button style="margin-top: 12px" v-if="active>0"  @click="last">Anterior</el-button>-->
@@ -144,7 +145,6 @@ import VueGoogleAutocomplete from "vue-google-autocomplete";
 import InputNumberComponent from '../components/InputNumberComponent.vue'
 import DateComponent from '../components/DateComponent.vue'
 import TimeComponent from '../components/TimeComponent.vue'
-import ImageComponent from './ImageComponent.vue'
 
 export default {
   name: 'StepComponent',
@@ -168,7 +168,7 @@ export default {
           },
           imagenes:[]
         },
-        active:2,
+        active:1,
         mapa: "",
         markers : ""
       }
@@ -177,8 +177,7 @@ export default {
     VueGoogleAutocomplete,
     InputNumberComponent,
     DateComponent,
-    TimeComponent,
-    ImageComponent
+    TimeComponent
   },
   mounted(){
     const direccionInput = document.getElementById('mapControl');
@@ -207,6 +206,11 @@ export default {
   methods: {
     next(){
       if (this.active++ > 1) this.active = 2
+
+      console.log(this.plaza)
+    },
+    last(){
+      this.active--
 
       console.log(this.plaza)
     },
@@ -357,17 +361,4 @@ export default {
     },
   },
 }
-</script>
-<script setup>
-//import { ref } from 'vue'
-
-//const active = ref(0)
-
-/*const next = () => {
-  if (active.value++ > 1) active.value = 2
-
-}
-const last = () => {
-  if (active.value-- < 1) active.value = 0
-}*/
 </script>

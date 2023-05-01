@@ -3,6 +3,8 @@ import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import SubirPlaza from "../views/SubirPlaza.vue";
 import Login from "../views/Login.vue";
+import Register from "../views/Register.vue";
+import Details from "../views/Plaza.vue";
 
 
 
@@ -26,9 +28,19 @@ const routes = [
     component: SubirPlaza,
   },
   {
+    path: "/Plaza/:numero",
+    name: "Plaza",
+    component: Details,
+  },
+  {
     path: "/Login",
     name: "Login",
     component: Login,
+  },
+  {
+    path: "/Register",
+    name: "Register",
+    component: Register,
   },
 ];
 
