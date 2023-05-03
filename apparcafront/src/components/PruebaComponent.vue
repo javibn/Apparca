@@ -119,7 +119,13 @@
         </div>
       </div>
       <div v-if="active==2" >
-        <input type="file" v-on:change="cambioImagen" class="form-control">
+        <h5 class="text-center">Sube una imagen de tu plaza</h5>
+        <div class="col-6 mx-auto mt-3">
+          <input type="file" v-on:change="cambioImagen" class="form-control">
+          <img v-bind:src="imagenUrl" id="preview">
+        </div>
+        
+        
         <textarea v-model="plaza.descripcion" class="form-control"></textarea>
       </div>
     </div>
@@ -145,7 +151,9 @@
   import L from 'leaflet';
   import DateComponent from '../components/DateComponent.vue'
   import TimeComponent from '../components/TimeComponent.vue'
-    
+  import axios from 'axios';
+  import { mapState } from 'vuex';
+
   export default {
   name: 'PruebA',
   data: function() {
@@ -161,17 +169,17 @@
             longitud : "",
             precioMes:"",
             precioMando:"",
-            horario: {},
-            calendario:{
-              fechaInicio:"",
-              fechaFinal:""
-            },
-            descripcion:null,
-            imagen:null
+            startTime:"",
+            endTime:"",
+            fechaInicio:"",
+            fechaFinal:"",
+            descripcion:null
           },
-          active:2,
+          active:0,
           mapa: "",
-          markers : ""
+          markers : "",
+          imagen:null,
+          imagenUrl:null
         }
     },
   components: {
@@ -180,6 +188,11 @@
     DateComponent,
     TimeComponent
   },
+  computed:{
+        ...mapState(['isLoggedIn']),
+        ...mapState(['token']),
+        ...mapState(['name'])
+    },
   mounted(){
     const direccionInput = document.getElementById('mapControl');
 
@@ -226,7 +239,7 @@
         }
       }else if(this.active==1){
         
-        if (this.plaza.horario.startTime && this.plaza.horario.endTime && this.plaza.calendario.fechaInicio && document.getElementById("fianzaControl").value>=0 && document.getElementById("priceControl").value>0) {
+        if (this.plaza.startTime && this.plaza.endTime && this.plaza.fechaInicio && document.getElementById("fianzaControl").value>=0 && document.getElementById("priceControl").value>0) {
           botonSiguiente.disabled = false;
         } else {
           botonSiguiente.disabled = true;
@@ -339,29 +352,63 @@
       var añoInicial = fechaInicial.getFullYear();
       var mesInicial = fechaInicial.getMonth();
       var diaInicial = fechaInicial.getDate();
-      this.plaza.calendario.fechaInicio = new Date(añoInicial, mesInicial, diaInicial);
+      this.plaza.fechaInicio = new Date(añoInicial, mesInicial, diaInicial);
 
       var añoFinal = fechaFinal.getFullYear();
       var mesFinal = fechaFinal.getMonth();
       var diaFinal = fechaFinal.getDate();
-      this.plaza.calendario.fechaFinal = new Date(añoFinal, mesFinal, diaFinal);
+      this.plaza.fechaFinal = new Date(añoFinal, mesFinal, diaFinal);
 
     },
     getDataHoras(data) {
-      this.plaza.horario = JSON.parse(data)
+      var horario = JSON.parse(data)
+      this.plaza.startTime = horario.startTime
+      this.plaza.endTime = horario.endTime
 
       var inputFecha = document.getElementById("timeControl")
-      if(this.plaza.horario.startTime && this.plaza.horario.endTime){
+      if(this.plaza.startTime && this.plaza.endTime){
         inputFecha.classList = "pac-target-inputis-valid is-valid form-control"
       }else{
         inputFecha.classList = "pac-target-inputis-valid is-invalid form-control"
       }
     },
-    enviar(){
+    async enviar(){
       console.log(this.plaza)
+      console.log(this.token)
+      
+      const formData = new FormData();
+      formData.append('direccion', this.plaza.direccion);
+      formData.append('cp', this.plaza.cp);
+      formData.append('localidad', this.plaza.localidad);
+      formData.append('numero', this.plaza.numero);
+      formData.append('ancho', this.plaza.ancho);
+      formData.append('largo', this.plaza.largo);
+      formData.append('latitud', this.plaza.latitud);
+      formData.append('longitud', this.plaza.longitud);
+      formData.append('precioMes', this.plaza.precioMes);
+      formData.append('precioMando', this.plaza.precioMando);
+      formData.append('startTime', this.plaza.startTime);
+      formData.append('endTime', this.plaza.endTime);
+      formData.append('fechaInicio', this.plaza.fechaInicio);
+      formData.append('fechaFinal', this.plaza.fechaFinal);
+      formData.append('descripcion', this.plaza.descripcion);
+      formData.append('file', this.imagen);
+      
+      console.log(formData)
+      try {
+        const response = await axios.post('https://localhost:7207/Plazas', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            'Authorization': `Bearer ${this.token}`
+          }
+        });
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
     },
     cambioImagen(event) {
-      console.log("Cambiooooooooooo");
+      this.imagen = event.target.files[0]
       const file = event.target.files[0];
 
       const reader = new FileReader();
@@ -373,6 +420,9 @@
         
         // Guardar los bytes en la propiedad de la plaza
         vm.plaza.imagen = bytes; // Mostrar los bytes en la consola
+
+        const blob = new Blob([bytes], {type: "image/png"});
+        vm.imagenUrl = URL.createObjectURL(blob);
       }
       // Leer los datos de la imagen como un ArrayBuffer
       reader.readAsArrayBuffer(file);

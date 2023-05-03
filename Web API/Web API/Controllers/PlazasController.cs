@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Web_API.Data;
 using Web_API.Models;
+using Microsoft.Extensions.Http;
+using System.Net.Http;
+using System.Text;
 
 namespace Web_API.Controllers
 {
@@ -15,6 +18,15 @@ namespace Web_API.Controllers
             _configuracion= configuration;
             _context = context;
         }
+        [HttpPost]
+        [Route("Crear")]
+        public IActionResult CrearPlaza(IFormFile file)
+        {
+            
+            return StatusCode(422);
+        }
+
+        
 
         [HttpGet]
         [Route("Todas")]
@@ -60,6 +72,7 @@ namespace Web_API.Controllers
             
             return Ok(plaza);
         }
+
 
         [HttpGet]
         [Route("Filtrado")]
@@ -114,5 +127,78 @@ namespace Web_API.Controllers
 
             return Ok(plazasN);
         }
+        [HttpPost]
+        public async Task<IActionResult> CrearPlaza([FromForm] PlazaRequest plazaR, IFormFile file)
+        {
+            var usuariosController = new UsuarioController(_configuracion, _context);
+            usuariosController.ControllerContext = ControllerContext;
+
+            // Llamar al método ValidarToken en UsuariosController
+            var resultado = usuariosController.ValidarToken();
+
+            if (resultado.success)
+            {
+                try
+                {
+                    byte[] imageData;
+                    using (var ms = new MemoryStream())
+                    {
+                        await file.CopyToAsync(ms);
+                        imageData = ms.ToArray();
+
+                    }
+
+                    Usuario arrendador = _context.Usuarios.Find(resultado.result.Id);
+                    Plaza plaza = new Plaza
+                    {
+                        Arrendador = arrendador,
+                        ArrendadorId = arrendador.Id,
+                        Direccion = plazaR.direccion + ", " + plazaR.numero + ", " + plazaR.localidad + ", " +plazaR.cp,
+                        Latitud = double.Parse(plazaR.latitud),
+                        Longitud = double.Parse(plazaR.longitud),
+                        Descripcion = plazaR.descripcion,
+                        Ancho = int.Parse(plazaR.ancho),
+                        Largo = int.Parse(plazaR.largo),
+                        FechaInicio = plazaR.fechaInicio,
+                        FechaFinal = plazaR.fechaFinal,
+                        PrecioMando = float.Parse(plazaR.precioMando),
+                        PrecioMes = float.Parse(plazaR.precioMes),
+                        HoraInicio = plazaR.startTime,
+                        HoraFinal = plazaR.endTime,
+                        Imagen = imageData
+                    };
+                    //plaza.Id = _context.Plazas.OrderBy(plaza => plaza.Id).FirstOrDefault().Id + 1;
+                    _context.Plazas.Add(plaza);
+                    _context.SaveChanges();
+
+                    return CreatedAtAction(nameof(CrearPlaza), new { id = plaza.Id }, plaza);
+                }
+                catch (Exception ex)
+                {
+                    // Devolver un error 500 si ocurre algún problema en el servidor
+                    return StatusCode(500, ex.Message);
+                }
+            }
+            return StatusCode(422);
+        }
+
+    }
+    public class PlazaRequest
+    {
+        public string direccion { get; set; }
+        public string cp { get; set; }
+        public string localidad { get; set; }
+        public string numero { get; set; }
+        public string ancho { get; set; }
+        public string largo { get; set; }
+        public string latitud { get; set; }
+        public string longitud { get; set; }
+        public string precioMes { get; set; }
+        public string precioMando { get; set; }
+        public string startTime { get; set; }
+        public string endTime { get; set; }
+        public string fechaInicio { get; set; }
+        public string fechaFinal { get; set; }
+        public string descripcion { get; set; }
     }
 }

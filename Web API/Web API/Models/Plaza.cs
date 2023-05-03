@@ -32,6 +32,5 @@ namespace Web_API.Models
         public ICollection<Reserva>? Reservas { get; set; }
 
         public float PrecioMando { get; set; }
-        public bool? EsVerificada { get; set; }
     }
 }
