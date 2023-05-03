@@ -63,7 +63,7 @@
       <div v-if="active==1" class="row p-0">
         <div class="col-md-6 mb-md-5 mb-1 h-100">
           <label class="form-label fs-5 w-100">Fechas de Alquiler</label>
-            <label class="mb-2 text-secondary">Desde cuando y hasta cuando estará en alquiler la plaza</label>
+            <label class="mb-2 text-grey">Desde cuando y hasta cuando estará en alquiler la plaza</label>
             <date-component class="h-100 form-control" id="dateControl" @getDataFecha="getDataFecha" />
             <div class="valid-feedback text-center">
               Fechas Correctas
@@ -71,7 +71,7 @@
         </div>
         <div class="col-md-6 h-100 mb-md-5 mb-1">
           <label class="form-label fs-5 w-100">Horario de alquiler</label>
-          <label class="mb-2 text-secondary">Horario diario en el que se alquila</label>
+          <label class="mb-2 text-grey">Horario diario en el que se alquila</label>
             <time-component class="h-100 ms-0 form-control"  id="timeControl" @getDataHoras="getDataHoras"></time-component>
             <div class="valid-feedback text-center">
               Horario Correcto
@@ -82,7 +82,7 @@
         </div>
         <div class="col-md-6 h-100">
             <label class="form-label fs-5 w-100">Precio Mensual</label>
-            <label class="mb-2 text-secondary">Precio que se pagará al mes por la plaza</label>
+            <label class="mb-2 text-grey">Precio que se pagará al mes por la plaza</label>
             <div class="input-group">
               <input
                 type="number"
@@ -100,7 +100,7 @@
         </div>
         <div class="col-md-6 h-100">
             <label class="form-label fs-5 w-100">Fianza</label>
-            <label class="mb-2">Precio de la fianza por la posible perdida del mando del garaje</label>
+            <label class="mb-2 text-grey">Precio de la fianza por la posible perdida del mando del garaje</label>
             <div class="input-group">
               <input
                 type="number"
@@ -118,15 +118,31 @@
             
         </div>
       </div>
-      <div v-if="active==2" >
-        <h5 class="text-center">Sube una imagen de tu plaza</h5>
-        <div class="col-6 mx-auto mt-3">
-          <input type="file" v-on:change="cambioImagen" class="form-control">
-          <img v-bind:src="imagenUrl" id="preview">
+      <div v-if="active==2" class="row">
+        <div class="col-6 row m-0 mt-5">
+          <h5 class="text-center">Imagen de tu plaza</h5>
+          <div class="col-8 mx-auto mt-5">
+            <input type="file" v-on:change="cambioImagen" class="form-control">
+          </div>
+          <img v-bind:src="imagenUrl" id="preview" style="height: 230px; object-fit: cover;" class="col-6 mx-auto mt-5 rounded-5">
+        </div>
+        <div class="col-6  d-flex align-items-center justify-content-center">
+          <div class="w-100">
+            <h5 class="text-center">Descipción de tu plaza</h5>
+            <label class="text-grey mt-4">Será la información que los usuarios vean antes de decidir si alquilan tu plaza</label>
+            
+            <v-textarea v-model="plaza.descripcion"
+              bg-color="grey-lighten-3"
+              color="blue"
+              label="Describe tu plaza..."
+              class="mt-4"
+            ></v-textarea>
+          </div>
         </div>
         
         
-        <textarea v-model="plaza.descripcion" class="form-control"></textarea>
+        
+        
       </div>
     </div>
     <div class="container" style="height:130px">
@@ -175,11 +191,11 @@
             fechaFinal:"",
             descripcion:null
           },
-          active:0,
+          active:2,
           mapa: "",
           markers : "",
           imagen:null,
-          imagenUrl:null
+          imagenUrl:"https://detallesorballo.com/wp-content/uploads/2020/09/imagen-de-prueba-320x240-1.jpg"
         }
     },
   components: {
@@ -294,8 +310,8 @@
           this.plaza.localidad = place.administrative_area_level_2
           this.plaza.numero = place.street_number
 
-          this.plaza.latitud = place.latitude
-          this.plaza.longitud = place.longitude
+          this.plaza.latitud = place.latitude.toString().replace(".", ",")
+          this.plaza.longitud = place.longitude.toString().replace(".", ",")
         }else{
           inputNumero.value = "Número"
           inputNumero.classList = "pac-target-inputis-valid is-invalid  form-control"
@@ -352,13 +368,14 @@
       var añoInicial = fechaInicial.getFullYear();
       var mesInicial = fechaInicial.getMonth();
       var diaInicial = fechaInicial.getDate();
-      this.plaza.fechaInicio = new Date(añoInicial, mesInicial, diaInicial);
+      this.plaza.fechaInicio = new Date(añoInicial, mesInicial, diaInicial).toLocaleDateString("es");
+      console.log(this.plaza.fechaInicio)
 
       var añoFinal = fechaFinal.getFullYear();
       var mesFinal = fechaFinal.getMonth();
       var diaFinal = fechaFinal.getDate();
-      this.plaza.fechaFinal = new Date(añoFinal, mesFinal, diaFinal);
-
+      this.plaza.fechaFinal = new Date(añoFinal, mesFinal, diaFinal).toLocaleDateString("es");
+      console.log(this.plaza.fechaFinal)
     },
     getDataHoras(data) {
       var horario = JSON.parse(data)

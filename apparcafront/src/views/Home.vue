@@ -205,6 +205,15 @@ export default {
       this.GetPlazasFiltradas();
       
     },
+    base64ToBlob(base64) {
+      const binaryString = window.atob(base64);
+      const byteNumbers = new Array(binaryString.length);
+      for (let i = 0; i < binaryString.length; i++) {
+        byteNumbers[i] = binaryString.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      return new Blob([byteArray], { type: 'image/jpeg' });
+    },
     async GetPlazasFiltradas(){
       /*const formData = new FormData();
 
@@ -230,9 +239,15 @@ export default {
       await fetch('https://localhost:7207/Plazas/Filtrado?latitudMaxima=' + this.filtroPlazas.latitudMaxima + '&latitudMinima=' + this.filtroPlazas.latitudMinima + '&longitudMaxima=' + this.filtroPlazas.longitudMaxima + '&longitudMinima=' + this.filtroPlazas.longitudMinima)
       .then(response => response.json())
       .then(data => {
+        console.log(data)
         //this.plazasApi = this.plazasApi.concat(data)
         data.forEach(plazaNueva => {
           if(plazaNueva.id != this.plazaId){
+            var imagenCodificada = URL.createObjectURL(this.base64ToBlob(plazaNueva.imagen));
+            console.log(imagenCodificada)
+            console.log(plazaNueva)
+            plazaNueva.imagenSrc = imagenCodificada;
+            console.log(plazaNueva)
             this.plazasApi.push(plazaNueva)
           }
         })
@@ -259,9 +274,11 @@ export default {
 
           console.log(marker.options.id)
 
+          //var imagenCodificada = URL.createObjectURL(this.base64ToBlob(plaza.imagen));
+
           var stringPopup = '\
           <div class="row p-0" style="width:300px">\
-            <img class="col-12" src="https://noticias.coches.com/wp-content/uploads/2016/01/20130810_120454-e1674826167481.jpg"/>\
+            <img class="col-12" src="'+plaza.imagenSrc+'"/>\
             <div class="col-12 mx-auto ms-3 row mt-3 p-0">\
             <h6 class="mx-auto">\
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">\
@@ -274,7 +291,7 @@ export default {
                 <h7 class="col-6 btn" style="font-size:1rem;">'+plaza.horaInicio+' - '+plaza.horaFinal+'</h7>\
                 <h7 class="col-4 btn bg-primary  text-white rounded" style="font-size:1rem;">'+ plaza.precioMes+'€/mes</h7>\
             </div>\
-            <a class="col-8 mx-auto p-0 btn btn-light text-dark fw-bold mt-3">VISITAR PLAZA</a>\
+            <router-link to="google.com" class="col-8 mx-auto p-0 btn btn-light text-dark fw-bold mt-3">VISITAR PLAZA</router-link>\
         </div>\
           </div>';
 

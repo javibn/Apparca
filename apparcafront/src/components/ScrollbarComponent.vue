@@ -3,7 +3,7 @@
     <div class="scrollbar-flex-content ps-2">
       <div v-for="item in numberOfItems"  :key="item" >
         <div v-if="abierto==item.id" class="scrollbar-demo-item row border border-2 border-success ms-1" style="transform: scale(1);">
-          <img src="../../src/assets/plaza.jpg"  class="col-4 h-100 p-0">
+          <img :src=item.imagenSrc  class="col-4 h-100 p-0">
           <div class="col-8 row p-0 m-0">
               <h6>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
@@ -20,7 +20,7 @@
           </div>
         </div>
         <div v-else class="scrollbar-demo-item row ms-1" style="transform: scale(0.9);">
-          <img src="../../src/assets/plaza.jpg"  class="col-4 h-100 p-0">
+          <img :src=item.imagenSrc  class="col-4 h-100 p-0">
           <div class="col-8 row p-0 m-0">
               <h6>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
@@ -33,7 +33,7 @@
                   <h7 class="col-6" style="font-size:1rem;">{{item.horaInicio}} - {{item.horaFinal}}</h7>
                   <h7 class="col-5 bg-primary  text-white rounded" style="font-size:1rem;">{{item.precioMes}}€/mes</h7>
               </div>
-              <a class="col-8 mx-auto p-0 btn btn-light text-dark fw-bold mt-3">VISITAR PLAZA</a>
+              <router-link :to="`Plaza/${item.id}`" class="col-8 mx-auto p-0 btn btn-light text-dark fw-bold mt-3">VISITAR PLAZA</router-link>
           </div>
         </div>
       </div>

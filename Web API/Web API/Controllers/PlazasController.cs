@@ -80,9 +80,9 @@ namespace Web_API.Controllers
         {
             FiltroPlaza filtros = new FiltroPlaza(latitudMaxima, latitudMinima, longitudMaxima, longitudMinima);
 
-            List<Plaza> plazas = new List<Plaza>();
-            //List<Plaza> plazas = _context.Plazas.ToList();
-
+            
+            List<Plaza> plazas = _context.Plazas.ToList();
+            /*List<Plaza> plazas = new List<Plaza>();
             Random rnd = new Random();
 
             double minLat = 36.00000; // Límite inferior de la latitud de España
@@ -105,7 +105,7 @@ namespace Web_API.Controllers
                     HoraFinal = "17:00",
                     PrecioMes = 25
                 });
-            }
+            }*/
 
             
 
@@ -114,6 +114,8 @@ namespace Web_API.Controllers
 
 
             var plazasN = plazas.OrderBy(r => Guid.NewGuid()).Take(25).ToList();
+            
+            /*
             plazasN.Add(new Plaza
             {
                 Id = 10000,
@@ -123,7 +125,7 @@ namespace Web_API.Controllers
                 HoraInicio = "08:00",
                 HoraFinal = "12:00",
                 PrecioMes = 50
-            });
+            });*/
 
             return Ok(plazasN);
         }
@@ -171,7 +173,7 @@ namespace Web_API.Controllers
                     _context.Plazas.Add(plaza);
                     _context.SaveChanges();
 
-                    return CreatedAtAction(nameof(CrearPlaza), new { id = plaza.Id }, plaza);
+                    return Ok();
                 }
                 catch (Exception ex)
                 {

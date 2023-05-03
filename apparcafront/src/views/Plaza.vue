@@ -35,7 +35,7 @@
                 <button class="btn rounded-bottom-4 rounded-top-0 col-12 text-white" style="background-color: #890094;">Reservar</button>
             </div>
             <div class="col-12 mt-5 row m-0 p-0" v-if="this.plaza != null">
-                <img class="col-3 rounded-4 ps-0 pe-0" style="height: 250px;" src="../../src/assets/plaza.jpg">
+                <img class="col-3 rounded-4 ps-0 pe-0" style="height: 250px;" :src="imagenCodificada">
                 <div class="col ps-5">
                     <h3 class="mb-4">{{ this.plaza.direccion }}</h3>
 
@@ -64,7 +64,7 @@
                     <span class="fw-bold">Ancho: {{ this.plaza.largo }}cm</span>
 
                     <img src="../../src/assets/iconoMando.png" class="icono ms-5 ">
-                    <span class="fw-bold ms-3">Precio del mando: {{ this.plaza.ancho }}cm</span>
+                    <span class="fw-bold ms-3">Precio del mando: {{ this.plaza.precioMando }}€</span>
 
                     <h5 class="mt-4">Descripción</h5>
                     <p>{{ this.plaza.descripcion }}</p>
@@ -91,7 +91,8 @@ export default {
         return {
             plazaEncontrada: true,
             plaza: null,
-            mapa:null
+            mapa:null,
+            imagenCodificada: null
         }
     },
   components: {
@@ -108,6 +109,7 @@ export default {
       .then(data => {
             console.log(data);
             this.plaza = data;
+            
         })
       .catch(error => console.error(error))
     console.log(this.plaza);
@@ -118,7 +120,8 @@ export default {
     maxZoom: 20,
     minZoom: 6
     }).addTo(this.mapa);
-
+    this.imagenCodificada = URL.createObjectURL(this.base64ToBlob(this.plaza.imagen));
+    console.log(this.imagenCodificada)
     var markers = L.layerGroup().addTo(this.mapa)
     var marker = L.marker([this.plaza.latitud, this.plaza.longitud])
 
@@ -127,6 +130,17 @@ export default {
 
     spinner.classList.add("d-none");
     contenido.classList.remove("opacity-50");
+  },
+  methods:{
+    base64ToBlob(base64) {
+      const binaryString = window.atob(base64);
+      const byteNumbers = new Array(binaryString.length);
+      for (let i = 0; i < binaryString.length; i++) {
+        byteNumbers[i] = binaryString.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      return new Blob([byteArray], { type: 'image/jpeg' });
+    }
   }
 }
 
