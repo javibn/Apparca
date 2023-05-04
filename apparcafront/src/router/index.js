@@ -5,6 +5,7 @@ import SubirPlaza from "../views/SubirPlaza.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Details from "../views/Plaza.vue";
+import MisPlazas from "../views/MisPlazas.vue";
 
 
 
@@ -31,6 +32,11 @@ const routes = [
     path: "/Plaza/:numero",
     name: "Plaza",
     component: Details,
+  },
+  {
+    path: "/MisPlazas",
+    name: "MisPlazas",
+    component: MisPlazas,
   },
   {
     path: "/Login",
