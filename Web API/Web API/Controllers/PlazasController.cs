@@ -4,6 +4,8 @@ using Web_API.Models;
 using Microsoft.Extensions.Http;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace Web_API.Controllers
 {
@@ -129,6 +131,30 @@ namespace Web_API.Controllers
 
             return Ok(plazasN);
         }
+
+        [HttpGet]
+        [Route("MisPlazas")]
+        public IActionResult MisPlazas()
+        {
+            var usuariosController = new UsuarioController(_configuracion, _context);
+            usuariosController.ControllerContext = ControllerContext;
+
+            // Llamar al método ValidarToken en UsuariosController
+            var resultado = usuariosController.ValidarToken();
+
+            if (resultado.success)
+            {
+                Usuario arrendador = _context.Usuarios.Find(resultado.result.Id);
+                List<Plaza> plazasUsuario = _context.Plazas.Where(plaza => plaza.ArrendadorId == arrendador.Id).ToList();
+
+                return Ok(plazasUsuario);
+            }
+            else
+            {
+                return StatusCode(422);
+            }  
+        }
+
         [HttpPost]
         public async Task<IActionResult> CrearPlaza([FromForm] PlazaRequest plazaR, IFormFile file)
         {
@@ -153,7 +179,6 @@ namespace Web_API.Controllers
                     Usuario arrendador = _context.Usuarios.Find(resultado.result.Id);
                     Plaza plaza = new Plaza
                     {
-                        Arrendador = arrendador,
                         ArrendadorId = arrendador.Id,
                         Direccion = plazaR.direccion + ", " + plazaR.numero + ", " + plazaR.localidad + ", " +plazaR.cp,
                         Latitud = double.Parse(plazaR.latitud),

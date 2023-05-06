@@ -50,7 +50,6 @@ namespace Web_API.Models
 
 
         public ICollection<Plaza>? Plazas { get; set; }
-        public ICollection<Reserva>? ReservasComoArrendatario { get; set; }
         
 
     }

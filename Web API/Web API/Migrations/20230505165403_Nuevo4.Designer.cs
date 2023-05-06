@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Web_API.Data;
 
@@ -11,9 +12,10 @@ using Web_API.Data;
 namespace Web_API.Migrations
 {
     [DbContext(typeof(ApparcaContexto))]
-    partial class ApparcaContextoModelSnapshot : ModelSnapshot
+    [Migration("20230505165403_Nuevo4")]
+    partial class Nuevo4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Web_API.Data;
 
@@ -11,9 +12,10 @@ using Web_API.Data;
 namespace Web_API.Migrations
 {
     [DbContext(typeof(ApparcaContexto))]
-    partial class ApparcaContextoModelSnapshot : ModelSnapshot
+    [Migration("20230505164039_Nuevo2")]
+    partial class Nuevo2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,12 +81,12 @@ namespace Web_API.Migrations
                     b.Property<float>("PrecioMes")
                         .HasColumnType("real");
 
-                    b.Property<int?>("UsuarioId")
-                        .HasColumnType("int");
+                    b.Property<string>("formatoImagen")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("ArrendadorId");
 
                     b.ToTable("Plazas", (string)null);
                 });
@@ -125,10 +127,13 @@ namespace Web_API.Migrations
 
             modelBuilder.Entity("Web_API.Models.Plaza", b =>
                 {
-                    b.HasOne("Web_API.Models.Usuario", null)
+                    b.HasOne("Web_API.Models.Usuario", "Arrendador")
                         .WithMany("Plazas")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("ArrendadorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Arrendador");
                 });
 
             modelBuilder.Entity("Web_API.Models.Usuario", b =>

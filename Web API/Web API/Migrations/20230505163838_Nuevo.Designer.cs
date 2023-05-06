@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Web_API.Data;
 
@@ -11,9 +12,10 @@ using Web_API.Data;
 namespace Web_API.Migrations
 {
     [DbContext(typeof(ApparcaContexto))]
-    partial class ApparcaContextoModelSnapshot : ModelSnapshot
+    [Migration("20230505163838_Nuevo")]
+    partial class Nuevo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,14 +81,55 @@ namespace Web_API.Migrations
                     b.Property<float>("PrecioMes")
                         .HasColumnType("real");
 
-                    b.Property<int?>("UsuarioId")
+                    b.Property<string>("formatoImagen")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArrendadorId");
+
+                    b.ToTable("Plazas", (string)null);
+                });
+
+            modelBuilder.Entity("Web_API.Models.Reserva", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("ArrendatarioId")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("Confirmada")
+                        .HasColumnType("bit");
+
+                    b.Property<byte[]>("Contrato")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<DateTime?>("FechaFinal")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaInicio")
+                        .HasColumnType("datetime2");
+
+                    b.Property<TimeSpan?>("HoraFinal")
+                        .HasColumnType("time");
+
+                    b.Property<TimeSpan?>("HoraInicio")
+                        .HasColumnType("time");
+
+                    b.Property<int?>("PlazaId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("ArrendatarioId");
 
-                    b.ToTable("Plazas", (string)null);
+                    b.HasIndex("PlazaId");
+
+                    b.ToTable("Reservas", (string)null);
                 });
 
             modelBuilder.Entity("Web_API.Models.Usuario", b =>
@@ -125,15 +168,37 @@ namespace Web_API.Migrations
 
             modelBuilder.Entity("Web_API.Models.Plaza", b =>
                 {
-                    b.HasOne("Web_API.Models.Usuario", null)
+                    b.HasOne("Web_API.Models.Usuario", "Arrendador")
                         .WithMany("Plazas")
-                        .HasForeignKey("UsuarioId")
+                        .HasForeignKey("ArrendadorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Arrendador");
+                });
+
+            modelBuilder.Entity("Web_API.Models.Reserva", b =>
+                {
+                    b.HasOne("Web_API.Models.Usuario", "Arrendatario")
+                        .WithMany("ReservasComoArrendatario")
+                        .HasForeignKey("ArrendatarioId")
                         .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Web_API.Models.Plaza", "PlazaReservada")
+                        .WithMany()
+                        .HasForeignKey("PlazaId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Arrendatario");
+
+                    b.Navigation("PlazaReservada");
                 });
 
             modelBuilder.Entity("Web_API.Models.Usuario", b =>
                 {
                     b.Navigation("Plazas");
+
+                    b.Navigation("ReservasComoArrendatario");
                 });
 #pragma warning restore 612, 618
         }
