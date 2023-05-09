@@ -78,9 +78,14 @@ namespace Web_API.Controllers
 
         [HttpGet]
         [Route("Filtrado")]
-        public ActionResult FiltrarPlazas(string latitudMaxima, string latitudMinima, string longitudMaxima, string longitudMinima)
+        public ActionResult FiltrarPlazas(string latitudMaxima, string latitudMinima, 
+            string longitudMaxima, string longitudMinima,
+            string horaInicio, string horaFinal, string fechaInicial,
+            string fechaFinal, string precio, string ancho)
         {
-            FiltroPlaza filtros = new FiltroPlaza(latitudMaxima, latitudMinima, longitudMaxima, longitudMinima);
+            FiltroPlaza filtros = new FiltroPlaza(latitudMaxima, latitudMinima, longitudMaxima, 
+                longitudMinima, horaInicio, horaFinal, fechaInicial, fechaFinal,
+                precio, ancho);
 
             
             List<Plaza> plazas = _context.Plazas.ToList();
@@ -113,23 +118,23 @@ namespace Web_API.Controllers
 
             plazas = plazas.Where(plaza => (plaza.Latitud<= filtros.LatitudMaxima) && (plaza.Latitud >= filtros.LatitudMinima)).ToList();
             plazas = plazas.Where(plaza => (plaza.Longitud<= filtros.LongitudMaxima) && (plaza.Longitud >= filtros.LongitudMinima)).ToList();
-
+            plazas = plazas.Where(plaza => (TimeOnly.Parse(plaza.HoraInicio) <= filtros.HoraInicio) && (TimeOnly.Parse(plaza.HoraFinal) >= filtros.HoraFinal)).ToList();
+            plazas = plazas.Where(plaza => (DateTime.Parse(plaza.FechaInicio) >= filtros.FechaInicial) && (DateTime.Parse(plaza.FechaFinal) <= filtros.FechaFinal)).ToList();
+            plazas = plazas.Where(plaza => plaza.PrecioMes <= filtros.Precio).ToList();
+            plazas = plazas.Where(plaza => plaza.Ancho >= filtros.Ancho).ToList();
 
             var plazasN = plazas.OrderBy(r => Guid.NewGuid()).Take(25).ToList();
-            
-            /*
-            plazasN.Add(new Plaza
-            {
-                Id = 10000,
-                Latitud = 38.379955,
-                Longitud = -0.429092,
-                Direccion = "Calle clara campoamor, 7",
-                HoraInicio = "08:00",
-                HoraFinal = "12:00",
-                PrecioMes = 50
-            });*/
 
-            return Ok(plazasN);
+            FiltroPlazasResponse plazasResponse = new FiltroPlazasResponse();
+
+            plazasResponse.Plazas = plazasN;
+            if (plazasN.Count>0)
+            {
+                plazasResponse.PrecioMaximo = plazasN.OrderBy(plaza => plaza.PrecioMes).Last().PrecioMes;
+                plazasResponse.PrecioMinimo = plazasN.OrderBy(plaza => plaza.PrecioMes).FirstOrDefault().PrecioMes;
+            }
+
+            return Ok(plazasResponse);
         }
 
         [HttpGet]
@@ -227,5 +232,12 @@ namespace Web_API.Controllers
         public string fechaInicio { get; set; }
         public string fechaFinal { get; set; }
         public string descripcion { get; set; }
+    }
+
+    public class FiltroPlazasResponse
+    {
+        public float PrecioMinimo { get; set; } = 0;
+        public float PrecioMaximo { get; set; } = 0;
+        public List<Plaza> Plazas { get; set; }
     }
 }

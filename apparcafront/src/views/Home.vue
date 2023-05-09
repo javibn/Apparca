@@ -3,15 +3,16 @@
       <div id="map" class="z-2 position-absolute w-100" style="margin-top:6vh;"></div>
       <div class="z-2 w-100   position-absolute">
         <div class="row bg-white m-0 ps-5 pe-5 w-100 filtros" style="height:6vh;display: flex;  align-items: center;">
-          <input type="text" class="col-2 h-75 rounded btn border text-start me-3" v-model="filtroPlazas.direccion"  placeholder="Direccion, Ciudad..." >
+          <vue-google-autocomplete  id="mapControl" class="col-2 h-75 rounded btn border text-start me-3" placeholder="Direccion, Ciudad..." v-on:placechanged="changeAddress"> 
+          </vue-google-autocomplete >
           <div class="col-xl-2 col-3 h-100 p-0 me-3" style="display: flex;  align-items: center;">
-            <time-component class="h-75 p-0 m-0" @getDataHoras="getDataHoras"></time-component>
+            <time-component  class="h-75 p-0 m-0" @getDataHoras="getDataHoras"></time-component>
           </div>
           <div class="col-2 me-3 h-75 p-0">
             <date-component class="h-100 p-0 m-0 w-100" @getDataFecha="getDataFecha"></date-component>
           </div>
           <div class="col me-3 h-100">
-            <slider-component @getDataPrecio="getDataPrecio"></slider-component>
+            <slider-component :max="maxPrice" :min="minPrice"  @getDataPrecio="getDataPrecio"></slider-component>
           </div>
             
             <!--<input-number-component class="w-100"></input-number-component>
@@ -44,6 +45,7 @@
 </template>
 
 <script>
+import VueGoogleAutocomplete from "vue-google-autocomplete";
 import { mapState } from 'vuex';
 //import inicioPlazas from './components/Plazas.vue'
 import L from 'leaflet';
@@ -67,21 +69,23 @@ export default {
             plazasApi: [],
             map : {},
             filtroPlazas: {
-              /*direccion: '',
               horas: {
               },
-              fecha: '',
-              precio: '',
-              ancho: '',*/
+              fecha: [],
+              precio: 100000,
+              ancho: 0,
               latitudMaxima: "",
               latitudMinima: "",
               longitudMaxima: "",
               longitudMinima: ""
             },
-            plazaId: 0
+            plazaId: 0,
+            maxPrice:500,
+            minPrice:0
         }
     },
   components: {
+    VueGoogleAutocomplete,
     DateComponent,
     TimeComponent,
     FiltrosComponent,
@@ -121,8 +125,21 @@ export default {
 
   },
   methods: {
+    changeAddress(place){
+      console.log(place)
+      this.map.setView([place.latitude, place.longitude],15)
+    },
     getDataFecha(data) {
       this.filtroPlazas.fecha = data
+      var añoInicial = data[0].getFullYear();
+      var mesInicial = data[0].getMonth();
+      var diaInicial = data[0].getDate();
+      this.filtroPlazas.fecha[0] = new Date(añoInicial, mesInicial, diaInicial).toLocaleDateString("es");
+
+      var añoFinal = data[1].getFullYear();
+      var mesFinal = data[1].getMonth();
+      var diaFinal = data[1].getDate();
+      this.filtroPlazas.fecha[1] = new Date(añoFinal, mesFinal, diaFinal).toLocaleDateString("es");
     },
     getDataHoras(data) {
       this.filtroPlazas.horas = JSON.parse(data)
@@ -134,11 +151,12 @@ export default {
       this.filtroPlazas.ancho = data
     },
     filtrar(){
-      console.log("Direccion: " + this.filtroPlazas.direccion);
       console.log("Horas: " + this.filtroPlazas.horas);
       console.log("Rango de fechas: " + this.filtroPlazas.fecha);
       console.log("Precio: " + this.filtroPlazas.precio);
       console.log("Ancho: " + this.filtroPlazas.ancho);
+      this.plazaId = -1;
+      this.MovimientoMapa(this.map)
     },
     AbrirPopUp(event){
       var marker = event.popup._source;
@@ -236,12 +254,12 @@ export default {
         })
       .catch(error => console.error(error))*/
       console.log(this.filtroPlazas)
-      await fetch('https://localhost:7207/Plazas/Filtrado?latitudMaxima=' + this.filtroPlazas.latitudMaxima + '&latitudMinima=' + this.filtroPlazas.latitudMinima + '&longitudMaxima=' + this.filtroPlazas.longitudMaxima + '&longitudMinima=' + this.filtroPlazas.longitudMinima)
+      await fetch('https://localhost:7207/Plazas/Filtrado?latitudMaxima=' + this.filtroPlazas.latitudMaxima + '&latitudMinima=' + this.filtroPlazas.latitudMinima + '&longitudMaxima=' + this.filtroPlazas.longitudMaxima + '&longitudMinima=' + this.filtroPlazas.longitudMinima+'&horaInicio=' +this.filtroPlazas.horas.startTime + '&horaFinal=' + this.filtroPlazas.horas.endTime + '&fechaInicial=' + this.filtroPlazas.fecha[0] + '&fechaFinal=' + this.filtroPlazas.fecha[1] + '&precio='+ this.filtroPlazas.precio + '&ancho=' + this.filtroPlazas.ancho)
       .then(response => response.json())
       .then(data => {
         console.log(data)
         //this.plazasApi = this.plazasApi.concat(data)
-        data.forEach(plazaNueva => {
+        data.plazas.forEach(plazaNueva => {
           if(plazaNueva.id != this.plazaId){
             var imagenCodificada = URL.createObjectURL(this.base64ToBlob(plazaNueva.imagen));
             console.log(imagenCodificada)
@@ -251,6 +269,9 @@ export default {
             this.plazasApi.push(plazaNueva)
           }
         })
+        this.maxPrice = Number(data.precioMaximo);
+        this.minPrice = Number(data.precioMinimo);
+        console.log("AQUIIIIIIIIIIIIII"+this.minPrice+this.maxPrice)
         })
       .catch(error => console.error(error))
 
@@ -288,11 +309,11 @@ export default {
             </h6>\
             <hr class="border border-black border-1 opacity-100 w-75 mx-auto">\
             <div class="row p-0 m-0">\
-                <h7 class="col-6 btn" style="font-size:1rem;">'+plaza.horaInicio+' - '+plaza.horaFinal+'</h7>\
-                <h7 class="col-4 btn bg-primary  text-white rounded" style="font-size:1rem;">'+ plaza.precioMes+'€/mes</h7>\
+                <h7 class="col-6 btn fw-bold" style="font-size:1rem;">'+plaza.horaInicio+' - '+plaza.horaFinal+'</h7>\
+                <h7 class="col-4 btn btn-primary  text-white rounded" style="font-size:1rem;">'+ plaza.precioMes+'€/mes</h7>\
             </div>\
-            <router-link to="google.com" class="col-8 mx-auto p-0 btn btn-light text-dark fw-bold mt-3">VISITAR PLAZA</router-link>\
-        </div>\
+            <a href="Plaza/'+plaza.id+'" class="col-8 mx-auto p-0 btn btn-light text-dark fw-bold mt-3">VISITAR PLAZA</a>\
+          </div>\
           </div>';
 
           var popup = L.popup({ className: 'popup' })

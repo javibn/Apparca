@@ -16,7 +16,7 @@
                   <h7 class="col-6" style="font-size:1rem;">{{item.horaInicio}} - {{item.horaFinal}}</h7>
                   <h7 class="col-5 bg-primary  text-white rounded" style="font-size:1rem;">{{item.precioMes}}€/mes</h7>
               </div>
-              <a class="col-8 mx-auto p-0 btn btn-light text-dark fw-bold mt-3">VISITAR PLAZA</a>
+              <router-link :to="`Plaza/${item.id}`" class="col-8 mx-auto p-0 btn btn-light text-dark fw-bold mt-3">VISITAR PLAZA</router-link>
           </div>
         </div>
         <div v-else class="scrollbar-demo-item row ms-1" style="transform: scale(0.9);">
@@ -63,7 +63,9 @@ export default {
     object-fit: cover;
 }
 
-
+.bg-primary{
+  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
+}
 .scrollbar-demo-item {
   flex-shrink: 0;
   display: flex;

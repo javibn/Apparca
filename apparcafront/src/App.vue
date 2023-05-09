@@ -2,7 +2,7 @@
   <div>
     <header class="w-100 z-2 pe-3 ps-lg-5 ps-3 border-bottom" style="height: 8vh;">
         <nav class="navbar navbar-expand-lg navbar-light bg-white align-items-center p-0 container-fluid h-100" >
-            <router-link class="navbar-brand h-100" to="/Home">
+            <router-link :to="'/Home'"  class="navbar-brand h-100" >
                 <img src="../src/assets/APPARCA.png" class="h-100" alt="Logo">
             </router-link>
             <button class="navbar-toggler h-100 m" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
