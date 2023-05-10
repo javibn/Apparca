@@ -1,6 +1,8 @@
 <template>
-  <div class="slider-demo-block">
-    <el-slider v-model="precio" :max="this.max" :min="this.min" :marks="marks" @change="setData" :format-tooltip="formatValue" />
+  <div class="slider-demo-block row m-0">
+    <el-slider v-model="precio" class="col-12 pe-5" :max="this.max"  :min="this.min" :marks="this.marks" @change="setData" :format-tooltip="formatValue" />
+    <span class="col-2 text-grey">{{min}}€</span>
+    <span class="offset-8 col-2 text-grey text-end  p-0">{{max}}€</span>
   </div>
 </template>
 <script>
@@ -16,15 +18,17 @@ export default {
       type: Number,
       default: 0
     }
+    
   },
   data: function() {
         return {
             // TODO: crear variables de datos para el funcionamiento del componente
-            precio:"",
-            marks : {
-              [this.min]: this.min + '€',
-              [this.max]: this.max + '€',
-            }
+            precio:this.max,
+            /*marks:{
+              0: 0 + '€',
+              100: "100€"
+            }*/
+            
         }
     },
     mounted(){

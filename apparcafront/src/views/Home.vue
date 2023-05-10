@@ -12,7 +12,7 @@
             <date-component class="h-100 p-0 m-0 w-100" @getDataFecha="getDataFecha"></date-component>
           </div>
           <div class="col me-3 h-100">
-            <slider-component :max="maxPrice" :min="minPrice"  @getDataPrecio="getDataPrecio"></slider-component>
+            <slider-component  :max="maxPrice" :min="minPrice"  @getDataPrecio="getDataPrecio"></slider-component>
           </div>
             
             <!--<input-number-component class="w-100"></input-number-component>
@@ -80,8 +80,9 @@ export default {
               longitudMinima: ""
             },
             plazaId: 0,
-            maxPrice:500,
-            minPrice:0
+            maxPrice:100,
+            minPrice:0,
+            
         }
     },
   components: {
@@ -269,8 +270,8 @@ export default {
             this.plazasApi.push(plazaNueva)
           }
         })
-        this.maxPrice = Number(data.precioMaximo);
-        this.minPrice = Number(data.precioMinimo);
+          this.maxPrice = Number(data.precioMaximo);
+        //this.minPrice = Number(data.precioMinimo);
         console.log("AQUIIIIIIIIIIIIII"+this.minPrice+this.maxPrice)
         })
       .catch(error => console.error(error))

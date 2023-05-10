@@ -61,7 +61,7 @@
                     <span class="fw-bold ms-3">Ancho: {{ this.plaza.ancho }}cm</span>
 
                     <img src="../../src/assets/iconoLargo.png" class="icono ms-4 ">
-                    <span class="fw-bold">Ancho: {{ this.plaza.largo }}cm</span>
+                    <span class="fw-bold">Largo: {{ this.plaza.largo }}cm</span>
 
                     <img src="../../src/assets/iconoMando.png" class="icono ms-5 ">
                     <span class="fw-bold ms-3">Precio del mando: {{ this.plaza.precioMando }}€</span>

@@ -191,11 +191,11 @@
             fechaFinal:"",
             descripcion:null
           },
-          active:2,
+          active:0,
           mapa: "",
           markers : "",
           imagen:null,
-          imagenUrl:"https://detallesorballo.com/wp-content/uploads/2020/09/imagen-de-prueba-320x240-1.jpg"
+          imagenUrl:"https://us.123rf.com/450wm/mattbadal/mattbadal1911/mattbadal191100006/135029891-falta-la-p%C3%A1gina-de-imagen-para-el-dise%C3%B1o-del-sitio-web-o-el-dise%C3%B1o-de-la-aplicaci%C3%B3n-m%C3%B3vil-no-hay.jpg?ver=6"
         }
     },
   components: {
