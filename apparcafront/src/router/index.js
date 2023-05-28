@@ -6,6 +6,7 @@ import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Details from "../views/Plaza.vue";
 import MisPlazas from "../views/MisPlazas.vue";
+import SobreApparca from "../views/SobreApparca.vue";
 
 
 
@@ -47,6 +48,11 @@ const routes = [
     path: "/Register",
     name: "Register",
     component: Register,
+  },
+  {
+    path: "/SobreApparca",
+    name: "SobreApparca",
+    component: SobreApparca,
   },
 ];
 

@@ -27,7 +27,7 @@
             Filtrar
           </button>
         </div>
-        <div class="rounded  border-top border-1 d-block d-lg-none" style="height:5vh;display: flex;  align-items: center;">
+        <div class="rounded  border-top border-1 filtrosMobil" style="height:5vh;display: flex;  align-items: center;">
           <!--<div class="row bg-white m-0  pe-5 w-100 "-->
           <filtros-component class="h-100"/>
         </div>
@@ -342,10 +342,17 @@ export default {
   height: 80vh !important;
 }
 
+.filtrosMobil{
+  display: none !important;
+}
+
 
 @media screen and (max-width: 991px) {
     .filtros{
       display: none !important;
+    }
+    .filtrosMobil{
+      display: block !important;
     }
   }
 
