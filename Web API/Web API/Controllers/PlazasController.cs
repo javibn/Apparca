@@ -118,23 +118,30 @@ namespace Web_API.Controllers
 
             plazas = plazas.Where(plaza => (plaza.Latitud<= filtros.LatitudMaxima) && (plaza.Latitud >= filtros.LatitudMinima)).ToList();
             plazas = plazas.Where(plaza => (plaza.Longitud<= filtros.LongitudMaxima) && (plaza.Longitud >= filtros.LongitudMinima)).ToList();
-            plazas = plazas.Where(plaza => (TimeOnly.Parse(plaza.HoraInicio) <= filtros.HoraInicio) && (TimeOnly.Parse(plaza.HoraFinal) >= filtros.HoraFinal)).ToList();
-            plazas = plazas.Where(plaza => (DateTime.Parse(plaza.FechaInicio) >= filtros.FechaInicial) && (DateTime.Parse(plaza.FechaFinal) <= filtros.FechaFinal)).ToList();
+            var plazasN = plazas.Where(plaza => (TimeOnly.Parse(plaza.HoraInicio) <= filtros.HoraInicio) && (TimeOnly.Parse(plaza.HoraFinal) >= filtros.HoraFinal)).ToList();
+            plazasN = plazasN.Where(plaza => (DateTime.Parse(plaza.FechaInicio) >= filtros.FechaInicial) && (DateTime.Parse(plaza.FechaFinal) <= filtros.FechaFinal)).ToList();
             
-            plazas = plazas.Where(plaza => plaza.Ancho >= filtros.Ancho).ToList();
+            plazasN = plazasN.Where(plaza => plaza.Ancho >= filtros.Ancho).ToList();
 
-            var mayorPrecio = plazas.OrderBy(plaza => plaza.PrecioMes).Last().PrecioMes;
+            
 
-            plazas = plazas.Where(plaza => plaza.PrecioMes <= filtros.Precio).ToList();
+            plazasN = plazasN.Where(plaza => plaza.PrecioMes <= filtros.Precio).ToList();
 
-            var plazasN = plazas.OrderBy(r => Guid.NewGuid()).Take(25).ToList();
+            plazasN = plazasN.OrderBy(r => Guid.NewGuid()).Take(25).ToList();
 
             FiltroPlazasResponse plazasResponse = new FiltroPlazasResponse();
 
             plazasResponse.Plazas = plazasN;
-            
-            plazasResponse.PrecioMaximo = mayorPrecio;
 
+            if (plazasN.Count>0)
+            {
+                plazasResponse.PrecioMaximo = plazasN.OrderBy(plaza => plaza.PrecioMes).Last().PrecioMes;
+            }
+            else if(plazas.Count>0)
+            {
+                plazasResponse.PrecioMaximo = plazas.OrderBy(plaza => plaza.PrecioMes).Last().PrecioMes;
+            }
+            
             return Ok(plazasResponse);
         }
 

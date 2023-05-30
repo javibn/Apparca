@@ -423,6 +423,7 @@
       } catch (error) {
         console.error(error);
       }
+      this.$router.push('/MisPlazas');
     },
     cambioImagen(event) {
       this.imagen = event.target.files[0]
