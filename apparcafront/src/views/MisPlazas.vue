@@ -1,10 +1,19 @@
 <template>
     <div class="container p-0 pt-5">
+        <div class="text-center position-absolute col-8 d-flex align-items-center justify-content-center" style="height:86vh;" >
+            <div class="spinner-border d-none" id="spinner" role="status">
+            </div>
+        </div>
         <div>
             <h2 class="text-center">Mis Plazas</h2>
             <div class="text-primary">
                 <hr class="">
             </div>
+        </div>
+        
+        <div class="row" id="imagen" v-if="plazas.length == 0">
+            <img src="../assets/Empty.png" class="col-5 mx-auto">
+            <h3 class="text-center">No tienes ninguna plaza publicada todavía</h3>
         </div>
         <div v-for="(item, index) in this.plazas" :key="index" class="row rounded-5 m-0 mt-5" style="background-color: #fcfcfc;">
             <img class="col-2 rounded-start-5 p-0" :src=item.imagenSrc>
@@ -94,7 +103,7 @@ export default {
   name: 'MisPlazas',
   data: function() {
         return {
-            plazas:null
+            plazas:[]
         }
     },
   components: {
@@ -106,6 +115,10 @@ export default {
         ...mapState(['name'])
     },
   async mounted() {
+    var spinner = document.getElementById("spinner");
+    spinner.classList = "spinner-border";
+    var form = document.getElementById("imagen");
+    form.style.opacity = 0;
     try {
         const response = await axios.get('https://localhost:7207/Plazas/MisPlazas', {
           headers: {
@@ -114,6 +127,10 @@ export default {
         });
         console.log(response.data);
         this.plazas = response.data
+
+        spinner.classList = "d-none";
+        form.style.opacity = 1;
+
       } catch (error) {
         console.error(error);
       }

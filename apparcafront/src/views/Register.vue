@@ -90,9 +90,12 @@ export default {
             })
             .then(response => response.json())
             .then(data => {
+                var usuario = data.user.nombre.toString();
+                console.log(usuario)
                 console.log(data)
-                this.$store.dispatch('setToken', data.result, data.user.nombre);
-                this.$router.push('/Home');
+                this.$store.dispatch('setToken', data);
+                console.log(this.name)
+                this.$router.push('/');
                 
             })
             .catch(error => console.error(error))

@@ -98,6 +98,7 @@ export default {
             }else{
                 var usuario = data.user.nombre.toString();
                 console.log(usuario)
+                console.log(data)
                 this.$store.dispatch('setToken', data);
                 console.log(this.name)
                 var referrer = document.referrer.substring(21);

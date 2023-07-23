@@ -70,12 +70,12 @@
                     <p>{{ this.plaza.descripcion }}</p>
 
                     <h5 class="mt-4">Contacta con el propietario</h5>
-                    <a class="btn p-2 mt-2" style="color: #890094; border-color: #890094; width: 200px;">Contactar</a>
+                    <a class="btn p-2 mt-2" id="contactar">Contactar</a>
                 </div>
             </div>
             
         </div>
-        <div class="text-center d-flex align-items-center justify-content-center" style="position: absolute; top:0; bottom: 0; left: 0; right: 0;"   >
+        <div class="text-center z-index-3 d-flex align-items-center justify-content-center" style="position: absolute; top:0; bottom: 0; left: 0; right: 0;"   >
             <div class="spinner-border d-none" id="spinner" role="status">
             </div>
         </div>
@@ -153,6 +153,15 @@ export default {
 .icono{
     width : 50px;
      height : 50px;
+}
+#contactar{
+    color: #890094; border-color: #890094; width: 200px;
+}
+
+#contactar:hover{
+    color: white;
+    background-color: #890094;
+    border-color: #890094;
 }
 
 </style>

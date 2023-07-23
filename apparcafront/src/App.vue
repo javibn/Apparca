@@ -16,7 +16,7 @@
                     <li><hr class="border border-primary border-1 col-2 mx-auto opacity-100 m-0 linea"></li>
                     <div v-if="isLoggedIn">
                         <li class="nav-item" >
-                            <a class="nav-link text-decoration-none text-black" href="#">Mis Plazas</a>
+                            <router-link :to="'/MisPlazas'" class="nav-link text-decoration-none text-black" >Mis Plazas</router-link>
                         </li>
                         <li><hr class="border border-primary border-1 col-2 mx-auto opacity-100 m-0 linea"></li>
                     </div>
@@ -34,7 +34,7 @@
                     </div>
                     <div v-else>
                         <li class="nav-item">
-                            <a class="nav-link text-decoration-none text-black" href="#">Sobre Apparca</a>
+                            <router-link :to="'/SobreApparca'" class="nav-link text-decoration-none text-black" >Sobre Apparca</router-link>
                         </li>
                         <li><hr class="border border-primary border-1 col-2 mx-auto opacity-100 m-0 linea"></li>
                     </div>
