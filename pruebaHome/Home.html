@@ -7,43 +7,139 @@
     <link rel="icon" href="img/logoA.svg">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="estilos.css">
     <style>
-        .contenedorFondo {
-            background-image: url(img/fondoApparca2.png);
-            background-size: cover;
-            width: 100%;
-            height: 180%;
-            background-position: center;
-            z-index: 2;
-        }
-        .contenedorFondo2 {
-            position: fixed;
-            background-color: red;
-            width: 100%;
-            bottom: 0;
-            height: 100%;
-            z-index: 1;
-        }
-        .row{
-            width: auto;
-        }
-        .logo{
-            margin-top: 7rem;
-        }
+      @font-face {
+        font-family: 'Montserrat';
+        src: url('/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+      }
+      *{
+        font-family: 'Montserrat'
+      }
+      .contenedorFondo {
+          background-image: url(img/fondoApparca2.png);
+          background-size: cover;
+          width: 100%;
+          height: 180%;
+          background-position: center;
+          z-index: 2;
+      }
+      .contenedorFondo2 {
+          position: fixed;
+          background-color: #0b2c33;
+          width: 100%;
+          bottom: 0;
+          height: 100%;
+          z-index: 1;
+      }
+      .row{
+          width: auto;
+      }
+      .logo{
+          margin-top: 7rem;
+      }
 
-        .filtro{
-            margin-top: 5rem;
-        }
+      .filtro{
+          margin-top: 4rem;
+      }
+      .botonEncontrar{
+        border-radius: 0px 0px 25px 25px;
+        background-color: #205760;
+        transition: 0.5s;
+      }
 
-        @media screen and (max-width: 992px) {
-            .logo{
-                margin-top: 4rem
-            }
-        }
+      .botonEncontrar:hover{
+        cursor: pointer;
+        background-color: #fa8e00;
+      }
+
+      .saberMas{
+        margin-bottom: 14rem;
+      }
+
+      .botonSaberMas{
+        border-radius: 0px 0px 25px 25px;
+        background-color: #FA8E00;
+        transition: 0.5s;
+        color: #0B2C33;
+      }
+
+      .botonSaberMas:hover{
+        cursor: pointer;
+        background-color: #205760;
+        color: white;
+      }
+
+      .chollo{
+        position: absolute;
+        z-index: 100;
+        margin-left: 38%;
+        margin-top: -5rem;
+        height: 110px;
+        width: auto;
+      }
+
+      .ofertaMil{
+        font-size: 1.1rem;
+        padding: 0px 4rem 0rem 4rem;
+        color: #0B2C33;
+      }
+
+      @media screen and (max-width: 1400px) {
+          .chollo{
+            margin-left: 55%;
+          }
+      }
+
+      @media screen and (max-width: 1200px) {
+          .chollo{
+            margin-left: 70%;
+          }
+      }
+
+      @media screen and (max-width: 992px) {
+          .logo{
+              margin-top: 4rem
+          }
+          .chollo{
+            margin-left: 83%;
+            height: 90px;
+          }
+      }
+      @media screen and (max-width: 768px) {
+          .tbFiltro{
+              margin-bottom: 1rem
+          }
+          .filtro{
+            margin-top: 2rem;
+          }
+          .chollo{
+            margin-left: 83%;
+            margin-top: -3rem;
+            height: 70px;
+          }
+          .ofertaMil{
+            padding: 0px 4rem 0rem 4rem;
+          }
+          .saberMas{
+            margin-bottom: 6rem;
+          }
+      }
+      @media screen and (max-width: 576px) {
+          .chollo{
+            margin-top: -3rem;
+            height: 70px;
+            margin-left: 76%;
+          }
+      }
     </style>
 </head>
 <body>
-    <div style="z-index: 3;" class="position-absolute">
+  <div style="z-index: 3;" class="position-sticky">
     <nav class="navbar navbar-expand" style="height: 8vh;">
       <div class="container">
         <a class="navbar-brand ms-lg-0 ms-3" href="#">
@@ -79,61 +175,147 @@
     </div>
     <div class="contenedorFondo2">
     </div>
-  <div style="z-index: 3; position: absolute; width: 100%;">
-    <div class="col-xl-3 col-lg-5 col-md-7 col-sm-9 col-10 mx-auto pb-3 logo" >
-      <img src="img/logo.svg" class="w-100">
-    </div>
-    <div class="bg-light col-5 mx-auto filtro px-3" style="border-radius: 25px 25px 0px 0px;">
-      <h2 class="text-center py-3 mb-0 fw-bold"
-      style="color:#133C44; font-size: 2rem;">Encuentra aparcamiento</h2>
-      <div class="row m-0 ps-3 pe-3 mt-2 pb-3">
-        <div class="col-4 p-0 pe-2">
-          <p class="mb-2 fw-semibold">Para qué vehiculo</p>
-          <q-select filled v-model="model" :options="options"
-            color="black" outlined label-class="label-custom-style"
-            :options-html="optionsHtml" label="Coche">
-          </q-select>
+    <div style="z-index: 2; position: absolute; width: 100%;">
+      <div class="col-xl-3 col-lg-5 col-md-7 col-sm-9 col-10 mx-auto pb-3 logo" >
+        <img src="img/logo.svg" class="w-100">
+      </div>
+      <div class="col-xxl-6 col-xl-7 col-lg-9 col-11 mx-auto">
+        <div class="bg-light col-12  filtro px-3" style="border-radius: 25px 25px 0px 0px;">
+          <h2 class="text-center py-3 mb-0 fw-semibold"
+          style="color:#133C44; font-size: 1.8rem;">Encuentra aparcamiento</h2>
+          <div class="row m-0 ps-3 pe-3 mt-2 pb-3">
+            <div class="col-md-3 p-0 pe-2 tbFiltro">
+              <p class="mb-2 fw-semibold">Para qué vehiculo</p>
+              <div class="select-menu">
+                <div class="select-btn">
+                  <d class="fa-solid fa-car fs-5 sBtn-icon"></d>
+                    <span class="sBtn-text">Coche</span>
+                    <i class="bx bx-chevron-down"></i>
+                </div>
+                <ul class="options" style="padding: 0px">
+                    <li class="option ">
+                        <div class="mx-auto">
+                          <i class="fa-solid fa-car fs-5 option-icon" ></i>
+                          <span class="option-text ">Coche</span>
+                        </div>
+                    </li>
+                    <li class="option">
+                      <div class="mx-auto">
+                        <i class="fa-solid fa-motorcycle fs-5 option-icon" ></i>
+                        <span class="option-text">Moto</span>
+                      </div>
+                        
+                    </li>
+                </ul>
+            </div>
+            
+            </div>
+            <div class="col-md-5 tbFiltro">
+              <p class="mb-2 fw-semibold">Dónde</p>
+              <div class="select-menu" id="select-menu-provincia">
+                <div class="select-btn" id="select-btn-provincia">
+                  <d class="fa-solid fa-earth-europe fs-5"></d>
+                    <span class="sBtn-text" id="sBtn-text-provincia">Alicante</span>
+                    <i class="bx bx-chevron-down"></i>
+                </div>
+                <ul class="options" id="options-provincia" style="padding: 0px; max-height: 300px; overflow-y: scroll; width: 240px; ">
+                    <li class="option" id="option-provincia">
+                        <div class="mx-auto">
+                          <span class="option-text" id="option-text-provincia">Alicante</span>
+                        </div>
+                    </li>
+                    <li class="option" id="option-provincia">
+                      <div class="mx-auto">
+                        <span class="option-text" id="option-text-provincia">Murcia</span>
+                      </div>
+                    </li>
+                    <li class="option" id="option-provincia">
+                      <div class="mx-auto">
+                        <span class="option-text" id="option-text-provincia">Murcia</span>
+                      </div>
+                    </li>
+                    <li class="option" id="option-provincia">
+                      <div class="mx-auto">
+                        <span class="option-text" id="option-text-provincia">Murcia</span>
+                      </div>
+                    </li>
+                    <li class="option" id="option-provincia">
+                      <div class="mx-auto">
+                        <span class="option-text" id="option-text-provincia">Murcia</span>
+                      </div>
+                    </li>
+                    <li class="option" id="option-provincia">
+                      <div class="mx-auto">
+                        <span class="option-text" id="option-text-provincia">Murcia</span>
+                      </div>
+                    </li>
+                    <li class="option" id="option-provincia">
+                      <div class="mx-auto">
+                        <span class="option-text" id="option-text-provincia">Murcia</span>
+                      </div>
+                    </li>
+                </ul>
+            </div>
+            </div>
+            <div class="col-md-4">
+              <p class="fw-semibold">Cuándo</p>
+              
+            </div>
+          </div>
         </div>
-        <div class="col-4">
-          <p class="mb-2">Dónde</p>
-          <vue-google-autocomplete  id="mapControl" class="form-control"
-          placeholder="🙄Direccion, Ciudad..." v-on:placechanged="changeAddress">
-          </vue-google-autocomplete >
-        </div>
-        <div class="col-4">
-          <p>Cuándo</p>
-          <time-component></time-component>
+        <div class="col-12 mx-auto p-0 botonEncontrar">
+          <h5 class="text-center py-3 text-white fw-semibold">Encontrar aparcamiento</h5>
         </div>
       </div>
-    </div>
-    <div class="col-5 mx-auto p-0 " style="border-radius: 0px 0px 25px 25px;
-    background-color: #205760;">
-      <h5 class="text-center p-2 py-4 text-white">Encontrar aparcamiento</h5>
-    </div>
-
-    <div class="bg-light col-5 mx-auto " style="border-radius: 25px 25px 0px 0px;
-    margin-top: 500px;">
-      <h2 class="text-center pt-4 mb-0" style="color:#240d46;">Alquila tu plaza de garaje</h2>
-      <p class="mt-5 text-center pb-4 mb-0" style="font-size: 1.1rem; padding: 0px 5rem 0rem 5rem;">
-        Sácale partido a esa plaza de garaje que no usas. Date de alta en la app,
-        configura tus preferencias y ¡empieza a ganar!</p>
-    </div>
-    <div class="col-5 mx-auto p-0 " style="background-color: #3e265a;">
-      <p class="text-center pb-4 text-white fw-bold pt-2 mb-0" style="font-size: 1.2rem;
-      padding: 0px 4rem 0rem 4rem;">
-        ¡SI ERES UNO DE LOS 1.000 PRIMEROS EN APUNTARSE NO PAGAS TARIFA DE PUBLICACIÓN
-         DURANTE 1 AÑO!
-      </p>
-    </div>
-    <div class="col-5 mx-auto p-0 " style="border-radius: 0px 0px 25px 25px;
-    background-color: #ff8e01;">
-      <h4 class="text-center p-2" style="color: #380724;">Saber más</h4>
+      <div class="col-xxl-5 col-xl-7 col-lg-9 col-11 mx-auto saberMas">
+        <div class="bg-light" style="border-radius: 25px 25px 0px 0px;
+        margin-top: 500px;">
+          <h2 class="text-center pt-4 mb-0" style="color:#133C44;">Alquila tu plaza de garaje</h2>
+          <p class="mt-3 text-center pb-3 mb-0" style="font-size: 1rem; padding: 0px 5rem 0rem 5rem;">
+            Sácale partido a esa plaza de garaje que no usas. Date de alta en la app,
+            configura tus preferencias y ¡empieza a ganar!</p>
+        </div>
+        <img class="chollo" src="img/MegaChollo.png">
+        <div class="p-0 " style="background-color: #90ABB0;">
+          <p class="text-center pb-2 fw-bold pt-2 mb-0 ofertaMil">
+            ¡SI ERES UNO DE LOS 1.000 PRIMEROS EN APUNTARSE NO PAGAS TARIFA DE PUBLICACIÓN
+            DURANTE 1 AÑO!
+          </p>
+        </div>
+        <div class="p-0 botonSaberMas">
+          <h4 class="text-center p-2 fw-semibold">Saber más</h4>
+        </div>
+      </div>
+      <footer class="col-md-10 mx-auto pb-5">
+        <div class="row m-0">
+          <div class="col-lg-6 col-12">
+            <img src="img/logo.svg" class="col-md-6 offset-md-3 offset-lg-0 offset-2 col-8">
+          </div>
+          <div class="col-lg-6 d-flex align-items-end  justify-content-lg-end justify-content-center">
+            <p class="text-white align-text-bottom mb-2 fw-semibold">
+              2023 - Todos los derechos reservados
+            </p>
+          </div>
+        </div>
+        <div class="row m-0 mt-4">
+          <div class="col-md-12 offset-md-0 col-8 offset-2 d-flex align-items-center justify-content-center">
+            <p class="mb-2 text-white text-center">
+              <a class="me-2 text-decoration-none text-white">POLÍTICA DE PRIVACIDAD</a> ·
+              <a class="me-2 ms-2 text-decoration-none text-white">TÉRMINOS Y CONDICIONES</a> ·
+              <a class="me-2 ms-2 text-decoration-none text-white">COOKIES</a> ·
+              <a class="me-2 ms-2 text-decoration-none text-white">AVISO LEGAL</a> ·
+              <a class="me-2 ms-2 text-decoration-none text-white">ALQUILA TU PLAZA</a> ·
+              <a class="ms-2 text-decoration-none text-white">SOBRE NOSOTROS</a>
+            </p>
+          </div>
+          <div class="col-12 mt-2">
+            <p class="mb-2 text-white text-center fw-semibold">
+              SIGUENOS EN: REDES SOCIALES
+            </p>
+          </div>
+      </footer>
     </div>
   </div>
-    </div>
-  <footer class="text-muted container-fluid border-top bg-dark px-md-5 align-items-center"
-  style="height: 5vh;width:100%;" >
-        Apparca
-  </footer>
+  <script src="script.js"></script>
 </body>
 </html>

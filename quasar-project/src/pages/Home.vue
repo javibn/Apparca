@@ -1,8 +1,6 @@
 <template>
   <div class="position-absolute z-n1 top-0 contenedorFondo">
     </div>
-    <div class="contenedorFondo2">
-    </div>
   <div>
     <div class="col-xl-3 col-lg-5 col-md-7 col-sm-9 col-10 mx-auto pb-3 logo" >
       <img src="../assets/logo.svg" class="w-100">
@@ -17,11 +15,38 @@
             color="black" outlined label-class="label-custom-style"
             :options-html="optionsHtml" label="Coche">
           </q-select>
+          <select style="border-radius:10px; width:100%; height: 40%; text-align: center;
+          border: 1px solid red">
+            <option>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16"
+               height="16" fill="currentColor" class="bi bi-airplane"
+                viewBox="0 0 16 16">
+                <path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572
+                 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0
+                  0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253
+                   1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l
+                   1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.38
+                   2a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.42
+                   8-1.849Zm.894.448C7.111 2.02 7 2.569 7 3v4a.5.5 0 0 1
+                   -.276.447l-5.448 2.724a.5.5 0 0 0-.276.447v.792l5.418
+                   -.903a.5.5 0 0 1 .575.41l.5 3a.5.5 0 0 1-.14.437L6.708
+                    15h2.586l-.647-.646a.5.5 0 0 1-.14-.436l.5-3a.5.5 0 0
+                     1 .576-.411L15 11.41v-.792a.5.5 0 0 0-.276-.447L9.276
+                      7.447A.5.5 0 0 1 9 7V3c0-.432-.11-.979-.322-1.401C8.
+                      458 1.159 8.213 1 8 1c-.213 0-.458.158-.678.599Z"/>
+              </svg>
+              <div style="height: 20px; width: 20px; background-color: red;">
+                hola
+              </div>
+              Coche
+            </option>
+            <option style="background-color: black;">Moto</option>
+          </select>
         </div>
         <div class="col-4">
           <p class="mb-2">Dónde</p>
           <vue-google-autocomplete  id="mapControl" class="form-control"
-          placeholder="🙄Direccion, Ciudad..." v-on:placechanged="changeAddress">
+          placeholder="Direccion, Ciudad..." v-on:placechanged="changeAddress">
           </vue-google-autocomplete >
         </div>
         <div class="col-4">

@@ -1,0 +1,81 @@
+/* ===== Google Font Import - Poppins ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+.select-menu{
+    width: 100%;
+    
+}
+.select-menu .select-btn{
+    display: flex;
+    height: 55px;
+    background: #fff;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    border: 2px solid #1C4F58;
+    border-radius: 5px;
+    color: #1C4F58;
+}
+.select-btn i{
+    font-size: 25px;
+    transition: 0.3s;
+    color: #1C4F58;
+}
+.select-menu.active .select-btn i{
+    transform: rotate(-180deg);
+}
+.select-menu .options{
+    position: absolute;
+    width: 180px;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0,0,0,0.1);
+    display: none;
+    
+}
+.select-menu.active .options{
+    display: block;
+}
+.options{
+    padding: 0px;
+    margin: 0px;
+    background-color: red;
+}
+.options .option{
+    display: flex;
+    height: 55px;
+    width: 100%;
+    cursor: pointer;
+    padding: 0px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+}
+.options .option:hover{
+    background: #F2F2F2;
+}
+.option i{
+    margin-right: 12px;
+    color: #1C4F58;
+}
+.option .option-text{
+    font-size: 18px;
+    color: #333;
+}
+
+#options-provincia::-webkit-scrollbar{
+    width: 5px;
+}
+
+#options-provincia::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(180deg, #1C4F58 0%, #659097 99%);
+    box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+    border-radius: 100px;
+}
