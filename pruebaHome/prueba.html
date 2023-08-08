@@ -1,41 +1,54 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - codingnepalweb.com -->
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!----======== CSS ======== -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!--===== Boxicons CSS =====-->
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-     
-    <title>Custom Dropdown Select Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>Div Deslizante</title>
     <style>
-        .image-container {
-            position: fixed;
-            background-color: red;
-            top: 50%; /* Ajusta la posición vertical */
-            left: 0; /* El lateral en el que quieres fijar la imagen */
-            transform: translateY(-50%); /* Centra verticalmente la imagen */
-            overflow: hidden; /* Esto oculta cualquier contenido que se salga del div */
-            width: 200px; /* Ancho del div */
-            height: 100vh; /* Altura del div, en este caso, la altura de la ventana del navegador */
-        }
+        /* styles.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
 
-        .image-container img {
-            width: 100%; /* Asegura que la imagen ocupe todo el espacio dentro del div */
-            position: relative; /* Necesario para ajustar la posición de la imagen */
-            right: -50%; /* Desplaza la imagen hacia la izquierda (la mitad de su propio ancho) */
-        }
+#contenedor {
+    position: fixed;
+    top: 0;
+    left: -50%; /* Comienza fuera de la pantalla */
+    width: 50%;
+    height: 100%;
+    background-color: red;
+    overflow: hidden;
+    transition: 1s;
+}
+
+
     </style>
 </head>
 <body>
-    hola
-    <div class="image-container ">
-        <img src="img/bubble.svg" alt="Imagen">
+    <button id="mostrarDiv">Mostrar Div</button>
+    <div id="contenedor" class="oculto">
+        Contenido del div
     </div>
 </body>
+<script>
+    // script.js
+document.addEventListener("DOMContentLoaded", function () {
+    const mostrarDivBtn = document.getElementById("mostrarDiv");
+    const contenedorDiv = document.getElementById("contenedor");
+
+    mostrarDivBtn.addEventListener("click", function () {
+        contenedorDiv.classList.toggle("oculto");
+        if (contenedorDiv.classList.contains("oculto")) {
+            contenedorDiv.style.left = "-50%";
+        } else {
+            contenedorDiv.style.left = "0";
+        }
+    });
+});
+
+</script>
 </html>

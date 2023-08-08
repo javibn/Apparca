@@ -234,26 +234,6 @@ export default {
       return new Blob([byteArray], { type: 'image/jpeg' });
     },
     async GetPlazasFiltradas(){
-      /*const formData = new FormData();
-
-      for (const key in this.filtroPlazas) {
-        formData.append(key, this.filtroPlazas[key]);
-      }
-
-      await fetch('https://localhost:7207/Plazas/Filtrado', {
-      method: 'POST',
-      body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        //this.plazasApi = this.plazasApi.concat(data)
-        data.forEach(plazaNueva => {
-          if(plazaNueva.id != this.plazaId){
-            this.plazasApi.push(plazaNueva)
-          }
-        })
-        })
-      .catch(error => console.error(error))*/
       console.log(this.filtroPlazas)
       await fetch('https://localhost:7207/Plazas/Filtrado?latitudMaxima=' + this.filtroPlazas.latitudMaxima + '&latitudMinima=' + this.filtroPlazas.latitudMinima + '&longitudMaxima=' + this.filtroPlazas.longitudMaxima + '&longitudMinima=' + this.filtroPlazas.longitudMinima+'&horaInicio=' +this.filtroPlazas.horas.startTime + '&horaFinal=' + this.filtroPlazas.horas.endTime + '&fechaInicial=' + this.filtroPlazas.fecha[0] + '&fechaFinal=' + this.filtroPlazas.fecha[1] + '&precio='+ this.filtroPlazas.precio + '&ancho=' + this.filtroPlazas.ancho)
       .then(response => response.json())
