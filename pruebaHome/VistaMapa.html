@@ -143,10 +143,26 @@
         left: -60%; /* Comienza fuera de la pantalla */
         width: 60%;
         height: 90vh;
-        padding-left: 25%;
+        padding-left: 27%;
         background-color: white;
         overflow: hidden;
         transition: 1s;
+    }
+
+    #contenedor1{
+      height: 100%;
+      overflow-y: scroll;
+      padding-right: 20px;
+    }
+
+    #contenedor1::-webkit-scrollbar{
+        width: 10px;
+    }
+
+    #contenedor1::-webkit-scrollbar-thumb {
+        background-image: linear-gradient(180deg, #287381 10%, #8cbdc5 90%);
+        box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+        border-radius: 100px;
     }
 
     @media screen and (max-width: 1450px) {
@@ -184,7 +200,7 @@
   <header style="z-index: 3;" class="position-sticky">
     <nav class="navbar navbar-expand-md" style="min-height: 8vh;">
       <div class="container">
-        <a class="navbar-brand ms-lg-0 ms-3" href="#">
+        <a class="navbar-brand ms-lg-0 ms-3" href="/Home.html">
           <img src="img/logoAverde.svg" class="d-inline-block align-text-top">
         </a>
         <button class="navbar-toggler border border-0 p-0 me-4" type="button" data-bs-toggle="collapse"
@@ -239,7 +255,7 @@
             <span style="background-color: #fa8e00;" class="rounded-5 px-2">4</span></a>
         </div>
         <div class="col-6 p-0">
-          <p class="text-center mb-0 fw-bold" style="color:#205760; font-size: 1.1rem;">Vista mapa</p>
+          <p class="text-center mb-0 fw-bold" style="color:#205760; font-size: 1.1rem;">Ver vista lista</p>
         </div>
         <div class="collapse" id="collapseExample">
           <div class="col-md-8 col-10  mx-auto mt-4">
@@ -366,33 +382,155 @@
         </div>
       </div>
     </div>
-    <div id="contenedor" class="oculto position-absolute z-3 d-none d-lg-block">
-      <div class="row m-0 mt-5 rounded-4 plazaItem overflow-hidden">
-        <img src="img/plaza.jpg" style="height: 150px;" class="col-4 p-0 rounded-start-5 d-md-block d-none">
-        <div class="col-md-8 ">
-          <div class="row align-items-center">
-            <p class="fw-bold mb-1 textoPrimario">Calle del Poeta Quintana 33, 03004, Alicante, España</p>
-            <div class="col-4">
-              <p class="mb-1 fw-semibold textoPrimario">Distancia</p>
-              <p class="mb-0">182.65m</p>
-            </div>
-            <div class="col-4">
-              <p class="mb-1 fw-semibold textoPrimario">Tamaño</p>
-              <p class="mb-0" style="color: #888888;"><img src="img/iconoAltura.png" height="20">1,9m</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <p class="fw-semibold mb-1 mt-2" style="color: #133C44;">Servicios</p>
-              <div class="mx-auto" style="display: flex; justify-content: center;">
-                <img class="icono p-1" src="img/iconoWc.png">
-                <img class="icono p-1" src="img/iconoSeguridad.png">
-                <img class="icono p-1" src="img/icono24horas.png">
+    <div id="contenedor" class="oculto position-absolute z-3 d-none d-lg-block pt-3">
+      <div id="contenedor1" >
+        <div class="row m-0 rounded-5 plazaItem overflow-hidden">
+          <img src="img/plaza.jpg" style="height: 130px;" class="col-4 p-0 rounded-start-5 d-md-block d-none">
+          <div class="col-md-8 ">
+            <div class="row align-items-center">
+              <p class="fw-bold mb-1 textoPrimario">Calle del Poeta Quintana 33, 03004, Alicante, España</p>
+              <div class="col-4">
+                <p class="mb-1 fw-semibold textoPrimario">Distancia</p>
+                <p class="mb-0">182.65m</p>
+              </div>
+              <div class="col-4">
+                <p class="mb-1 fw-semibold textoPrimario">Tamaño</p>
+                <p class="mb-0" style="color: #888888;"><img src="img/iconoAltura.png" height="20">1,9m</p>
               </div>
             </div>
-            <div class="col-6 p-4" style="background-color: #CFE2E4;">
-              <p class="fw-semibold mb-0 " style="color: #133C44;">Precio</p>
-              <p class="fw-bold mb-0 fs-3 text-center" style="color: #000000;">91,90€</p>
+            <div class="row">
+              <div class="col-7">
+                <p class="fw-semibold mb-1 mt-2" style="color: #133C44;">Servicios</p>
+                <div class="mx-auto" style="display: flex; justify-content: center;">
+                  <img class="icono p-1" src="img/iconoWc.png">
+                  <img class="icono p-1" src="img/iconoSeguridad.png">
+                  <img class="icono p-1" src="img/icono24horas.png">
+                </div>
+              </div>
+              <div class="col-5 p-2" style="background-color: #CFE2E4;">
+                <p class="fw-semibold mb-0 " style="color: #133C44;">Precio</p>
+                <p class="fw-bold mb-0 fs-3 text-center" style="color: #000000;">91,90€</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 mt-4 rounded-5 plazaItem overflow-hidden">
+          <img src="img/plaza.jpg" style="height: 130px;" class="col-4 p-0 rounded-start-5 d-md-block d-none">
+          <div class="col-md-8 ">
+            <div class="row align-items-center">
+              <p class="fw-bold mb-1 textoPrimario">Calle del Poeta Quintana 33, 03004, Alicante, España</p>
+              <div class="col-4">
+                <p class="mb-1 fw-semibold textoPrimario">Distancia</p>
+                <p class="mb-0">182.65m</p>
+              </div>
+              <div class="col-4">
+                <p class="mb-1 fw-semibold textoPrimario">Tamaño</p>
+                <p class="mb-0" style="color: #888888;"><img src="img/iconoAltura.png" height="20">1,9m</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-7">
+                <p class="fw-semibold mb-1 mt-2" style="color: #133C44;">Servicios</p>
+                <div class="mx-auto" style="display: flex; justify-content: center;">
+                  <img class="icono p-1" src="img/iconoWc.png">
+                  <img class="icono p-1" src="img/iconoSeguridad.png">
+                  <img class="icono p-1" src="img/icono24horas.png">
+                </div>
+              </div>
+              <div class="col-5 p-2" style="background-color: #CFE2E4;">
+                <p class="fw-semibold mb-0 " style="color: #133C44;">Precio</p>
+                <p class="fw-bold mb-0 fs-3 text-center" style="color: #000000;">91,90€</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 mt-4 rounded-5 plazaItem overflow-hidden">
+          <img src="img/plaza.jpg" style="height: 130px;" class="col-4 p-0 rounded-start-5 d-md-block d-none">
+          <div class="col-md-8 ">
+            <div class="row align-items-center">
+              <p class="fw-bold mb-1 textoPrimario">Calle del Poeta Quintana 33, 03004, Alicante, España</p>
+              <div class="col-4">
+                <p class="mb-1 fw-semibold textoPrimario">Distancia</p>
+                <p class="mb-0">182.65m</p>
+              </div>
+              <div class="col-4">
+                <p class="mb-1 fw-semibold textoPrimario">Tamaño</p>
+                <p class="mb-0" style="color: #888888;"><img src="img/iconoAltura.png" height="20">1,9m</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-7">
+                <p class="fw-semibold mb-1 mt-2" style="color: #133C44;">Servicios</p>
+                <div class="mx-auto" style="display: flex; justify-content: center;">
+                  <img class="icono p-1" src="img/iconoWc.png">
+                  <img class="icono p-1" src="img/iconoSeguridad.png">
+                  <img class="icono p-1" src="img/icono24horas.png">
+                </div>
+              </div>
+              <div class="col-5 p-2" style="background-color: #CFE2E4;">
+                <p class="fw-semibold mb-0 " style="color: #133C44;">Precio</p>
+                <p class="fw-bold mb-0 fs-3 text-center" style="color: #000000;">91,90€</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 mt-4 rounded-5 plazaItem overflow-hidden">
+          <img src="img/plaza.jpg" style="height: 130px;" class="col-4 p-0 rounded-start-5 d-md-block d-none">
+          <div class="col-md-8 ">
+            <div class="row align-items-center">
+              <p class="fw-bold mb-1 textoPrimario">Calle del Poeta Quintana 33, 03004, Alicante, España</p>
+              <div class="col-4">
+                <p class="mb-1 fw-semibold textoPrimario">Distancia</p>
+                <p class="mb-0">182.65m</p>
+              </div>
+              <div class="col-4">
+                <p class="mb-1 fw-semibold textoPrimario">Tamaño</p>
+                <p class="mb-0" style="color: #888888;"><img src="img/iconoAltura.png" height="20">1,9m</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-7">
+                <p class="fw-semibold mb-1 mt-2" style="color: #133C44;">Servicios</p>
+                <div class="mx-auto" style="display: flex; justify-content: center;">
+                  <img class="icono p-1" src="img/iconoWc.png">
+                  <img class="icono p-1" src="img/iconoSeguridad.png">
+                  <img class="icono p-1" src="img/icono24horas.png">
+                </div>
+              </div>
+              <div class="col-5 p-2" style="background-color: #CFE2E4;">
+                <p class="fw-semibold mb-0 " style="color: #133C44;">Precio</p>
+                <p class="fw-bold mb-0 fs-3 text-center" style="color: #000000;">91,90€</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 mt-4 mb-3 rounded-5 plazaItem overflow-hidden">
+          <img src="img/plaza.jpg" style="height: 130px;" class="col-4 p-0 rounded-start-5 d-md-block d-none">
+          <div class="col-md-8 ">
+            <div class="row align-items-center">
+              <p class="fw-bold mb-1 textoPrimario">Calle del Poeta Quintana 33, 03004, Alicante, España</p>
+              <div class="col-4">
+                <p class="mb-1 fw-semibold textoPrimario">Distancia</p>
+                <p class="mb-0">182.65m</p>
+              </div>
+              <div class="col-4">
+                <p class="mb-1 fw-semibold textoPrimario">Tamaño</p>
+                <p class="mb-0" style="color: #888888;"><img src="img/iconoAltura.png" height="20">1,9m</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-7">
+                <p class="fw-semibold mb-1 mt-2" style="color: #133C44;">Servicios</p>
+                <div class="mx-auto" style="display: flex; justify-content: center;">
+                  <img class="icono p-1" src="img/iconoWc.png">
+                  <img class="icono p-1" src="img/iconoSeguridad.png">
+                  <img class="icono p-1" src="img/icono24horas.png">
+                </div>
+              </div>
+              <div class="col-5 p-3" style="background-color: #CFE2E4;">
+                <p class="fw-semibold mb-0 " style="color: #133C44;">Precio</p>
+                <p class="fw-bold mb-0 fs-3 text-center" style="color: #000000;">91,90€</p>
+              </div>
             </div>
           </div>
         </div>
@@ -405,7 +543,7 @@
       <img src="img/iconoDespliegueLista.png" style="transform: rotate(180deg);">
     </button>
     <div class="d-none d-lg-block mt-5 position-absolute z-3 filtroCaja" style=" margin-left: 3%;">
-      <a class="col-12 btn fw-semibold text-white rounded-4 p-2 mb-4" style="background-color: #205760;">Ver vista mapa</a>
+      <a class="col-12 btn fw-semibold text-white rounded-4 p-2 mb-4" style="background-color: #205760;">Ver vista lista</a>
       <div class="col-12 mx-auto bg-white rounded-4">
         <div class="col-12  filtro px-3" style="border-radius: 25px 25px 0px 0px;">
           <p class="text-center pt-3 mb-0 fw-semibold" style="color:#205760; font-size: 1.1rem;">Filtros <span
@@ -645,11 +783,8 @@
 
         mostrarDivBtn.addEventListener("click", function () {
             contenedorDiv.classList.toggle("oculto");
-            if (contenedorDiv.classList.contains("oculto")) {
-                contenedorDiv.style.left = "-60%";
-            } else {
-                contenedorDiv.style.left = "0";
-            }
+            
+            contenedorDiv.style.left = "0";
             
             if(window.innerWidth > 1450){
               ocultarDivBtn.style.left = "60%"
