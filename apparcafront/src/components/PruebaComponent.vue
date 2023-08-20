@@ -191,7 +191,7 @@
             fechaFinal:"",
             descripcion:null
           },
-          active:0,
+          active:2,
           mapa: "",
           markers : "",
           imagen:null,
