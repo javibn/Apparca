@@ -16,7 +16,15 @@
           </button>
           <div class="collapse navbar-collapse divNav" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-3 ">
-              <li class="nav-item d-md-none d-block pt-2">
+              <li v-if="isLoggedIn" class="nav-item d-md-none d-block pt-2">
+                <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" style="color:#205760;" class="bi bi-person-fill pb-1" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                </svg>
+                <a class="fw-bold text-decoration-none" style="color: #205760" aria-current="page" href="#"> Mi cuenta</a>
+                <a class="text-decoration-none" style="color: #205760" aria-current="page" href="#"> / </a>
+                <a class="fw-bold text-decoration-none" style="color: #205760" href="#">Logout</a>
+              </li>
+              <li v-else class="nav-item d-md-none d-block pt-2">
                 <img src="../src/assets/llaveVerde.png" class="mt-1" height="30">
                 <a class="fw-bold text-decoration-none" style="color: #205760" aria-current="page" href="#">Login</a>
                 <a class="text-decoration-none" style="color: #205760" aria-current="page" href="#">/</a>
@@ -32,7 +40,21 @@
                 <a class="nav-link fw-bold" style="color: #205760" aria-current="page" href="#">Alquila tu plaza</a>
               </li>
             </ul>
-            <ul class="navbar-nav d-none d-md-flex">
+            <ul class="navbar-nav d-none d-md-flex" v-if="isLoggedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" style="color:#205760" class="bi bi-person-fill mt-1" viewBox="0 0 16 16">
+                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+              </svg>
+              <li class="nav-item">
+                <a class="nav-link fw-bold" style="color: #205760" aria-current="page" href="#">Mi cuenta</a>
+              </li>
+              <li class="nav-item fw-bold ">
+                <a class="nav-link" style="color: #205760" aria-current="page" href="#">/</a>
+              </li>
+              <li class="nav-item fw-bold">
+                <a class="nav-link" style="color: #205760" href="#">Logout</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav d-none d-md-flex" v-else>
               <img src="../src/assets/llaveVerde.png" class="mt-1" height="30">
               <li class="nav-item">
                 <a class="nav-link fw-bold" style="color: #205760" aria-current="page" href="#">Login</a>
@@ -85,12 +107,22 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 
 export default {
   name: 'App',
   components: {
   },
+  computed:{
+      ...mapState(['isLoggedIn']),
+      ...mapState(['name'])
+  },
   mounted(){
+  },
+  methods:{
+    logout() {
+      this.$store.commit('logout');
+    },
   }
 }
 
