@@ -75,11 +75,19 @@
               <div class="select-menu" id="select-menu-provincia">
                 <div class="select-btn" id="select-btn-provincia">
                   <d class="fa-solid fa-earth-europe fs-5"></d>
-                    <span class="sBtn-text" id="sBtn-text-provincia">Albacete</span>
-                    <i class="bx bx-chevron-down"></i>
+                    <input type="text" id="textbox-place" class="form-control ms-4" placeholder="Provincia">
                 </div>
                 <ul class="options" id="options-provincia" style="padding: 0px; max-height: 300px; overflow-y: scroll; width: 240px; ">
-                    
+                  <li class="option" id="option-provincia">
+                      <div class="mx-auto">
+                        <span class="option-text" id="option-text-provincia">Murcia</span>
+                      </div>
+                    </li>
+                    <li class="option" id="option-provincia">
+                      <div class="mx-auto">
+                        <span class="option-text" id="option-text-provincia">almeria</span>
+                      </div>
+                    </li>
                     
                 </ul>
             </div>
@@ -155,6 +163,7 @@ export default {
   data: function() {
         return {
             
+            
         }
     },
   components: {
@@ -172,7 +181,9 @@ export default {
        sBtn_text = optionMenu.querySelector(".sBtn-text"),
        sBtn_icon = optionMenu.querySelector(".sBtn-icon");
 
-    selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));       
+    const optionTextBox = document.getElementById("textbox-place")
+
+    selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));    
 
     options.forEach(option =>{
         option.addEventListener("click", ()=>{
@@ -186,16 +197,19 @@ export default {
     })
 
     const optionMenuProvincia = document.getElementById("select-menu-provincia"),
-       selectBtnProvincia = optionMenuProvincia.querySelector("#select-btn-provincia"),
-       optionsProvincia = optionMenuProvincia.querySelectorAll("#option-provincia"),
-       sBtn_textProvincia = optionMenuProvincia.querySelector("#sBtn-text-provincia");
+       //selectBtnProvincia = optionMenuProvincia.querySelector("#select-btn-provincia"),
+       optionsProvincia = optionMenuProvincia.querySelectorAll("#option-provincia");
+       //sBtn_textProvincia = optionMenuProvincia.querySelector("#sBtn-text-provincia");
 
-    selectBtnProvincia.addEventListener("click", () => optionMenuProvincia.classList.toggle("active"));       
-
+    //selectBtnProvincia.addEventListener("click", () => optionMenuProvincia.classList.toggle("active"));       
+    optionTextBox.addEventListener("keydown", () => optionMenuProvincia.classList.toggle("active")); 
+    console.log(optionsProvincia)
     optionsProvincia.forEach(option =>{
         option.addEventListener("click", ()=>{
+            console.log(option)
+            console.log(option.querySelector("#option-text-provincia"))
             let selectedOption = option.querySelector("#option-text-provincia").innerText;
-            sBtn_textProvincia.innerText = selectedOption;
+            optionTextBox.value = selectedOption;
 
             optionMenuProvincia.classList.remove("active");
         })
@@ -246,6 +260,9 @@ export default {
 </script>
 
 <style>
+  header{
+    display: none !important;
+  }
       .contenedorFondo {
           background-image: url(/src/assets/fondoApparca2.png);
           background-size: cover;
@@ -366,6 +383,15 @@ export default {
 
       /* ===== Google Font Import - Poppins ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+#textbox-place{
+  border: 0px;
+  box-shadow: 0px;
+}
+
+#textbox-place:focus{
+  border: 0px;
+}
 
 .select-menu{
     width: 100%;
