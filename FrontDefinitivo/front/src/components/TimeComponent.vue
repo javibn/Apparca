@@ -35,7 +35,6 @@ export default {
     },
   methods: {
     setData() {
-      console.log(this.time);
       this.$emit("getDataHoras", JSON.stringify(this.time));
     }
   }

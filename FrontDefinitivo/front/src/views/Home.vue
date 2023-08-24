@@ -81,21 +81,12 @@
                         
                     </li>
                 </ul>
+              </div>
             </div>
-            
-            </div>
+
             <div class="col-md-5 tbFiltro ps-0">
               <p class="mb-2 fw-semibold">Dónde</p>
-              <div class="select-menu" id="select-menu-provincia">
-                <div class="select-btn" id="select-btn-provincia">
-                  <d class="fa-solid fa-earth-europe fs-5"></d>
-                    <input ref="miInput" autocomplete="off" id="textbox-place" @focus="handleFocus" @blur="handleBlur" v-model.lazy="inputValue" @input="handleInput" class="form-control ms-2" placeholder="Provincia">
-                    
-                  </div>
-                <ul class="options" id="options-provincia" style="padding: 0px; overflow-y: scroll; overflow-x: hidden; width: 240px; ">
-                  
-                </ul>
-            </div>
+              <address-browser-component @getDataBrowser="getDataBrowser"></address-browser-component>
             </div>
             <div class="col-md-4 tbFiltro">
               <p class="fw-semibold mb-2">Cuándo</p>
@@ -160,24 +151,25 @@
 </template>
 
 <script>
-import axios from 'axios';
+import AddressBrowserComponent from '../components/AddressBrowserComponent.vue'
 import { mapState } from 'vuex';
 import TimeComponent from '../components/TimeComponent.vue'
-import router from '@/router';
+//import router from '@/router';
 
 export default {
   name: 'HomeA',
   data: function() {
         return {
           inputValue: "",
-          typingTimer: null,
           centro: null,
           isCorrect: false,
-          horas: null
+          horas: null,
+          isCoche: true
         }
     },
   components: {
     TimeComponent,
+    AddressBrowserComponent
   },
   computed:{
       ...mapState(['isLoggedIn']),
@@ -199,100 +191,48 @@ export default {
             let iconClass = option.querySelector(".option-icon").classList;
             sBtn_text.innerText = selectedOption;
             sBtn_icon.classList = iconClass + " sBtn-icon"
-
+            if(selectedOption == "Moto"){
+              this.isCoche = false
+            }
+            else{
+              this.isCoche = true
+            }
             optionMenu.classList.remove("active");
         })
     })
   },
   methods: {
-    async AddCitySelects(){
-      var provincias = []
-      try {
-        const response = 
-          await axios.get('https://api.mapbox.com/geocoding/v5/mapbox.places/'+ this.inputValue +'.json?access_token=pk.eyJ1IjoiamJuMjAwMSIsImEiOiJjbGt3cW95NjMwM2JsM2tueWVrMHV0MnJoIn0.nI9ULLd2W_4P0JCku50Iww&country=es&limit=5');
-        console.log(response.data);
-        provincias = response.data.features
-      } catch (error) {
-        console.error(error);
-      }
-
-      const cityUl = document.querySelector("#options-provincia")
-
-      cityUl.innerHTML=""
-      
-      provincias.forEach(provincia => {
-        var li = document.createElement("li")
-        li.classList="option"
-        li.id="option-provincia"
-        cityUl.appendChild(li)
-
-        var div = document.createElement("div")
-        div.classList="mx-auto"
-        li.appendChild(div)
-
-        var span = document.createElement("p")
-        span.classList="option-text pb-1 pt-3"
-        span.innerHTML=provincia.place_name;
-        div.appendChild(span)
-        //li.addEventListener("mousedown", this.clickProvincia);
-        li.addEventListener("mousedown", () => {
-          console.log("hola")
-          this.$refs.miInput.value = provincia.place_name;
-          this.centro = provincia.center
-          if(!this.$refs.miInput.classList.contains("is-valid")){
-            this.$refs.miInput.classList += " is-valid"
-            this.$refs.miInput.classList.remove("is-invalid")
-            this.isCorrect = true
-          }
-        });
-      })
-    },
     SendFilter(){
-      if(this.isCorrect){
+      console.log("valor: " + this.inputValue)
+      console.log("coordenadas: " + this.centro)
+      console.log("isCorrect: " + this.isCorrect)
+      console.log("Horas: " + this.horas)
+      console.log("esCoche: " + this.isCoche)
+      /*if(this.isCorrect){
         router.push({ name: 'VistaMapa' });
       }else{
         this.$refs.miInput.classList += " is-invalid"
         this.$refs.miInput.classList.remove("is-valid")
         console.log("cazado")
-      }
+        console.log(this.isCoche)
+      }*/
       
+    },
+    getDataBrowser(inputValue){
+      this.inputValue = inputValue
+    },
+    getDataBrowserCentro(centro){
+      this.centro = centro
+    },
+    getDataBrowserCorrect(isCorrect){
+      this.isCorrect = isCorrect
     },
     getDataHoras(data) {
       this.horas = JSON.parse(data)
     },
     logout() {
       this.$store.commit('logout');
-    },
-    handleInput() {
-      if(!this.$refs.miInput.classList.contains("is-invalid")){
-        this.$refs.miInput.classList += " is-invalid"
-        this.$refs.miInput.classList.remove("is-valid")
-        this.isCorrect = false
-      }
-      clearTimeout(this.typingTimer);
-
-      // Iniciar un temporizador para verificar si el usuario ha dejado de escribir durante 1 segundo
-      this.typingTimer = setTimeout(() => {
-        this.onTypingStopped();
-      }, 100);
-    },
-    onTypingStopped() {
-      this.inputValue = this.$refs.miInput.value
-      this.AddCitySelects()
-    },
-    async handleFocus() {
-      console.log("El input ha obtenido el foco");
-      await this.AddCitySelects()
-      
-      const optionMenuProvincia = document.getElementById("select-menu-provincia")
-      optionMenuProvincia.classList.toggle("active");
-    },
-    handleBlur() {
-      // Este evento se ejecutará cuando el input pierda el foco
-      console.log("El input ha perdido el foco");
-      const optionMenuProvincia = document.getElementById("select-menu-provincia")
-      optionMenuProvincia.classList.toggle("active");
-    },
+    }
   }
 }
 
@@ -418,7 +358,7 @@ export default {
 
 
       /* ===== Google Font Import - Poppins ===== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 
 #textbox-place{
   border: 0px;
@@ -496,8 +436,8 @@ export default {
 .option .option-text{
     font-size: 1rem;
     color: #333;
-    white-space: nowrap;       /* Evita que el texto se divida en varias líneas */
-    overflow: hidden;          /* Oculta cualquier contenido que se desborde */
+    white-space: nowrap;       
+    overflow: hidden;
     text-overflow: ellipsis;
     width: 350px;
 }
@@ -510,6 +450,6 @@ export default {
     background-image: linear-gradient(180deg, #1C4F58 0%, #659097 99%);
     box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
     border-radius: 100px;
-}
+}*/
 
 </style>
