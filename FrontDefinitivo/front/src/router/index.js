@@ -1,5 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Home from "../views/Home.vue";
+import VistaMapa from "../views/VistaMapa.vue";
+import VistaLista from "../views/VistaLista.vue";
 import About from "../views/About.vue";
 
 
@@ -12,11 +14,25 @@ const routes = [
     path: "/Home",
     name: "Home",
     component: Home,
+    meta: { showHeader: false },
+  },
+  {
+    path: "/VistaMapa",
+    name: "VistaMapa",
+    component: VistaMapa,
+    meta: { showHeader: true },
+  },
+  {
+    path: "/VistaLista",
+    name: "VistaLista",
+    component: VistaLista,
+    meta: { showHeader: true },
   },
   {
     path: "/About",
     name: "About",
     component: About,
+    meta: { showHeader: true },
   }
 ];
 
