@@ -60,35 +60,14 @@
           <div class="row m-0 ps-3 pe-3 mt-2 pb-3">
             <div class="col-md-3 p-0 pe-2 tbFiltro">
               <p class="mb-2 fw-semibold">Para qué vehiculo</p>
-              <div class="select-menu">
-                <div class="select-btn">
-                  <d class="fa-solid fa-car fs-5 sBtn-icon"></d>
-                    <span class="sBtn-text">Coche</span>
-                    <i class="bx bx-chevron-down"></i>
-                </div>
-                <ul class="options" style="padding: 0px; width: 220px !important;">
-                    <li class="option ">
-                        <div class="mx-auto">
-                          <i class="fa-solid fa-car fs-5 option-icon" ></i>
-                          <span class="option-text ">Coche</span>
-                        </div>
-                    </li>
-                    <li class="option">
-                      <div class="mx-auto">
-                        <i class="fa-solid fa-motorcycle fs-5 option-icon" ></i>
-                        <span class="option-text">Moto</span>
-                      </div>
-                        
-                    </li>
-                </ul>
-              </div>
+              <input-car @getDataCar="getDataCar"></input-car>
             </div>
 
             <div class="col-md-5 tbFiltro ps-0">
               <p class="mb-2 fw-semibold">Dónde</p>
-              <address-browser-component @getDataBrowser="getDataBrowser"></address-browser-component>
+              <address-browser-component ref="childRef" @getDataBrowser="getDataBrowser"></address-browser-component>
             </div>
-            <div class="col-md-4 tbFiltro">
+            <div class="col-md-4 tbFiltro px-2">
               <p class="fw-semibold mb-2">Cuándo</p>
               <time-component @getDataHoras="getDataHoras"></time-component>
             </div>
@@ -154,7 +133,8 @@
 import AddressBrowserComponent from '../components/AddressBrowserComponent.vue'
 import { mapState } from 'vuex';
 import TimeComponent from '../components/TimeComponent.vue'
-//import router from '@/router';
+import InputCar from '../components/InputCarComponent.vue'
+import router from '@/router';
 
 export default {
   name: 'HomeA',
@@ -169,37 +149,12 @@ export default {
     },
   components: {
     TimeComponent,
-    AddressBrowserComponent
+    AddressBrowserComponent,
+    InputCar
   },
   computed:{
       ...mapState(['isLoggedIn']),
       ...mapState(['name'])
-  },
-  async mounted() {
-    
-    const optionMenu = document.querySelector(".select-menu"),
-       selectBtn = optionMenu.querySelector(".select-btn"),
-       options = optionMenu.querySelectorAll(".option"),
-       sBtn_text = optionMenu.querySelector(".sBtn-text"),
-       sBtn_icon = optionMenu.querySelector(".sBtn-icon");
-
-    selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));    
-
-    options.forEach(option =>{
-        option.addEventListener("click", ()=>{
-            let selectedOption = option.querySelector(".option-text").innerText;
-            let iconClass = option.querySelector(".option-icon").classList;
-            sBtn_text.innerText = selectedOption;
-            sBtn_icon.classList = iconClass + " sBtn-icon"
-            if(selectedOption == "Moto"){
-              this.isCoche = false
-            }
-            else{
-              this.isCoche = true
-            }
-            optionMenu.classList.remove("active");
-        })
-    })
   },
   methods: {
     SendFilter(){
@@ -208,27 +163,26 @@ export default {
       console.log("isCorrect: " + this.isCorrect)
       console.log("Horas: " + this.horas)
       console.log("esCoche: " + this.isCoche)
-      /*if(this.isCorrect){
+      if(this.isCorrect){
         router.push({ name: 'VistaMapa' });
       }else{
-        this.$refs.miInput.classList += " is-invalid"
-        this.$refs.miInput.classList.remove("is-valid")
+        this.$refs.childRef.cazado();
+        
         console.log("cazado")
         console.log(this.isCoche)
-      }*/
+      }
       
     },
-    getDataBrowser(inputValue){
+    getDataBrowser(inputValue, centro, isCorrect){
       this.inputValue = inputValue
-    },
-    getDataBrowserCentro(centro){
       this.centro = centro
-    },
-    getDataBrowserCorrect(isCorrect){
       this.isCorrect = isCorrect
     },
     getDataHoras(data) {
       this.horas = JSON.parse(data)
+    },
+    getDataCar(data) {
+      this.isCoche = data
     },
     logout() {
       this.$store.commit('logout');

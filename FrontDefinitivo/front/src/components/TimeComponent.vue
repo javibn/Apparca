@@ -1,6 +1,6 @@
 <template>
-  <div class="demo-time-range row" style="height: 63%;">
-    <el-time-select class="col-6 p-0 pe-1"
+  <div class="demo-time-range row m-0" >
+    <el-time-select class="col-6 p-0 pe-1 select-menu" 
       v-model="time.startTime"
       :max-time="time.endTime"
       placeholder="Desde"
@@ -9,7 +9,7 @@
       end="23:45"
       @change="setData"
     />
-    <el-time-select class="col-6 p-0 ps-1"
+    <el-time-select class="col-6 p-0 ps-1" 
       v-model="time.endTime"
       :min-time="time.startTime"
       placeholder="Hasta"
@@ -66,5 +66,46 @@ export default {
   color: #1C4F58 !important;
 }
 
+.demo-time-range{
+  height: 55px;
+}
 
+@media screen and (max-width: 1400px) {
+  .agrandar .el-select{
+    width: 100%;
+    padding: 0px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .agrandar{
+    height: 130px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .agrandar .el-select{
+    width: 49%;
+    padding: 0px !important;
+    margin-bottom: 0px !important;
+  }
+
+  .agrandar .el-select:first-child{
+    margin-right: 2%;
+  }
+
+  .agrandar{
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .agrandar .el-select{
+    width: 100%;
+    padding: 0px !important;
+    margin-bottom: 15px !important;
+  }
+  .agrandar{
+    height: 140px;
+  }
+}
 </style>

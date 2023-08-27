@@ -21,6 +21,7 @@
     "store": "^2.0.12",
     "vue": "^3.2.13",
     "vue-router": "^4.2.4",
+    "vuetify": "^3.3.14",
     "vuex": "^4.1.0"
   },
   "devDependencies": {

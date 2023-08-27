@@ -4,7 +4,7 @@
             <d class="fa-solid fa-earth-europe fs-5"></d>
             <input ref="miInput" autocomplete="off" id="textbox-place" @focus="handleFocus" @blur="handleBlur" v-model.lazy="inputValue" @input="handleInput" class="form-control ms-2" placeholder="Provincia">
         </div>
-        <ul class="options" id="options-provincia" style="padding: 0px; overflow-y: scroll; overflow-x: hidden; width: 240px; ">
+        <ul class="options z-1" id="options-provincia" style="padding: 0px; overflow-y: scroll; overflow-x: hidden; width: 240px; ">
         </ul>
     </div>    
 </template>
@@ -23,6 +23,10 @@
           }
     },
     methods: {
+        cazado(){
+            this.$refs.miInput.classList += " is-invalid"
+            this.$refs.miInput.classList.remove("is-valid")
+        },
         async AddCitySelects(){
             var provincias = []
             try {
@@ -54,23 +58,25 @@
                 div.appendChild(span)
                 //li.addEventListener("mousedown", this.clickProvincia);
                 li.addEventListener("mousedown", () => {
-                console.log("hola")
-                this.$refs.miInput.value = provincia.place_name;
-                this.centro = provincia.center
-                if(!this.$refs.miInput.classList.contains("is-valid")){
-                    this.$refs.miInput.classList += " is-valid"
-                    this.$refs.miInput.classList.remove("is-invalid")
-                    this.isCorrect = true
-                }
+                    this.$refs.miInput.value = provincia.place_name;
+                    this.inputValue = provincia.place_name
+                    this.centro = provincia.center
+                    if(!this.$refs.miInput.classList.contains("is-valid")){
+                        this.$refs.miInput.classList += " is-valid"
+                        this.$refs.miInput.classList.remove("is-invalid")
+                        this.isCorrect = true
+                    }
+                    this.PasarVariables()
                 });
             })
         },
         handleInput() {
+            
             if(!this.$refs.miInput.classList.contains("is-invalid")){
                 this.$refs.miInput.classList += " is-invalid"
                 this.$refs.miInput.classList.remove("is-valid")
                 this.isCorrect = false
-                this.PasarVariables()
+                
             }
             clearTimeout(this.typingTimer);
 
@@ -78,6 +84,7 @@
             this.typingTimer = setTimeout(() => {
                 this.onTypingStopped();
             }, 100);
+            this.PasarVariables()
         },
         onTypingStopped() {
             this.inputValue = this.$refs.miInput.value
@@ -96,9 +103,7 @@
             optionMenuProvincia.classList.toggle("active");
         },
         PasarVariables(){
-            this.$emit("getDataBrowser", this.inputValue);
-            this.$emit("getDataBrowserCentro", this.centro);
-            this.$emit("getDataBrowserValue", this.isCorrect);
+            this.$emit("getDataBrowser", this.inputValue, this.centro, this.isCorrect);
         }
     }
   }
