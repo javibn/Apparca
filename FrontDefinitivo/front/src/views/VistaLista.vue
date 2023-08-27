@@ -1,6 +1,6 @@
 <template>
   <div class="row container-lg mx-auto p-0 m-0">
-    <filtros-component v-if="this.esPantallaGrande" @getDataCar="getDataCar" @getDataAncho="getDataAncho" @getDataAlto="getDataAlto" @getDataServicio="getDataServicio" @getDataPrecio="getDataPrecio" @getDataHoras="getDataHoras" @getDataBrowser="getDataBrowser" class="filtro"></filtros-component>
+    <filtros-component v-if="this.esPantallaGrande" @getDataCar="getDataCar" @getDataAncho="getDataAncho" @getDataAlto="getDataAlto" @getDataServicio="getDataServicio" @getDataPrecio="getDataPrecio" @getDataHoras="getDataHoras" @getDataBrowser="getDataBrowser" class="filtroVista"></filtros-component>
     <div class="col-lg-9 p-0 pt-lg-5 mt-lg-5 mt-3">
       <div class="col-12 d-lg-none mb-4 pb-3 filtroMovil">
         <div class="row m-0">
@@ -99,6 +99,8 @@ export default {
     getDataCar(data) {
       this.isCoche = data
       this.actualizarResultados()
+      console.log(this.ancho)
+      console.log(this.alto)
     },
     getDataHoras(data) {
       this.horas = data
@@ -181,7 +183,7 @@ export default {
     }
 
     @media screen and (max-width: 992px) {
-      .filtro{
+      .filtroVista{
         display: none;
       }
     }
