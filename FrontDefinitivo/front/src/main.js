@@ -26,6 +26,8 @@ import "bootstrap/dist/css/bootstrap.css"
 import "bootstrap/dist/js/bootstrap.js"
 import "axios"
 
+import '@fortawesome/fontawesome-free/css/all.css';
+
 createApp(App)
     .use(router)
     .use(store)

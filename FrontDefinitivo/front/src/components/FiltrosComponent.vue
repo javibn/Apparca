@@ -21,7 +21,7 @@
             </div>
             <div class="col-12 mt-3 p-0">
               <p class="mb-1 fw-semibold">Precio</p>
-              <slider-price-component :max="100" :min="0"  @getDataPrecio="getDataPrecio"></slider-price-component>
+              <slider-price-component :max="100" :min="0" ref="sliderPrice"  @getDataPrecio="getDataPrecio"></slider-price-component>
             </div>
             <div class="col-12 mt-3 p-0">
               <p class="mb-1 fw-semibold">Disponibilidad</p>
@@ -41,7 +41,7 @@
                   <button class="accordion-button collapsed p-0 mb-3 mt-4 fw-semibold" type="button"
                     data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                     aria-controls="panelsStayOpen-collapseOne">
-                    Tamaño
+                    Tamaño (m)
                   </button>
                 </h2>
                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
@@ -81,7 +81,7 @@
                 </div>
               </div>
             </div>
-            <input class="text-center fw-bold mt-2" style="color: #205760;" value="Borrar filtros" type="reset"/>
+            <input class="text-center fw-bold mt-2" style="color: #205760;" @click="BorrarFiltros" value="Borrar filtros" type="reset"/>
           </div>
         </form>
       </div>
@@ -162,6 +162,11 @@
             }else{
               this.$emit("getDataAncho", this.ancho);
             }
+          },
+          BorrarFiltros(){
+            console.log("hola")
+            this.select = []
+            this.$refs.sliderPrice.Resetear()
           }
         }
     }

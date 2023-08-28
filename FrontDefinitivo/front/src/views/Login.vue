@@ -1,3 +1,122 @@
+<template>
+    <div class="contenedor">
+      <div class="forms-contenedor">
+        <div class="signin-signup">
+          <form action="#" class="sign-in-form">
+            <h2 class="title">Inicia Sesion</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input  type="text" placeholder="Usuario" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" autocomplete="new-password" placeholder="Contraseña" />
+            </div>
+            <input autocomplete="off" type="submit" value="Login" class="btn solid" />
+            <p class="social-text">Or Sign in with social platforms</p>
+            <div class="social-media">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </form>
+          <form action="#" class="sign-up-form">
+            <h2 class="title">Regístrate</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input autocomplete="new-password" type="text" placeholder="Usuario" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input autocomplete="new-password" type="email" placeholder="Email" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input autocomplete="new-password" type="password" placeholder="Contraseña" />
+            </div>
+            <input type="submit" class="btn" value="Sign up" />
+            <p class="social-text">Or Sign up with social platforms</p>
+            <div class="social-media">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="panels-contenedor">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>Aún no estás registrado?</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+              ex ratione. Aliquid!
+            </p>
+            <button class="btn transparent" id="sign-up-btn">
+              Regístrate
+            </button>
+          </div>
+          <img src="./../assets/businessIcon.png" class="image" alt="" />
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>Ya eres de los nuestros?</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+              laboriosam ad deleniti.
+            </p>
+            <button class="btn transparent" id="sign-in-btn">
+              Inicia Sesion
+            </button>
+          </div>
+          <img src="./../assets/ParkingIcon.png" class="image" alt="" />
+        </div>
+      </div>
+    </div>
+</template>
+
+<script>
+
+export default {
+  name: 'LoginPage',
+  mounted() {
+    const sign_in_btn = document.querySelector("#sign-in-btn");
+    const sign_up_btn = document.querySelector("#sign-up-btn");
+    const container = document.querySelector(".contenedor");
+
+
+    sign_up_btn.addEventListener("click", () => {
+    container.classList.add("sign-up-mode");
+    });
+
+    sign_in_btn.addEventListener("click", () => {
+    container.classList.remove("sign-up-mode");
+    });
+  }
+}
+
+</script>
+
+<style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
 * {
@@ -134,7 +253,6 @@ form.sign-in-form {
 
 .btn {
   width: 150px;
-  background-color: #5995fd;
   border: none;
   outline: none;
   height: 49px;
@@ -144,11 +262,12 @@ form.sign-in-form {
   font-weight: 600;
   margin: 10px 0;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.5s !important;
 }
 
 .btn:hover {
-  background-color: #4d84e2;
+  background-color: #0b2c33 !important;
+  color: white !important;
 }
 .panels-contenedor {
   position: absolute;
@@ -168,7 +287,8 @@ form.sign-in-form {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-60deg, #ffffff 0%, #FA8E00 100%);
+  background-image: linear-gradient(to bottom, white 0%, #0b2c33 70%);
+
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
@@ -220,6 +340,7 @@ form.sign-in-form {
   margin: 0;
   background: none;
   border: 2px solid #fff;
+  color: white;
   width: 130px;
   height: 41px;
   font-weight: 600;
@@ -331,7 +452,7 @@ form.sign-in-form {
 
   .btn.transparent {
     width: 110px;
-    height: 35px;
+    height: auto;
     font-size: 0.7rem;
   }
 
@@ -391,6 +512,7 @@ form.sign-in-form {
   .contenedor:before {
     bottom: 72%;
     left: 50%;
+    background-image: linear-gradient(to bottom, #0b2c33 0%, #0b2c33 10%);
   }
 
   .contenedor.sign-up-mode:before {
@@ -398,3 +520,5 @@ form.sign-in-form {
     left: 50%;
   }
 }
+
+</style>

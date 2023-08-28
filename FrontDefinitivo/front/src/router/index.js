@@ -3,8 +3,7 @@ import Home from "../views/Home.vue";
 import VistaMapa from "../views/VistaMapa.vue";
 import VistaLista from "../views/VistaLista.vue";
 import About from "../views/About.vue";
-
-
+import Login from "../views/Login.vue";
 
 const routes = [
   {
@@ -26,6 +25,12 @@ const routes = [
     path: "/VistaLista",
     name: "VistaLista",
     component: VistaLista,
+    meta: { showHeader: true },
+  },
+  {
+    path: "/Login",
+    name: "Login",
+    component: Login,
     meta: { showHeader: true },
   },
   {
