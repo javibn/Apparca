@@ -32,8 +32,8 @@
                 label="Dias"
                 multiple
                 chips
-                @input="handleDias"
-              ></v-combobox>
+                @update:modelValue="onInput"
+              />
             </div>
             <div class="accordion col-12 p-0" id="accordionPanelsStayOpenExample">
               <div class="accordion-item border-0">
@@ -107,8 +107,17 @@
                 'Sabado',
                 'Domingo',
               ],
-              alto: 0,
-              ancho: 0
+              alto: "Alto",
+              ancho: "Ancho",
+              diasSemana: {
+                Lunes: 0,
+                Martes: 1,
+                Miercoles: 2,
+                Jueves: 3,
+                Viernes: 4,
+                Sabado: 5,
+                Domingo: 6,
+              }
             }
         },
         components:{
@@ -134,8 +143,18 @@
           handleChange(servicio) {
             this.$emit("getDataServicio", servicio, this.$refs["myCheckbox"+servicio].checked);
           },
-          handleDias() {
-            console.log("Seleccionado:");
+          onInput() {
+            console.log(this.select)
+            var arregloDias = [false, false, false, false, false, false, false];
+
+            for (const key in this.select) {
+              var nombreDia = this.select[key]
+              console.log(nombreDia)
+              const numeroDia = this.diasSemana[nombreDia];
+              console.log(numeroDia)
+              arregloDias[numeroDia] = true
+            }
+            this.$emit("getDataDias", arregloDias)
           },
           handleSize(esAlto){
             if(esAlto){

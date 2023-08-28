@@ -4,10 +4,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import "jquery"
-import "bootstrap/dist/css/bootstrap.css"
-import "bootstrap/dist/js/bootstrap.js"
-import "axios"
+
 
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
@@ -23,6 +20,11 @@ const vuetify = createVuetify({
   components,
   directives,
 })
+
+import "jquery"
+import "bootstrap/dist/css/bootstrap.css"
+import "bootstrap/dist/js/bootstrap.js"
+import "axios"
 
 createApp(App)
     .use(router)

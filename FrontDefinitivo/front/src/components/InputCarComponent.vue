@@ -45,8 +45,6 @@
         sBtn_text = optionMenu.querySelector(".sBtn-text"),
         sBtn_icon = optionMenu.querySelector(".sBtn-icon");
 
-        console.log(selectBtn)
-
         selectBtn.addEventListener("click", () => {
             optionMenu.classList.toggle("active")
         });    

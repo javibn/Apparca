@@ -142,6 +142,10 @@ header nav{
   padding-right: 5% !important;
 }
 
+.d-md-none{
+  @import "/bootstrap/dist/css/bootstrap.css";
+}
+
   @media screen and (max-width: 768px) {
     header nav{
       padding-left: 2% !important;
