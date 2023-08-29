@@ -1,6 +1,6 @@
 <template>
     <div class="slider-demo-block row m-0">
-      <el-slider v-model="precio" class="col-12 pe-5 ms-0" :max="this.max"  :min="this.min" :marks="this.marks" @change="setData" :format-tooltip="formatValue" />
+      <el-slider v-model="precio" class="col-12 pe-4 ms-0" :max="this.max"  :min="this.min" :marks="this.marks" @change="setData" :format-tooltip="formatValue" />
       <span class="col-2 text-grey">{{min}}€</span>
       <span class="offset-8 col-2 text-grey text-end  p-0">{{max}}€</span>
     </div>
@@ -38,6 +38,9 @@
       },
       formatValue(value){
         return `${value}€`
+      },
+      Resetear(){
+        this.precio = this.max
       }
     }
   }

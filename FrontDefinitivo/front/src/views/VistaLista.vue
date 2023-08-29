@@ -13,7 +13,7 @@
             <p class="text-center mb-0 fw-bold" style="color:#205760; font-size: 1.1rem;">Vista mapa</p>
           </div>
           <div class="collapse" id="collapseExample">
-            <filtros-component v-if="!this.esPantallaGrande" class="col-md-8 col-10  mx-auto mt-4"></filtros-component>
+            <filtros-component v-if="!this.esPantallaGrande" @getDataCar="getDataCar" @getDataAncho="getDataAncho" @getDataAlto="getDataAlto" @getDataServicio="getDataServicio" @getDataPrecio="getDataPrecio" @getDataHoras="getDataHoras" @getDataDias="getDataDias" @getDataBrowser="getDataBrowser" class="filtroVista"></filtros-component>
           </div>
         </div>
       </div>

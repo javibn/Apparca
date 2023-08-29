@@ -2,7 +2,7 @@
   <div>
     <header v-if="$route.meta.showHeader">
       <nav class="navbar navbar-expand-md" style="min-height: 8vh;">
-          <a class="navbar-brand ms-lg-0 ms-3" href="#">
+          <a class="navbar-brand ms-lg-0 ms-3" href="/">
             <img src="../src/assets/logoAverde.svg" class="d-inline-block align-text-top">
           </a>
           <button class="navbar-toggler border border-0 p-0 me-4" type="button" data-bs-toggle="collapse"
