@@ -31,7 +31,13 @@ const routes = [
     path: "/Login",
     name: "Login",
     component: Login,
-    meta: { showHeader: true },
+    meta: { showHeader: true, isLogin:true },
+  },
+  {
+    path: "/Register",
+    name: "Register",
+    component: Login,
+    meta: { showHeader: true, isLogin:false },
   },
   {
     path: "/About",

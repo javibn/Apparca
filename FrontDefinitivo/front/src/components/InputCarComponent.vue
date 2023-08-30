@@ -6,13 +6,13 @@
             <i class="bx bx-chevron-down"></i>
         </div>
         <ul class="options z-1" style="padding: 0px; width: 220px !important;">
-            <li class="option ">
+            <li class="option" id="Coche">
                 <div class="mx-auto">
                     <i class="fa-solid fa-car fs-5 option-icon" ></i>
                     <span class="option-text ">Coche</span>
                 </div>
             </li>
-            <li class="option">
+            <li class="option" id="Moto">
                 <div class="mx-auto">
                 <i class="fa-solid fa-motorcycle fs-5 option-icon" ></i>
                 <span class="option-text">Moto</span>
@@ -35,15 +35,30 @@
     methods: {
         setData() {
             this.$emit("getDataCar", this.isCoche);
+        },
+        cambiarOption(option){
+            const optionMenu = document.querySelector(".select-menu"),
+            sBtn_text = optionMenu.querySelector(".sBtn-text"),
+            sBtn_icon = optionMenu.querySelector(".sBtn-icon")
+
+            let selectedOption = option.querySelector(".option-text").innerText;
+            let iconClass = option.querySelector(".option-icon").classList;
+            sBtn_text.innerText = selectedOption;
+            sBtn_icon.classList = iconClass + " sBtn-icon"
+            if(selectedOption == "Moto"){
+                this.isCoche = false
+            }
+            else{
+                this.isCoche = true
+            }
+            optionMenu.classList.remove("active");
+            this.setData()
         }
     },
     async mounted(){
-        
         const optionMenu = document.querySelector(".select-menu"),
         selectBtn = optionMenu.querySelector(".select-btn"),
-        options = optionMenu.querySelectorAll(".option"),
-        sBtn_text = optionMenu.querySelector(".sBtn-text"),
-        sBtn_icon = optionMenu.querySelector(".sBtn-icon");
+        options = optionMenu.querySelectorAll(".option")
 
         selectBtn.addEventListener("click", () => {
             optionMenu.classList.toggle("active")
@@ -51,18 +66,7 @@
 
         options.forEach(option =>{
             option.addEventListener("click", ()=>{
-                let selectedOption = option.querySelector(".option-text").innerText;
-                let iconClass = option.querySelector(".option-icon").classList;
-                sBtn_text.innerText = selectedOption;
-                sBtn_icon.classList = iconClass + " sBtn-icon"
-                if(selectedOption == "Moto"){
-                    this.isCoche = false
-                }
-                else{
-                    this.isCoche = true
-                }
-                optionMenu.classList.remove("active");
-                this.setData()
+                this.cambiarOption(option)
             })
         })
     }

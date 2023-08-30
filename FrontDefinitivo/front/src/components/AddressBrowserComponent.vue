@@ -104,6 +104,9 @@
         },
         PasarVariables(){
             this.$emit("getDataBrowser", this.inputValue, this.centro, this.isCorrect);
+        },
+        CambiarDireccion(direccion){
+            document.getElementById("textbox-place").value = direccion
         }
     }
   }
