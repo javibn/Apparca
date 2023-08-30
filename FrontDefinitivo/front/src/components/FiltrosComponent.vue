@@ -1,11 +1,10 @@
 <template>
-    <div class="col-lg-3 mt-4">
+    <div class="col-lg-3 mt-4 ">
       <a class="col-12 btn fw-semibold text-white rounded-4 p-3 botonFiltro" style="background-color: #205760;">Ver vista mapa</a>
-      <div class="col-12 mx-auto bg-white">
+      <div class="col-12 mx-auto bg-white rounded-4 prueba">
         <form class="col-12  px-3" style="border-radius: 25px 25px 0px 0px;">
           <p class="text-center pt-3 mb-0 fw-semibold botonFiltro" style="color:#205760; font-size: 1.1rem;">Filtros <span
               style="background-color: #fa8e00;" class="rounded-5 px-2">4</span></p>
-          <hr class="mt-2 text-warning botonFiltro">
           <div class="row m-0  mt-2 pb-3">
             <div class="col-lg-12 col-sm-6 p-0 pe-2 tbFiltro">
               <p class="mb-2 fw-semibold">Para qué vehiculo</p>

@@ -164,7 +164,7 @@ export default {
       console.log("esCoche: " + this.isCoche)
       if(this.isCorrect){
         this.$store.dispatch('pasarVariablesHome', { isCar: this.isCoche, direccion: this.inputValue, coordenadas: this.centro, horas: this.horas})
-        router.push({ name: 'VistaLista' });
+        router.push({ name: 'VistaMapa' });
       }else{
         this.$refs.childRef.cazado();
         

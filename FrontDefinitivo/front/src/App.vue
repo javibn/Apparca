@@ -28,7 +28,7 @@
                 <img src="../src/assets/llaveVerde.png" class="mt-1" height="30">
                 <a class="fw-bold text-decoration-none" style="color: #205760" aria-current="page" href="/Login">Login</a>
                 <a class="text-decoration-none" style="color: #205760" aria-current="page" href="#">/</a>
-                <a class="fw-bold text-decoration-none" style="color: #205760" href="/Login/false">Registro</a>
+                <a class="fw-bold text-decoration-none" style="color: #205760" href="/Register">Registro</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link fw-bold" style="color: #205760" aria-current="page" href="#">Encuentra aparcamiento</a>
@@ -63,7 +63,7 @@
                 <a class="nav-link" style="color: #205760" aria-current="page" href="#">/</a>
               </li>
               <li class="nav-item fw-bold">
-                <a class="nav-link" style="color: #205760" href="/Login/false">Registro</a>
+                <a class="nav-link" style="color: #205760" href="/Register">Registro</a>
               </li>
             </ul>
         </div>
