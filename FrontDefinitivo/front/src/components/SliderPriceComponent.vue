@@ -41,6 +41,9 @@
       },
       Resetear(){
         this.precio = this.max
+      },
+      ChangePrecio(precio){
+        this.precio = precio
       }
     }
   }

@@ -7,7 +7,8 @@ const store = createStore({
     isCar: true,
     direccion: "",
     coordenadas: null,
-    horasHome: null
+    horasHome: null,
+    filtroStore: null
   },
   mutations: {
     login(state, data) {
@@ -22,6 +23,16 @@ const store = createStore({
       state.direccion = data.direccion;
       state.coordenadas = data.coordenadas;
       state.horasHome = data.horas;
+    },
+    limpiar(state){
+      state.filtroStore = null
+    },
+    PasarDatos(state, filtro){
+      console.log("Aqui los subo de verdad")
+      console.log(filtro)
+      state.filtroStore = filtro
+      console.log(state.filtroStore)
+      console.log("Hasta aqui")
     }
   },
   actions: {
@@ -32,6 +43,14 @@ const store = createStore({
       console.log("hola")
       commit('pasarVariablesHome', { isCar, direccion, coordenadas, horas });
     },
+    limpiar({commit}){
+      commit('limpiar')
+    },
+    PasarDatos({ commit }, filtro){
+      console.log("Aqui llegan en el commit")
+      console.log(filtro)
+      commit('PasarDatos', filtro);
+    }
   }
 });
 
