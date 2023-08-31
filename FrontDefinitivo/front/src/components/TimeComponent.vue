@@ -36,6 +36,16 @@ export default {
   methods: {
     setData() {
       this.$emit("getDataHoras", JSON.stringify(this.time));
+    },
+    CambiarHoras(horas){
+      if(horas != null){
+        var inputs = document.querySelectorAll('.el-input__inner');
+        this.time.startTime = horas.startTime
+        this.time.endTime = horas.endTime
+        inputs[0].value = horas.startTime
+        inputs[1].value = horas.endTime
+      }
+        
     }
   }
 }

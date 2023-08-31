@@ -26,14 +26,19 @@ import "bootstrap/dist/css/bootstrap.css"
 import "bootstrap/dist/js/bootstrap.js"
 import "axios"
 
-import '@fortawesome/fontawesome-free/css/all.css';
+import 'bootstrap-icons/font/bootstrap-icons.css'; // Importa el archivo CSS de Bootstrap Icons
+import 'bootstrap-icons/font/bootstrap-icons';
 
-createApp(App)
-    .use(router)
-    .use(store)
-    .use(vuetify)
-    .use(ElementPlus, { 
-        // Establecer isCustomElement en true
-        compilerOptions: { isCustomElement: tag => tag.startsWith('el-') } 
-      })
-    .mount('#app')
+const app = createApp(App);
+
+
+app
+  .use(router)
+  .use(store)
+  .use(vuetify)
+  .use(ElementPlus, {
+    // Establecer isCustomElement en true
+    compilerOptions: { isCustomElement: (tag) => tag.startsWith('el-') },
+  })
+  .mount('#app');
+

@@ -1,6 +1,6 @@
 <template>
   <div class="row container-lg mx-auto p-0 m-0">
-    <filtros-component v-if="this.esPantallaGrande" @getDataCar="getDataCar" @getDataAncho="getDataAncho" @getDataAlto="getDataAlto" @getDataServicio="getDataServicio" @getDataPrecio="getDataPrecio" @getDataHoras="getDataHoras" @getDataDias="getDataDias" @getDataBrowser="getDataBrowser" class="filtroVista"></filtros-component>
+    <filtros-component ref="refFiltro" v-if="this.screenWidth >= 992" @getDataCar="getDataCar" @getDataAncho="getDataAncho" @getDataAlto="getDataAlto" @getDataServicio="getDataServicio" @getDataPrecio="getDataPrecio" @getDataHoras="getDataHoras" @getDataDias="getDataDias" @getDataBrowser="getDataBrowser" class="filtroVista"></filtros-component>
     <div class="col-lg-9 p-0 pt-lg-5 mt-lg-5 mt-3">
       <div class="col-12 d-lg-none mb-4 pb-3 filtroMovil">
         <div class="row m-0">
@@ -13,7 +13,7 @@
             <p class="text-center mb-0 fw-bold" style="color:#205760; font-size: 1.1rem;">Vista mapa</p>
           </div>
           <div class="collapse" id="collapseExample">
-            <filtros-component v-if="!this.esPantallaGrande" @getDataCar="getDataCar" @getDataAncho="getDataAncho" @getDataAlto="getDataAlto" @getDataServicio="getDataServicio" @getDataPrecio="getDataPrecio" @getDataHoras="getDataHoras" @getDataDias="getDataDias" @getDataBrowser="getDataBrowser" class="filtroVista"></filtros-component>
+            <filtros-component ref="refFiltro" v-if="this.screenWidth < 992" @getDataCar="getDataCar" @getDataAncho="getDataAncho" @getDataAlto="getDataAlto" @getDataServicio="getDataServicio" @getDataPrecio="getDataPrecio" @getDataHoras="getDataHoras" @getDataDias="getDataDias" @getDataBrowser="getDataBrowser" ></filtros-component>
           </div>
         </div>
       </div>
@@ -21,12 +21,12 @@
         <div class="dropdown custom-dropdown mb-4">
           <a class=" dropdown-toggle" style="color: #205760; text-decoration: none;" type="button"
             id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="fw-semibold">Ordenar:</span> Más cercanos
+            <span class="fw-semibold">Ordenar:</span> {{this.ordenTextos[this.orden]}}
           </a>
-          <ul class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">Más cercanos</a></li>
-            <li><a class="dropdown-item" href="#">Precio menor</a></li>
-            <li><a class="dropdown-item" href="#">Precio mayor</a></li>
+          <ul class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton" style="cursor: pointer;">
+            <li><a class="dropdown-item" @click="CambiarOrden(0)">Más cercanos</a></li>
+            <li><a class="dropdown-item" @click="CambiarOrden(1)">Precio menor</a></li>
+            <li><a class="dropdown-item" @click="CambiarOrden(2)">Precio mayor</a></li>
           </ul>
         </div>
 
@@ -69,15 +69,14 @@
 
 <script>
 import FiltrosComponent from '../components/FiltrosComponent.vue'
-//import TimeComponent from '../components/TimeComponent.vue'
+import { mapState } from 'vuex';
+
 export default {
   name: 'VistaLista',
   data: function() {
       return {
-        esPantallaGrande: true,
         inputValue: "",
         centro: null,
-        isCorrect: null,
         horas: null,
         isCoche: true,
         precio: 100,
@@ -88,12 +87,20 @@ export default {
           abierto24h: false
         },
         ancho: 0,
-        alto: 0
+        alto: 0,
+        orden: 0,
+        ordenTextos: ["Más Cercanos", "Precio menor", "Precio mayor"],
+        screenWidth: window.innerWidth
       }
+  },
+  computed:{
+      ...mapState(['isCar']),
+      ...mapState(['direccion']),
+      ...mapState(['coordenadas']),
+      ...mapState(['horasHome'])
   },
   components:{
     FiltrosComponent
-    //TimeComponent
   },
   methods:{
     getDataCar(data) {
@@ -137,15 +144,32 @@ export default {
     },
     actualizarResultados(){
       console.log("Actulizamos")
+    },
+    DatosHome(){
+      var data = {
+        nombre: this.isCar ? "Coche" : "Moto",
+        direccion: this.direccion,
+        horas: this.horasHome
+      }
+
+      this.$refs.refFiltro.CambiarOptionsHome(data)
+
+      this.isCoche = this.isCar
+      this.inputValue = this.direccion
+      this.centro = this.coordenadas
+      this.horas = this.horasHome
+    },
+    CambiarOrden(orden){
+      this.orden = orden
+      this.actualizarResultados()
     }
   },
-  mounted(){
-    const screenWidth = window.innerWidth;
-    console.log(screenWidth)
-
-    if (screenWidth < 992) {
-      this.esPantallaGrande = false
+  mounted(){    
+    if(this.coordenadas != null){
+      this.DatosHome()
     }
+
+    this.actualizarResultados()
   }
 }
 

@@ -1,54 +1,26 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <title>Div Deslizante</title>
-    <style>
-        /* styles.css */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-#contenedor {
-    position: fixed;
-    top: 0;
-    left: -50%; /* Comienza fuera de la pantalla */
-    width: 50%;
-    height: 100%;
-    background-color: red;
-    overflow: hidden;
-    transition: 1s;
-}
-
-
-    </style>
-</head>
-<body>
-    <button id="mostrarDiv">Mostrar Div</button>
-    <div id="contenedor" class="oculto">
-        Contenido del div
-    </div>
-</body>
-<script>
-    // script.js
-document.addEventListener("DOMContentLoaded", function () {
-    const mostrarDivBtn = document.getElementById("mostrarDiv");
-    const contenedorDiv = document.getElementById("contenedor");
-
-    mostrarDivBtn.addEventListener("click", function () {
-        contenedorDiv.classList.toggle("oculto");
-        if (contenedorDiv.classList.contains("oculto")) {
-            contenedorDiv.style.left = "-50%";
-        } else {
-            contenedorDiv.style.left = "0";
-        }
-    });
-});
-
-</script>
-</html>
+<style>
+    .list_container {
+      direction: rtl;
+      overflow:auto;
+      height: 50px;
+      width: 50px;
+    }
+  
+    .item_direction {
+      direction:ltr;
+    }
+  </style>
+  <div class="list_container">
+    <div class="item_direction">1</div>
+    <div class="item_direction">2</div>
+    <div class="item_direction">3</div>
+    <div class="item_direction">4</div>
+    <div class="item_direction">5</div>
+    <div class="item_direction">6</div>
+    <div class="item_direction">7</div>
+    <div class="item_direction">8</div>
+    <div class="item_direction">9</div>
+    <div class="item_direction">10</div>
+    <div class="item_direction">11</div>
+    <div class="item_direction">12</div>
+  </div>

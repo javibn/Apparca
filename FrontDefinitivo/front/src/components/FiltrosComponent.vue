@@ -1,23 +1,22 @@
 <template>
-    <div class="col-lg-3 mt-4">
+    <div class="col-lg-3 mt-4 ">
       <a class="col-12 btn fw-semibold text-white rounded-4 p-3 botonFiltro" style="background-color: #205760;">Ver vista mapa</a>
-      <div class="col-12 mx-auto">
+      <div class="col-12 mx-auto bg-white rounded-4 prueba">
         <form class="col-12  px-3" style="border-radius: 25px 25px 0px 0px;">
           <p class="text-center pt-3 mb-0 fw-semibold botonFiltro" style="color:#205760; font-size: 1.1rem;">Filtros <span
               style="background-color: #fa8e00;" class="rounded-5 px-2">4</span></p>
-          <hr class="mt-2 text-warning botonFiltro">
           <div class="row m-0  mt-2 pb-3">
             <div class="col-lg-12 col-sm-6 p-0 pe-2 tbFiltro">
               <p class="mb-2 fw-semibold">Para qué vehiculo</p>
-              <input-car @getDataCar="getDataCar"></input-car>
+              <input-car @getDataCar="getDataCar" ref="refInputCar"></input-car>
             </div>
             <div class="col-lg-12 col-sm-6 m-0 p-0 mt-lg-3 tbFiltro">
               <p class="mb-2 fw-semibold">Dónde</p>
-              <address-browser-component @getDataBrowser="getDataBrowser"></address-browser-component>
+              <address-browser-component @getDataBrowser="getDataBrowser" ref="refInputAddress"></address-browser-component>
             </div>
             <div class="col-12 mt-3 p-0">
               <p class="mb-1 fw-semibold">Cuándo</p>
-              <time-component class="agrandar" @getDataHoras="getDataHoras"></time-component>
+              <time-component class="agrandar" @getDataHoras="getDataHoras" ref="refInputHours"></time-component>
             </div>
             <div class="col-12 mt-3 p-0">
               <p class="mb-1 fw-semibold">Precio</p>
@@ -129,7 +128,6 @@
         methods: {
           getDataCar(data) {
             this.$emit("getDataCar", data);
-            console.log(this.select)
           },
           getDataBrowser(inputValue, centro, isCorrect){
             this.$emit("getDataBrowser", inputValue, centro, isCorrect);
@@ -163,10 +161,16 @@
               this.$emit("getDataAncho", this.ancho);
             }
           },
+          CambiarOptionsHome(data){
+            this.$refs.refInputCar.cambiarOption(document.getElementById(data.nombre))
+            this.$refs.refInputAddress.CambiarDireccion(data.direccion)
+            this.$refs.refInputHours.CambiarHoras(data.horas)
+          },
           BorrarFiltros(){
             console.log("hola")
             this.select = []
             this.$refs.sliderPrice.Resetear()
+            this.$refs.refInputCar.cambiarOption(document.getElementById("Coche"))
           }
         }
     }

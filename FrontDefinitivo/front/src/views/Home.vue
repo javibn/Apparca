@@ -20,25 +20,25 @@
                   <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
               </svg>
               <li class="nav-item">
-                <a class="nav-link fw-bold text-white" aria-current="page" href="#">Mi cuenta</a>
+                <router-link to="/" class="nav-link fw-bold text-white" aria-current="page" href="#">Mi cuenta</router-link>
               </li>
               <li class="nav-item fw-bold ">
                 <a class="nav-link text-white" aria-current="page" href="#">/</a>
               </li>
               <li class="nav-item fw-bold">
-                <a class="nav-link text-white"  href="#">Logout</a>
+                <a class="nav-link text-white"  @click="logout">Logout</a>
               </li>
             </ul>
             <ul class="navbar-nav" v-else>
               <img src="../../src/assets/llave.png" class="mt-1" height="30">
               <li class="nav-item">
-                <a class="nav-link fw-bold text-white" aria-current="page" href="#">Login</a>
+                <a class="nav-link fw-bold text-white" aria-current="page" href="/Login">Login</a>
               </li>
               <li class="nav-item fw-bold ">
                 <a class="nav-link text-white" aria-current="page" href="#">/</a>
               </li>
               <li class="nav-item fw-bold">
-                <a class="nav-link text-white" href="#">Registro</a>
+                <a class="nav-link text-white" href="/Register">Registro</a>
               </li>
             </ul>
         </div>
@@ -153,8 +153,7 @@ export default {
     InputCar
   },
   computed:{
-      ...mapState(['isLoggedIn']),
-      ...mapState(['name'])
+      ...mapState(['isLoggedIn'])
   },
   methods: {
     SendFilter(){
@@ -164,6 +163,7 @@ export default {
       console.log("Horas: " + this.horas)
       console.log("esCoche: " + this.isCoche)
       if(this.isCorrect){
+        this.$store.dispatch('pasarVariablesHome', { isCar: this.isCoche, direccion: this.inputValue, coordenadas: this.centro, horas: this.horas})
         router.push({ name: 'VistaMapa' });
       }else{
         this.$refs.childRef.cazado();
