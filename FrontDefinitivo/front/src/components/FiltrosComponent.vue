@@ -1,6 +1,7 @@
 <template>
     <div class="col-lg-3 mt-4 ">
-      <a class="col-12 btn fw-semibold text-white rounded-4 p-3 botonFiltro" style="background-color: #205760;">Ver vista mapa</a>
+      <a v-if="vista=='mapa'" @click="PasarDatos" class="col-12 btn fw-semibold text-white rounded-4 p-2 botonFiltro" style="background-color: #205760; height: auto !important;">Ver lista</a>
+      <a v-else @click="PasarDatos" class="col-12 btn fw-semibold text-white rounded-4 p-2 botonFiltro" style="background-color: #205760; height: auto !important;">Ver vista mapa</a>
       <div class="col-12 mx-auto bg-white rounded-4 prueba">
         <form class="col-12  px-3" style="border-radius: 25px 25px 0px 0px;">
           <p class="text-center pt-3 mb-0 fw-semibold botonFiltro" style="color:#205760; font-size: 1.1rem;">Filtros <span
@@ -65,15 +66,15 @@
                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
                   <div class="accordion-body pt-1 px-1">
                     <div class="form-check form-switch d-flex align-items-center ms-4 mb-2" style="height: 40px;">
-                      <input ref="myCheckbox0" class="form-check-input h-50 mt-0 me-3" type="checkbox" role="switch" @change="handleChange(0)">
+                      <input ref="myCheckbox0" v-model="servicios.aseo" class="form-check-input h-50 mt-0 me-3" type="checkbox" role="switch" @change="handleChange(0)">
                       <img src="../assets/iconoWc.png" class="h-100">
                     </div>
                     <div class="form-check form-switch d-flex align-items-center ms-4 mb-2" style="height: 40px;">
-                      <input ref="myCheckbox1" class="form-check-input h-50 mt-0 me-3" type="checkbox" role="switch" @change="handleChange(1)">
+                      <input ref="myCheckbox1" v-model="servicios.vigilancia" class="form-check-input h-50 mt-0 me-3" type="checkbox" role="switch" @change="handleChange(1)">
                       <img src="../assets/iconoSeguridad.png" class="h-100">
                     </div>
                     <div class="form-check form-switch d-flex align-items-center ms-4" style="height: 40px;">
-                      <input ref="myCheckbox2" class="form-check-input h-50 mt-0 me-3" type="checkbox" role="switch" @change="handleChange(2)">
+                      <input ref="myCheckbox2" v-model="servicios.abierto24h" class="form-check-input h-50 mt-0 me-3" type="checkbox" role="switch" @change="handleChange(2)">
                       <img src="../assets/icono24horas.png" class="h-100">
                     </div>
                   </div>
@@ -94,6 +95,9 @@
     import InputCar from './InputCarComponent.vue'
     export default {
         name: 'FiltrosComponent',
+        props: {
+          vista: String
+        },
         data: function() {
             return {
               select: [],
@@ -116,6 +120,11 @@
                 Viernes: 4,
                 Sabado: 5,
                 Domingo: 6,
+              },
+              servicios: {
+                aseo: false,
+                vigilancia: false,
+                abierto24h: false
               }
             }
         },
@@ -140,6 +149,10 @@
           },
           handleChange(servicio) {
             this.$emit("getDataServicio", servicio, this.$refs["myCheckbox"+servicio].checked);
+          },
+          PasarDatos(){
+            console.log("hola")
+            this.$emit("PasarDatos");
           },
           onInput() {
             console.log(this.select)
@@ -171,6 +184,44 @@
             this.select = []
             this.$refs.sliderPrice.Resetear()
             this.$refs.refInputCar.cambiarOption(document.getElementById("Coche"))
+            this.$emit("limpiarFiltro");
+          },
+          MeterDatos(filtro){
+            console.log("AQUI ME INTERESA")
+            console.log(filtro)
+            if(filtro.isCoche){
+              this.$refs.refInputCar.cambiarOption(document.getElementById("Coche"))
+            }else{
+              this.$refs.refInputCar.cambiarOption(document.getElementById("Moto"))
+            }
+            this.$refs.refInputAddress.CambiarDireccion(filtro.inputValue)
+            this.$refs.refInputHours.CambiarHoras(filtro.horas)
+            this.$refs.sliderPrice.ChangePrecio(filtro.precio)
+            console.log("hasta aqui la prueba")
+            this.DayConverter(filtro.disponibilidad)
+            console.log("hasta aqui la prueba2")
+            this.ancho = filtro.ancho
+            this.alto = filtro.alto
+            if(this.ancho == 0){
+              this.ancho = "Ancho"
+            }
+            if(this.alto == 0){
+              this.alto = "Alto"
+            }
+            console.log("hasta aqui la prueba3")
+            this.servicios = filtro.servicios
+            console.log("hasta aqui la prueba4")
+          },
+          DayConverter(disponibilidad){
+            var cont = 0
+            disponibilidad.forEach(day => {
+              if(day){
+                console.log(cont)
+                //this.select.push(this.diasSemana[cont])
+                this.select.push(Object.keys(this.diasSemana).find((dia) => this.diasSemana[dia] === cont));
+              }
+              cont++
+            });
           }
         }
     }

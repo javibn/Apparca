@@ -1,6 +1,6 @@
 <template>
   <div class="row container-lg mx-auto p-0 m-0">
-    <filtros-component ref="refFiltro" v-if="this.screenWidth >= 992" @getDataCar="getDataCar" @getDataAncho="getDataAncho" @getDataAlto="getDataAlto" @getDataServicio="getDataServicio" @getDataPrecio="getDataPrecio" @getDataHoras="getDataHoras" @getDataDias="getDataDias" @getDataBrowser="getDataBrowser" class="filtroVista"></filtros-component>
+    <filtros-component ref="refFiltro" v-if="this.screenWidth >= 992" @PasarDatos="PasarDatos" @limpiarFiltro="limpiarFiltro" @getDataCar="getDataCar" @getDataAncho="getDataAncho" @getDataAlto="getDataAlto" @getDataServicio="getDataServicio" @getDataPrecio="getDataPrecio" @getDataHoras="getDataHoras" @getDataDias="getDataDias" @getDataBrowser="getDataBrowser" class="filtroVista"></filtros-component>
     <div class="col-lg-9 p-0 pt-lg-5 mt-lg-5 mt-3">
       <div class="col-12 d-lg-none mb-4 pb-3 filtroMovil">
         <div class="row m-0">
@@ -13,7 +13,7 @@
             <p class="text-center mb-0 fw-bold" style="color:#205760; font-size: 1.1rem;">Vista mapa</p>
           </div>
           <div class="collapse" id="collapseExample">
-            <filtros-component ref="refFiltro" v-if="this.screenWidth < 992" @getDataCar="getDataCar" @getDataAncho="getDataAncho" @getDataAlto="getDataAlto" @getDataServicio="getDataServicio" @getDataPrecio="getDataPrecio" @getDataHoras="getDataHoras" @getDataDias="getDataDias" @getDataBrowser="getDataBrowser" ></filtros-component>
+            <filtros-component ref="refFiltro" v-if="this.screenWidth < 992" @PasarDatos="PasarDatos" @getDataCar="getDataCar" @getDataAncho="getDataAncho" @limpiarFiltro="limpiarFiltro" @getDataAlto="getDataAlto" @getDataServicio="getDataServicio" @getDataPrecio="getDataPrecio" @getDataHoras="getDataHoras" @getDataDias="getDataDias" @getDataBrowser="getDataBrowser" ></filtros-component>
           </div>
         </div>
       </div>
@@ -70,11 +70,80 @@
 <script>
 import FiltrosComponent from '../components/FiltrosComponent.vue'
 import { mapState } from 'vuex';
+import router from '@/router';
 
 export default {
   name: 'VistaLista',
   data: function() {
       return {
+        filtro:{
+          inputValue: "",
+          centro: null,
+          horas: null,
+          isCoche: true,
+          precio: 100,
+          disponibilidad:[false, false, false, false, false, false, false],
+          servicios: {
+            aseo: false,
+            vigilancia: false,
+            abierto24h: false
+          },
+          ancho: 0,
+          alto: 0,
+        },
+        orden: 0,
+        ordenTextos: ["Más Cercanos", "Precio menor", "Precio mayor"],
+        screenWidth: window.innerWidth
+      }
+  },
+  computed:{
+      ...mapState(['filtroStore'])
+  },
+  components:{
+    FiltrosComponent
+  },
+  methods:{
+    getDataCar(data) {
+      this.filtro.isCoche = data
+      this.actualizarResultados()
+    },
+    getDataHoras(data) {
+      this.filtro.horas = data
+      this.actualizarResultados()
+    },
+    getDataPrecio(data) {
+      this.filtro.isCoche = data
+      this.actualizarResultados()
+    },
+    getDataBrowser(inputValue, centro, isCorrect){
+      this.filtro.inputValue = inputValue
+      this.filtro.centro = centro
+      this.isCorrect = isCorrect
+
+      this.actualizarResultados()
+    },
+    getDataServicio(servicio, value){
+      console.log(servicio + ": " +  value)
+      const propiedades = Object.keys(this.filtro.servicios);
+
+      this.filtro.servicios[propiedades[servicio]] = value;
+      console.log(this.filtro.servicios)
+      this.actualizarResultados()
+    },
+    getDataAncho(data){
+      this.filtro.ancho = data
+      this.actualizarResultados()
+    },
+    getDataAlto(data){
+      this.filtro.alto = data
+      this.actualizarResultados()
+    },
+    getDataDias(data){
+      this.filtro.disponibilidad = data
+      this.actualizarResultados()
+    },
+    limpiarFiltro(){
+      this.filtro={
         inputValue: "",
         centro: null,
         horas: null,
@@ -88,88 +157,39 @@ export default {
         },
         ancho: 0,
         alto: 0,
-        orden: 0,
-        ordenTextos: ["Más Cercanos", "Precio menor", "Precio mayor"],
-        screenWidth: window.innerWidth
       }
-  },
-  computed:{
-      ...mapState(['isCar']),
-      ...mapState(['direccion']),
-      ...mapState(['coordenadas']),
-      ...mapState(['horasHome'])
-  },
-  components:{
-    FiltrosComponent
-  },
-  methods:{
-    getDataCar(data) {
-      this.isCoche = data
-      this.actualizarResultados()
-    },
-    getDataHoras(data) {
-      this.horas = data
-      this.actualizarResultados()
-    },
-    getDataPrecio(data) {
-      this.precio = data
-      this.actualizarResultados()
-    },
-    getDataBrowser(inputValue, centro, isCorrect){
-      this.inputValue = inputValue
-      this.centro = centro
-      this.isCorrect = isCorrect
-
-      this.actualizarResultados()
-    },
-    getDataServicio(servicio, value){
-      console.log(servicio + ": " +  value)
-      const propiedades = Object.keys(this.servicios);
-
-      this.servicios[propiedades[servicio]] = value;
-      console.log(this.servicios)
-      this.actualizarResultados()
-    },
-    getDataAncho(data){
-      this.ancho = data
-      this.actualizarResultados()
-    },
-    getDataAlto(data){
-      this.alto = data
-      this.actualizarResultados()
-    },
-    getDataDias(data){
-      this.disponibilidad = data
       this.actualizarResultados()
     },
     actualizarResultados(){
-      console.log("Actulizamos")
-    },
-    DatosHome(){
-      var data = {
-        nombre: this.isCar ? "Coche" : "Moto",
-        direccion: this.direccion,
-        horas: this.horasHome
-      }
-
-      this.$refs.refFiltro.CambiarOptionsHome(data)
-
-      this.isCoche = this.isCar
-      this.inputValue = this.direccion
-      this.centro = this.coordenadas
-      this.horas = this.horasHome
+      console.log("Actualizamos")
+      console.log(this.filtro)
     },
     CambiarOrden(orden){
       this.orden = orden
       this.actualizarResultados()
-    }
+    },
+    PasarDatos(){
+      console.log("Aqui subo los datos en el filtro: vistaLista")
+      console.log(this.filtro)
+      this.$store.dispatch('PasarDatos', this.filtro)
+      router.push({ name: 'VistaMapa' });
+    },
   },
   mounted(){    
-    if(this.coordenadas != null){
-      this.DatosHome()
+    if(this.filtroStore != null){
+      console.log("Aqui meto los datos en el filtro: vistaLista")
+      console.log(this.filtro)
+      console.log(this.filtroStore)
+      this.filtro = this.filtroStore
+      console.log(this.filtro)
+      if(typeof this.filtro.horas == 'string'){
+        this.filtro.horas = JSON.parse(this.filtro.horas)
+      }
+      this.$store.dispatch('limpiar')
+      console.log(this.filtro)
+      this.$refs.refFiltro.MeterDatos(this.filtro)
+      console.log(this.filtro)
     }
-
-    this.actualizarResultados()
   }
 }
 

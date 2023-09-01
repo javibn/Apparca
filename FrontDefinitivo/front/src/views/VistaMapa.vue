@@ -11,7 +11,7 @@
           <p class="text-center mb-0 fw-bold" style="color:#205760; font-size: 1.1rem;">Vista lista</p>
         </div>
         <div class="collapse" id="collapseExample">
-          <filtros-component ref="refFiltro" v-if="this.screenWidth < 992" @getDataCar="getDataCar" @getDataAncho="getDataAncho" @getDataAlto="getDataAlto" @getDataServicio="getDataServicio" @getDataPrecio="getDataPrecio" @getDataHoras="getDataHoras" @getDataDias="getDataDias" @getDataBrowser="getDataBrowser" ></filtros-component>
+          <filtros-component vista='mapa' ref="refFiltro" v-if="this.screenWidth < 992" @limpiarFiltro="limpiarFiltro" @getDataCar="getDataCar" @PasarDatos="PasarDatos" @getDataAncho="getDataAncho" @getDataAlto="getDataAlto" @getDataServicio="getDataServicio" @getDataPrecio="getDataPrecio" @getDataHoras="getDataHoras" @getDataDias="getDataDias" @getDataBrowser="getDataBrowser" ></filtros-component>
         </div>
       </div>
     </div>
@@ -55,7 +55,10 @@
     <button @click="OcultarPlazas" class="btn bg-white p-2 position-absolute z-2 d-none d-lg-block botonOcultarLista" id="ocultarDiv">
       <img src="./../assets/iconoDespliegueLista.png" style="transform: rotate(180deg);">
     </button>
-    <filtros-component v-if="this.screenWidth >= 992" ref="refFiltro" class="d-none d-lg-block position-absolute z-3 filtroCaja rounded-5" style=" margin-left: 4%; padding-left: 5px; max-height: 86vh; overflow-y: scroll;" @getDataCar="getDataCar" @getDataAncho="getDataAncho" @getDataAlto="getDataAlto" @getDataServicio="getDataServicio" @getDataPrecio="getDataPrecio" @getDataHoras="getDataHoras" @getDataDias="getDataDias" @getDataBrowser="getDataBrowser"></filtros-component>
+    <a @click="UbicacionUsuario" class="btn bg-white p-2 position-absolute z-2 botonUbicacion">
+      <img src="./../assets/iconoUbicacion.png">
+    </a>
+    <filtros-component vista='mapa' v-if="this.screenWidth >= 992" ref="refFiltro" @limpiarFiltro="limpiarFiltro" class="d-none d-lg-block position-absolute z-3 filtroCaja rounded-5" style=" margin-left: 4%; padding-left: 5px; max-height: 86vh; overflow-y: scroll;" @PasarDatos="PasarDatos" @getDataCar="getDataCar" @getDataAncho="getDataAncho" @getDataAlto="getDataAlto" @getDataServicio="getDataServicio" @getDataPrecio="getDataPrecio" @getDataHoras="getDataHoras" @getDataDias="getDataDias" @getDataBrowser="getDataBrowser"></filtros-component>
     <div id="map" class="position-absolute z-1" style="height: 91%;">
     </div>
 
@@ -67,25 +70,28 @@ import L from 'leaflet';
 import 'leaflet.markercluster';
 import FiltrosComponent from '../components/FiltrosComponent.vue'
 import { mapState } from 'vuex';
+import router from '@/router';
 
 export default {
   name: 'VistaMapa',
   data: function() {
         return {
           map: {},
-          inputValue: "",
-          centro: null,
-          horas: null,
-          isCoche: true,
-          precio: 100,
-          disponibilidad:[false, false, false, false, false, false, false],
-          servicios: {
-            aseo: false,
-            vigilancia: false,
-            abierto24h: false
+          filtro:{
+            inputValue: "",
+            centro: null,
+            horas: null,
+            isCoche: true,
+            precio: 100,
+            disponibilidad:[false, false, false, false, false, false, false],
+            servicios: {
+              aseo: false,
+              vigilancia: false,
+              abierto24h: false
+            },
+            ancho: 0,
+            alto: 0,
           },
-          ancho: 0,
-          alto: 0,
           screenWidth: window.innerWidth
         }
   },
@@ -93,35 +99,55 @@ export default {
       ...mapState(['isCar']),
       ...mapState(['direccion']),
       ...mapState(['coordenadas']),
-      ...mapState(['horasHome'])
+      ...mapState(['horasHome']),
+      ...mapState(['filtroStore'])
   },
   components:{
     FiltrosComponent
   },
   async mounted() {
-    var mapa = L.map('map').setView([39.850931195377946, -3.1256103515625004], 7)
-    this.map = mapa
-    
-    if(this.coordenadas != null){
-      this.DatosHome()
-      console.log(this.coordenadas)
-      this.map.setView([this.coordenadas[1], this.coordenadas[0]], 15)
+    this.map = L.map('map').setView([39.850931195377946, -3.1256103515625004], 7)
+    console.log(this.map)
+
+
+    this.map.on("moveend", () => {
+      this.actualizarResultados()
+    });
+
+    if(this.filtroStore != null){
+      console.log("Aqui meto los datos en el filtro: vistaMapa")
+      this.filtro = this.filtroStore
+      if(typeof this.filtro.horas == 'string'){
+        this.filtro.horas = JSON.parse(this.filtro.horas)
+      }
+      this.$store.dispatch('limpiar')
+      this.$refs.refFiltro.MeterDatos(this.filtro)
+      if(this.filtro.centro != null){
+        this.map.setView([this.filtro.centro[1], this.filtro.centro[0]], 15)
+      }
+    }else{
+      if(this.coordenadas != null){
+        this.DatosHome()
+        console.log(this.coordenadas)
+        this.map.setView([this.coordenadas[1], this.coordenadas[0]], 15)
+      }
     }
+    
+    
 
     // Agregar una capa de mapa base
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
       maxZoom: 20,
       minZoom: 6
-    }).addTo(mapa);
+    }).addTo(this.map);
 
     var markers = L.markerClusterGroup();
     
-    mapa.addLayer(markers);
+    this.map.addLayer(markers);
 
     this.actualizarResultados()
 
     this.MeterMarcador(markers)
-
   },
   methods:{
     MeterMarcador(markers){
@@ -180,20 +206,20 @@ export default {
       marker.bindPopup(popup);
     },
     getDataCar(data) {
-      this.isCoche = data
+      this.filtro.isCoche = data
       this.actualizarResultados()
     },
     getDataHoras(data) {
-      this.horas = data
+      this.filtro.horas = data
       this.actualizarResultados()
     },
     getDataPrecio(data) {
-      this.precio = data
+      this.filtro.precio = data
       this.actualizarResultados()
     },
     getDataBrowser(inputValue, centro, isCorrect){
-      this.inputValue = inputValue
-      this.centro = centro
+      this.filtro.inputValue = inputValue
+      this.filtro.centro = centro
       this.isCorrect = isCorrect
 
       if(isCorrect){
@@ -202,28 +228,47 @@ export default {
 
       this.actualizarResultados()
     },
+    PasarDatos(){
+      console.log("Aqui subo los datos en el filtro: vistaMapa")
+      console.log(this.filtro)
+      this.$store.dispatch('PasarDatos', this.filtro)
+      router.push({ name: 'VistaLista' });
+    },
+    UbicacionUsuario(){
+      if ("geolocation" in navigator) {
+        var vm = this;
+        // El navegador admite geolocalización.
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var latitud = position.coords.latitude;
+          var longitud = position.coords.longitude;
+          console.log("Latitud: " + latitud + ", Longitud: " + longitud);
+          
+          vm.map.setView([latitud, longitud], 14)
+        }, function() {});
+      }
+    } ,
     getDataServicio(servicio, value){
       console.log(servicio + ": " +  value)
-      const propiedades = Object.keys(this.servicios);
+      const propiedades = Object.keys(this.filtro.servicios);
 
-      this.servicios[propiedades[servicio]] = value;
-      console.log(this.servicios)
+      this.filtro.servicios[propiedades[servicio]] = value;
+      console.log(this.filtro.servicios)
       this.actualizarResultados()
     },
     getDataAncho(data){
-      this.ancho = data
+      this.filtro.ancho = data
       this.actualizarResultados()
     },
     getDataAlto(data){
-      this.alto = data
+      this.filtro.alto = data
       this.actualizarResultados()
     },
     getDataDias(data){
-      this.disponibilidad = data
+      this.filtro.disponibilidad = data
       this.actualizarResultados()
     },
     actualizarResultados(){
-      console.log("Actulizamos")
+      console.log("Actualizamos")
     },
     DatosHome(){
       var data = {
@@ -233,11 +278,12 @@ export default {
       }
 
       this.$refs.refFiltro.CambiarOptionsHome(data)
+      this.filtro.isCoche = this.isCar
+      this.filtro.inputValue = this.direccion
+      this.filtro.centro = this.coordenadas
+      this.filtro.horas = this.horasHome
 
-      this.isCoche = this.isCar
-      this.inputValue = this.direccion
-      this.centro = this.coordenadas
-      this.horas = this.horasHome
+      this.$store.dispatch('limpiar')
     },
     MostrarPlazas(){
       const contenedorDiv = document.getElementById("contenedor");
@@ -273,7 +319,11 @@ export default {
           contenedorDiv.style.left = "0";
       }
       ocultarDivBtn.style.left = "-10%"
-    }
+    },
+    limpiarFiltro(){
+      this.filtro = {}
+      this.actualizarResultados()
+    }, 
   }
 }
 
@@ -368,8 +418,19 @@ export default {
     }
     .botonLista{
       width: 40px !important;
-      left: 24%;
+      left: 25%;
       top: 250px
+    }
+
+    .botonUbicacion{
+      width: 60px !important;
+      height: 60px !important;
+      right: 2%;
+      bottom: 4vh
+    }
+
+    .botonUbicacion:hover{
+      background-color: red !important;
     }
 
     
@@ -386,6 +447,11 @@ export default {
     }
 
     .botonLista img{
+      width: 100%;
+      height: auto;
+    }
+
+    .botonUbicacion img{
       width: 100%;
       height: auto;
     }
@@ -428,7 +494,7 @@ export default {
         width: 25% !important;
       }
       .botonLista{
-        left: 27%;
+        left: 28%;
       }
       #contenedor{
         padding-left: 28%;
@@ -442,7 +508,7 @@ export default {
         width: 30% !important;
       }
       .botonLista{
-        left: 31%;
+        left: 32%;
       }
       #contenedor{
         padding-left: 33%;
