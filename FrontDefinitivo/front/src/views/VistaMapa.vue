@@ -109,6 +109,11 @@ export default {
     this.map = L.map('map').setView([39.850931195377946, -3.1256103515625004], 7)
     console.log(this.map)
 
+
+    this.map.on("moveend", () => {
+      this.actualizarResultados()
+    });
+
     if(this.filtroStore != null){
       console.log("Aqui meto los datos en el filtro: vistaMapa")
       this.filtro = this.filtroStore
