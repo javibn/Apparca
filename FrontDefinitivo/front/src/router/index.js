@@ -4,6 +4,7 @@ import VistaMapa from "../views/VistaMapa.vue";
 import VistaLista from "../views/VistaLista.vue";
 import About from "../views/About.vue";
 import Login from "../views/Login.vue";
+import DetailsPlaza from "../views/DetailsPlaza.vue"
 
 const routes = [
   {
@@ -38,6 +39,12 @@ const routes = [
     name: "Register",
     component: Login,
     meta: { showHeader: true, isLogin:false },
+  },
+  {
+    path: "/DetailsPlaza",
+    name: "DetailsPlaza",
+    component: DetailsPlaza,
+    meta: { showHeader: true },
   },
   {
     path: "/About",
